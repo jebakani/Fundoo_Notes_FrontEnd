@@ -51,6 +51,7 @@
 .RowContainer
 {
    display: flex;
+   flex-direction: row;
    margin-top: 15px;
    div
    {
@@ -80,4 +81,48 @@ mat-form-field
 }
 a {
     color: var(--gm-colortextbutton-ink-color,#1a73e8);
+}
+@media screen and (max-width: 900px) {
+    .RightDivision {
+      display: none;
+    }
+    .RegisterPage{
+        min-width: 80%;
+    }
+}
+@media screen and (max-width: 625px)
+{
+    .RegisterPage
+    {
+        margin-top: 0px;
+    }
+    .RowContainer
+    {
+        flex-flow: column;
+        margin-top: 5px;
+        div
+        {        
+            margin-right: 0px;
+        }
+    }
+    mat-form-field
+   {
+     margin-right: 0px;
+     padding: 5px;
+   }
+   .LeftDivision
+   {
+       margin: 5px;
+   }
+   .mat-card>:first-child, .mat-card-content>:first-child {
+    margin-top: 5px;
+   }
+   .ButtonContent
+   {
+       margin-top: 20px;
+   }
+   .sub-header
+   {
+       font-size: 16px;
+   }
 }
