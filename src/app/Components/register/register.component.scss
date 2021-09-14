@@ -59,6 +59,20 @@
    {
        margin-right: 10px;
    }
+   .check
+   {
+       margin-left: 10px;
+   }
+}
+.passwordfield
+{
+    margin-bottom: -30px;
+}
+.passwordHint
+{
+    margin-left: 20px;
+    font-size: 11px;
+    text-align: center;
 }
 .ButtonContent
 {
@@ -72,18 +86,21 @@
     button{
         color: white;
         background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
-        margin-right: 10ex;
+        margin-right: 2ex;
     }
 }
 mat-form-field
 {
-    min-width: 84% ;
+    min-width: 95% ;
     margin-right: 10px;
     padding:10px;
 }
-a {
+
+a 
+{
     color: var(--gm-colortextbutton-ink-color,#1a73e8);
 }
+
 @media screen and (max-width: 900px) {
     .RightDivision {
       display: none;
@@ -115,6 +132,7 @@ a {
    .LeftDivision
    {
        margin: 5px;
+       padding-left: 5px;
    }
    .mat-card>:first-child, .mat-card-content>:first-child {
     margin-top: 5px;
@@ -122,10 +140,21 @@ a {
    .ButtonContent
    {
        margin-top: 20px;
+       button
+       {
+        margin-right:0px ;
+    }
+       
    }
    .sub-header
    {
        font-size: 18px;
        font-weight: bold;
    }
+   .passwordHint
+{
+    font-size: 12px;
+    display: flex;
+    
+}
 }
