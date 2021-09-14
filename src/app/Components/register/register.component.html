@@ -1,11 +1,12 @@
-<div>
-    <mat-card>
-        <div>
+
+<div class="RegisterPage"> 
+    <mat-card class="mainContainer">
+        <div class="LeftDivision">
             <h3>Fundoo</h3>
             <span>Create your Fundoo Notes account</span>
             <div>
-                <form>
-                    <div class='UserName'>
+                <form class=RegisterForm>
+                    <div class='UserName RowContainer'>
                         <mat-form-field appearance="outline">
                             <mat-label>First Name</mat-label>
                             <input matInput>
@@ -15,14 +16,14 @@
                             <input matInput>
                         </mat-form-field>
                     </div>
-                    <div>
+                    <div class="RowContainer">
                         <mat-form-field appearance="outline">
                             <mat-label>UserName</mat-label>
                             <input matInput>
                             <mat-hint>You can use letters,numbers & periods</mat-hint>
                         </mat-form-field>
                     </div>
-                    <div class='Password'>
+                    <div class='PasswordContainer RowContainer'>
                         <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
                             <input matInput>
@@ -32,17 +33,17 @@
                             <input matInput>
                         </mat-form-field>     
                     </div>
-                    <div>
+                    <div class="ButtonContent">
                         <a mat-button href="https://www.google.com/" target="_blank">Sign in</a>
                         <button mat-flat-button color="primary">Next</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div>
+        <div class="RightDivision">
             <img src="../assets/Register/signin.jfif">
-            <pre>One account. All of Google 
-                  working for you.</pre>
+            <p>One account. All of Google <br>
+                  working for you.</p>
         </div>
     </mat-card>
 </div>

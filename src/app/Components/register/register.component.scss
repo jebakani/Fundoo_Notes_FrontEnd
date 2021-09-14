@@ -1,0 +1,48 @@
+.RegisterPage
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+ 
+}
+.mainContainer
+{
+    display: flex;
+    flex-flow: row;
+    height: auto;
+    min-height: 500px;
+}
+.LeftDivision
+{
+    display: flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 10px;
+}
+.mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
+    margin-bottom: 50px;
+}
+.RightDivision
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    margin: 50px;
+}
+.RowContainer
+{
+   margin-top: 15px;
+}
+.ButtonContent
+{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
