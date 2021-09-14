@@ -1,0 +1,80 @@
+.LoginPage
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 25%;
+    min-width: 35%;
+}
+.MainContainer
+{
+   display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 30px;
+  width: 25%;
+  padding-bottom:50px ;
+}
+.mat-h3 , .mat-subheading-2, .mat-typography h3
+{
+    margin: 0px;
+}
+.HeaderContent
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2
+   {
+     color: #202124;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    margin-bottom: 0;
+    margin-top: 0;
+   }
+   h3
+   {
+    color: #202124;
+    font-family: 'roboto','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 20px;
+    padding-bottom: 0px;
+   }
+}
+
+.RowContainer
+{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+}
+mat-form-field
+{
+    min-width: 95% ;
+    margin-right: 10px;
+    padding:10px;
+}
+.ButtonContent
+{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-right: 5px;
+   
+    button{
+        color: white;
+        background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
+    }
+}
+a 
+{
+    color: var(--gm-colortextbutton-ink-color,#1a73e8);
+}
+.passwordfield
+{
+    margin-bottom: 0px;
+}
