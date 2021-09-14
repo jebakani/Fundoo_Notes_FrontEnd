@@ -2,37 +2,56 @@
 <div class="RegisterPage"> 
     <mat-card class="mainContainer">
         <div class="LeftDivision">
-            <h3>Fundoo</h3>
-            <span>Create your Fundoo Notes account</span>
+            <h3 class ='Header'>
+                <span style="color: blue;">F</span>
+                <span style="color:red;">U</span>
+                <span style="color:orangered;">N</span>
+                <span style="color: green;">D</span>
+                <span style="color: blue;">O</span>
+                <span style="color: red;">O</span>
+            </h3>
+            <h2 class='sub-header'>Create your Fundoo Notes account</h2>
             <div>
                 <form class=RegisterForm>
-                    <div class='UserName RowContainer'>
+                    <div class='RowContainer'>
+                        <div>
                         <mat-form-field appearance="outline">
                             <mat-label>First Name</mat-label>
                             <input matInput>
                         </mat-form-field>
+                        </div>
+                        <div>
                         <mat-form-field appearance="outline">
                             <mat-label>Last Name</mat-label>
                             <input matInput>
                         </mat-form-field>
+                        </div>
                     </div>
-                    <div class="RowContainer">
-                        <mat-form-field appearance="outline">
+                    <div >
+                        <mat-form-field appearance="outline" class="email">
                             <mat-label>UserName</mat-label>
                             <input matInput>
                             <mat-hint>You can use letters,numbers & periods</mat-hint>
+                            <mat-icon matSuffix>.com</mat-icon>
                         </mat-form-field>
+                        <a mat-flat-button href="https://www.google.com/" target="_blank">Use my current email address instead</a>
                     </div>
-                    <div class='PasswordContainer RowContainer'>
+                    <div class='RowContainer'>
+                        <div>
                         <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
                             <input matInput>
                         </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Confirm</mat-label>
-                            <input matInput>
-                        </mat-form-field>     
                     </div>
+                    <div>                       
+                         <mat-form-field appearance="outline">
+                         <mat-label>Confirm</mat-label>
+                        <input matInput>
+                        </mat-form-field>  
+                    </div> 
+                      
+                    </div>
+                    
                     <div class="ButtonContent">
                         <a mat-button href="https://www.google.com/" target="_blank">Sign in</a>
                         <button mat-flat-button color="primary">Next</button>

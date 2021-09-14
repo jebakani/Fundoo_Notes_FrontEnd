@@ -2,7 +2,7 @@
 {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 35px;
  
 }
 .mainContainer
@@ -10,6 +10,7 @@
     display: flex;
     flex-flow: row;
     height: auto;
+    padding:20px;
     min-height: 500px;
 }
 .LeftDivision
@@ -19,9 +20,23 @@
     justify-content: center;
     align-items: stretch;
     margin: 10px;
+    padding-left: 25px;
+}
+.mat-card>:first-child, .mat-card-content>:first-child {
+    margin-top: 40px;
+}
+.Header
+{
+   font-size: 18px;
+    
+}
+.sub-header
+{
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
 }
 .mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .RightDivision
 {
@@ -31,11 +46,16 @@
     align-items: center;
     text-align: center;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-    margin: 50px;
+    margin: 40px;
 }
 .RowContainer
 {
+   display: flex;
    margin-top: 15px;
+   div
+   {
+       margin-right: 10px;
+   }
 }
 .ButtonContent
 {
@@ -44,5 +64,20 @@
     justify-content: space-between;
     margin-top: 30px;
     padding-top: 30px;
+    
+   
+    button{
+        color: white;
+        background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
+        margin-right: 10ex;
+    }
 }
-
+mat-form-field
+{
+    min-width: 84% ;
+    margin-right: 10px;
+    padding:10px;
+}
+a {
+    color: var(--gm-colortextbutton-ink-color,#1a73e8);
+}
