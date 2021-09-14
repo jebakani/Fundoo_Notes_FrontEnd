@@ -34,6 +34,7 @@
 {
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
     font-size: 24px;
+    font-weight: bold;
 }
 .mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
     margin-bottom: 20px;
@@ -47,6 +48,7 @@
     text-align: center;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
     margin: 40px;
+    
 }
 .RowContainer
 {
@@ -123,6 +125,7 @@ a {
    }
    .sub-header
    {
-       font-size: 16px;
+       font-size: 18px;
+       font-weight: bold;
    }
 }
