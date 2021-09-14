@@ -1,0 +1,160 @@
+.RegisterPage
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+ 
+}
+.mainContainer
+{
+    display: flex;
+    flex-flow: row;
+    height: auto;
+    padding:20px;
+    min-height: 500px;
+}
+.LeftDivision
+{
+    display: flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 10px;
+    padding-left: 25px;
+}
+.mat-card>:first-child, .mat-card-content>:first-child {
+    margin-top: 40px;
+}
+.Header
+{
+   font-size: 18px;
+    
+}
+.sub-header
+{
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+.mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
+    margin-bottom: 20px;
+}
+.RightDivision
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    margin: 40px;
+    
+}
+.RowContainer
+{
+   display: flex;
+   flex-direction: row;
+   margin-top: 15px;
+   div
+   {
+       margin-right: 10px;
+   }
+   .check
+   {
+       margin-left: 10px;
+   }
+}
+.passwordfield
+{
+    margin-bottom: -30px;
+}
+.passwordHint
+{
+    margin-left: 20px;
+    font-size: 11px;
+    text-align: center;
+}
+.ButtonContent
+{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 30px;
+    
+   
+    button{
+        color: white;
+        background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
+        margin-right: 2ex;
+    }
+}
+mat-form-field
+{
+    min-width: 95% ;
+    margin-right: 10px;
+    padding:10px;
+}
+
+a 
+{
+    color: var(--gm-colortextbutton-ink-color,#1a73e8);
+}
+
+@media screen and (max-width: 900px) {
+    .RightDivision {
+      display: none;
+    }
+    .RegisterPage{
+        min-width: 80%;
+    }
+}
+@media screen and (max-width: 625px)
+{
+    .RegisterPage
+    {
+        margin-top: 0px;
+    }
+    .RowContainer
+    {
+        flex-flow: column;
+        margin-top: 5px;
+        div
+        {        
+            margin-right: 0px;
+        }
+    }
+    mat-form-field
+   {
+     margin-right: 0px;
+     padding: 5px;
+   }
+   .LeftDivision
+   {
+       margin: 5px;
+       padding-left: 5px;
+   }
+   .mat-card>:first-child, .mat-card-content>:first-child {
+    margin-top: 5px;
+   }
+   .ButtonContent
+   {
+       margin-top: 20px;
+       button
+       {
+        margin-right:0px ;
+    }
+       
+   }
+   .sub-header
+   {
+       font-size: 18px;
+       font-weight: bold;
+   }
+   .passwordHint
+{
+    font-size: 12px;
+    display: flex;
+    
+}
+}
