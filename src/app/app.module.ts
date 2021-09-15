@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './Components/register/register.component';
@@ -11,13 +10,18 @@ import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './Components/login/login.component';
-import { MatCheckboxModule} from '@angular/material/checkbox'
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,7 @@ import { MatCheckboxModule} from '@angular/material/checkbox'
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   providers: [
   ],

@@ -1,24 +1,37 @@
-.RegisterPage
+@mixin columnflex
 {
     display: flex;
+    flex-flow: column;
+}
+@mixin rowflex {
+    display: flex;
+    flex-flow: row;
+}
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+  }
+  
+.RegisterPage
+{
+    @include rowflex();
     justify-content: center;
-    margin-top: 35px;
- 
+    min-height: 90%;
+    overflow: hidden;
 }
 .mainContainer
 {
-    display: flex;
-    flex-flow: row;
+    @include rowflex();
     height: auto;
     padding:20px;
-    min-height: 500px;
+    box-shadow: none;
+    @include bordered(#c6c3ca, 1px);
+    margin-top: 6ex;
 }
 .LeftDivision
 {
-    display: flex;
-    flex-flow:column;
+   @include columnflex();
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;
     margin: 10px;
     padding-left: 25px;
 }
@@ -28,21 +41,22 @@
 .Header
 {
    font-size: 18px;
-    
+   margin-left: 6px;
+   font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+   font-weight: bold;
 }
 .sub-header
 {
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    @extend .Header;
     font-size: 24px;
-    font-weight: bold;
 }
+
 .mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
     margin-bottom: 20px;
 }
 .RightDivision
 {
-    display: flex;
-    flex-direction: column;
+    @include columnflex();
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -50,10 +64,17 @@
     margin: 40px;
     
 }
+::ng-deep .mat-form-field-suffix
+{
+    position: unset !important;
+}
+.icon
+{
+    font-size: 20px;;
+}
 .RowContainer
 {
-   display: flex;
-   flex-direction: row;
+  @include rowflex();
    margin-top: 15px;
    div
    {
@@ -66,30 +87,29 @@
 }
 .passwordfield
 {
-    margin-bottom: -30px;
+    margin-bottom: -15px;
 }
 .passwordHint
 {
+
     margin-left: 20px;
     font-size: 11px;
     text-align: center;
 }
 .ButtonContent
 {
-    display: flex;
-    flex-flow: row;
+    @include rowflex();
     justify-content: space-between;
     margin-top: 30px;
     padding-top: 30px;
     
-   
     button{
         color: white;
         background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
         margin-right: 2ex;
     }
 }
-mat-form-field
+.FormField
 {
     min-width: 95% ;
     margin-right: 10px;
@@ -111,20 +131,20 @@ a
 }
 @media screen and (max-width: 625px)
 {
-    .RegisterPage
+    .mainContainer
     {
-        margin-top: 0px;
+        @include bordered(#c6c3ca, 0px);
     }
     .RowContainer
     {
-        flex-flow: column;
+        @include columnflex();
         margin-top: 5px;
         div
         {        
             margin-right: 0px;
         }
     }
-    mat-form-field
+    .FormField
    {
      margin-right: 0px;
      padding: 5px;
@@ -135,7 +155,7 @@ a
        padding-left: 5px;
    }
    .mat-card>:first-child, .mat-card-content>:first-child {
-    margin-top: 5px;
+        margin-top: 5px;
    }
    .ButtonContent
    {
@@ -152,9 +172,8 @@ a
        font-weight: bold;
    }
    .passwordHint
-{
+   {
     font-size: 12px;
     display: flex;
-    
-}
+   }
 }

@@ -11,40 +11,49 @@
             </h3>
             <h2 class='sub-header'>Create your Fundoo Notes account</h2>
             <div>
-                <form class=RegisterForm>
+                <form  [formGroup]="RegistrationForm"  class='RegisterForm'>
                     <div class='RowContainer'>
                         <div>
-                            <mat-form-field appearance="outline">
+                            <mat-form-field class ='FormField'appearance="outline">
                                 <mat-label>First Name</mat-label>
-                                <input matInput>
+                                <input matInput formControlName="firstName">
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','firstName')">Name should start with capital and contans atleast 4 letters</mat-error>
+                                <mat-error *ngIf="RegistrationForm.hasError('required','firstName')">First name is required</mat-error>
                             </mat-form-field>
                         </div>
                         <div>
-                            <mat-form-field appearance="outline">
+                            <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Last Name</mat-label>
-                                <input matInput>
+                                <input matInput formControlName="lastName">
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','lastName')">Name should start with capital and contans atleast 4 letters</mat-error>
+                                <mat-error *ngIf="RegistrationForm.hasError('required','lastName')">Last name is required</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
                     <div>
-                        <mat-form-field appearance="outline" class="email">
+                        <mat-form-field class ='FormField' appearance="outline">
                             <mat-label>UserName</mat-label>
-                            <input matInput>
+                            <input matInput formControlName="email">
                             <mat-hint>You can use letters,numbers & periods</mat-hint>
-                            <mat-icon matSuffix style="font-size: 20px;">.com</mat-icon>
+                            <mat-icon matSuffix class="icon">.com</mat-icon>
+                            <mat-error *ngIf="RegistrationForm.hasError('email','email')">Invalid email</mat-error>
+                           <mat-error *ngIf="RegistrationForm.hasError('required','email')">Email is required</mat-error>
                         </mat-form-field>
                     </div>
                     <div class='RowContainer passwordfield'>
                         <div>
-                            <mat-form-field appearance="outline">
+                            <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Password</mat-label>
-                                <input matInput>
+                                <input matInput formControlName="password" [type]="hide? 'password' : 'text'" >
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','password')">Password should have letters, numbers & symbols</mat-error>
+                              <mat-error *ngIf="RegistrationForm.hasError('required','password')">password is required</mat-error>
                             </mat-form-field>
                         </div>
                         <div>
-                            <mat-form-field appearance="outline">
+                            <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Confirm</mat-label>
-                                <input matInput>
+                                <input matInput formControlName="cpassword"  [type]="hide? 'password' : 'text'">
+                                <mat-error *ngIf="RegistrationForm.hasError('required','cpassword')">password is required</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -52,12 +61,12 @@
                         letters, numbers & symbols</mat-hint>
                     <div class='RowContainer'>
                         <div class="check">
-                            <mat-checkbox id="showPassword">Show Password</mat-checkbox>
+                            <mat-checkbox id="showPassword" (change)='hide=!hide' >Show Password</mat-checkbox>
                         </div>
                     </div>
                     <div class="ButtonContent">
-                        <a mat-button href="/login" target="_blank">Sign in</a>
-                        <button mat-flat-button color="primary">Register</button>
+                        <a mat-button href="/login" >Sign in</a>
+                        <button mat-flat-button color="primary" click='Register()'>Register</button>
                     </div>
                 </form>
             </div>
