@@ -11,7 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './Components/login/login.component';
-import { MatCheckboxModule} from '@angular/material/checkbox'
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatCheckboxModule} from '@angular/material/checkbox'
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   providers: [
   ],

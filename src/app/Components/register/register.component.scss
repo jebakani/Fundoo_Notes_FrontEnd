@@ -1,9 +1,11 @@
+
+
 .RegisterPage
 {
     display: flex;
     justify-content: center;
-    margin-top: 35px;
- 
+    min-height: 90%;
+    overflow: hidden;
 }
 .mainContainer
 {
@@ -11,7 +13,9 @@
     flex-flow: row;
     height: auto;
     padding:20px;
-    min-height: 500px;
+    box-shadow: none;
+    border: 1px solid #202124;
+    margin-top: 20px;
 }
 .LeftDivision
 {
@@ -89,7 +93,7 @@
         margin-right: 2ex;
     }
 }
-mat-form-field
+.FormField
 {
     min-width: 95% ;
     margin-right: 10px;
@@ -113,7 +117,7 @@ a
 {
     .RegisterPage
     {
-        margin-top: 0px;
+        border: none;
     }
     .RowContainer
     {
