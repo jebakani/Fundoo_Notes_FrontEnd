@@ -12,12 +12,14 @@ import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './Components/login/login.component';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
