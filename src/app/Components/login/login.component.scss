@@ -1,25 +1,34 @@
-
-*
-{
-    box-sizing: border-box;
+@mixin columflex {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
+@mixin rowflex {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+  }
+  
 .LoginPage
 {
-    display: flex;
-    justify-content: center;
+    @include rowflex();
     min-width: 35%;
     align-items: stretch;
     height: 80%;
 }
 .MainContainer
 {
-   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  padding: 30px;
+   @include columflex();
+  padding: 5ex;
   width: 30%;
   margin-top: 5%;
-  padding-bottom:50px ;
+  padding-bottom:8ex ;
+
+  @include bordered(#c6c3ca, 1px);
+  box-shadow: none;
 }
 .mat-h3 , .mat-subheading-2, .mat-typography h3
 {
@@ -27,12 +36,12 @@
 }
 .HeaderContent
 {
-    display: flex;
-    justify-content: center;
+    @include rowflex();
+    color: #202124;
     align-items: center;
+    text-align: center;
     h2
-   {
-     color: #202124;
+   {  
     padding-bottom: 10px;
     padding-top: 0px;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
@@ -44,19 +53,15 @@
    }
    h3
    {
-    color: #202124;
     font-family: 'roboto','Noto Sans Myanmar UI',arial,sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     padding-bottom: 0px;
-    text-align: center;
+    
    }
 }
-
 .RowContainer
 { 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include columflex();
     margin-top: 15px;
 }
 mat-form-field
@@ -67,8 +72,7 @@ mat-form-field
 }
 .ButtonContent
 {
-    display: flex;
-    flex-flow: row;
+   @include rowflex();
     justify-content: space-between;
     padding-top: 30px;
     margin-right: 5px;
@@ -78,6 +82,7 @@ mat-form-field
         background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
     }
 }
+
 a 
 {
     color: var(--gm-colortextbutton-ink-color,#1a73e8);
@@ -86,6 +91,7 @@ a
 {
     margin-bottom: 0px;
 }
+
 @media screen and (max-width: 800px)
 {
     .MainContainer
@@ -93,21 +99,19 @@ a
     width: 50%;
 }
 }
-@media screen and (max-width: 500px)
+@media screen and (max-width: 600px)
 {
-     .MainContainer
-{
-    width: 100%;
-    margin-top: -25px;
-    padding-bottom: 50ex;
-}
+   .MainContainer
+    {
+      width: 100%;
+      height: 100%;
+      @include bordered(#c6c3ca, 0px);
+    }
 }
 @media screen and (max-width: 300px)
 {
-.MainContainer
-{
-    width: auto;
-    margin-top: -25px;
-    padding-bottom: 40ex;
-}
+    .ButtonContent
+    {
+        @include columflex();
+    }
 }
