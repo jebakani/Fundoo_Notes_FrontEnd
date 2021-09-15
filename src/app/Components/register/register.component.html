@@ -17,35 +17,43 @@
                             <mat-form-field class ='FormField'appearance="outline">
                                 <mat-label>First Name</mat-label>
                                 <input matInput formControlName="firstName">
-                                <!-- <mat-error *ngIf="firstName.invalid">fddsfd</mat-error> -->
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','firstName')">Name should start with capital and contans atleast 4 letters</mat-error>
+                                <mat-error *ngIf="RegistrationForm.hasError('required','firstName')">First name is required</mat-error>
                             </mat-form-field>
                         </div>
                         <div>
                             <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Last Name</mat-label>
                                 <input matInput formControlName="lastName">
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','lastName')">Name should start with capital and contans atleast 4 letters</mat-error>
+                                <mat-error *ngIf="RegistrationForm.hasError('required','lastName')">Last name is required</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
                     <div>
                         <mat-form-field class ='FormField' appearance="outline">
                             <mat-label>UserName</mat-label>
-                            <input matInput>
+                            <input matInput formControlName="email">
                             <mat-hint>You can use letters,numbers & periods</mat-hint>
-                            <mat-icon matSuffix style="font-size: 20px;">.com</mat-icon>
+                            <span matSuffix style="font-size: 20px;">.com</span>
+                            <mat-error *ngIf="RegistrationForm.hasError('pattern','email')">Invalid email</mat-error>
+                           <mat-error *ngIf="RegistrationForm.hasError('required','email')">Email is required</mat-error>
                         </mat-form-field>
                     </div>
                     <div class='RowContainer passwordfield'>
                         <div>
                             <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Password</mat-label>
-                                <input matInput [type]="hide? 'password' : 'text'">
+                                <input matInput formControlName="password" [type]="hide? 'password' : 'text'" >
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','password')">Password should have letters, numbers & symbols</mat-error>
+                              <mat-error *ngIf="RegistrationForm.hasError('required','password')">password is required</mat-error>
                             </mat-form-field>
                         </div>
                         <div>
                             <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Confirm</mat-label>
-                                <input matInput [type]="hide? 'password' : 'text'">
+                                <input matInput formControlName="cpassword"  [type]="hide? 'password' : 'text'">
+                                <mat-error *ngIf="RegistrationForm.hasError('required','cpassword')">password is required</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
