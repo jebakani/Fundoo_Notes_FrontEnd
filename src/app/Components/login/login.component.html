@@ -29,10 +29,8 @@
                         <mat-form-field appearance="outline" class="passwordfield formField">
                             <mat-label>Password</mat-label>
                             <input [type]="hide? 'password' : 'text'" matInput>
+                            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </mat-form-field>
-                    </div>
-                    <div class="check">
-                        <mat-checkbox id="showPassword" (change)='hide=!hide'>Show Password</mat-checkbox>
                     </div>
                     <div>
                         <a mat-flat-button href="/forget-password">Forget Password?</a>

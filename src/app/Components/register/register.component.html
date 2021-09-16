@@ -35,7 +35,7 @@
                             <mat-label>UserName</mat-label>
                             <input matInput formControlName="email">
                             <mat-hint>You can use letters,numbers & periods</mat-hint>
-                            <mat-icon matSuffix class="icon">.com</mat-icon>
+                            <span matSuffix class="icon">.com</span>
                             <mat-error *ngIf="RegistrationForm.hasError('email','email')">Invalid email</mat-error>
                            <mat-error *ngIf="RegistrationForm.hasError('required','email')">Email is required</mat-error>
                         </mat-form-field>

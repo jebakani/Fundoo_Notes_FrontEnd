@@ -67,11 +67,6 @@
 { 
     @include columflex();
     margin-top: 15px;
-    .check
-    {
-        margin-top: -15px;
-        margin-left: 10px;
-    }
     
 }
 .formField
@@ -95,10 +90,9 @@
         background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
     }
 }
-
 a 
 {
-    margin-top: 5px;
+    
     color: var(--gm-colortextbutton-ink-color,#1a73e8);
 }
 
