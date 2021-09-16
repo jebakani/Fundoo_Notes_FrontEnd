@@ -14,4 +14,8 @@ export class HttpServiceService {
   {
      return this.http.post(url,data,isHeaderRequired && headers)
   }
+  put(url:string, data :any=null, isHeaderRequired :any=false, headers =null)
+  {
+     return this.http.put(url,data,isHeaderRequired && headers)
+  }
 }

@@ -13,6 +13,7 @@ import { UserServiceService } from 'src/app/Service/UserService/user-service.ser
 export class ResetPasswordComponent implements OnInit {
 
   ResetPassword!:FormGroup
+  hide=true;
   constructor(
     private userService: UserServiceService,
     private snackBar: MatSnackBar,
@@ -22,6 +23,7 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.ResetPassword = new FormGroup(
       {
+        email:new FormControl('',[Validators.required,Validators.email]),
         password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
         cpassword :new FormControl('',[Validators.required])
       }
@@ -30,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
 
    ResetPasswords()
    { 
-    this.userService.Register(this.ResetPassword.value)
+    this.userService.ResetPasswords(this.ResetPassword.value)
     .subscribe((result : any)=>
     {
        console.log(result);
