@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   email: any;
   constructor( 
     private userService: UserServiceService,
-    public snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private router: Router
     ) 
     { }
@@ -28,26 +28,23 @@ export class RegisterComponent implements OnInit {
         lastName : new FormControl('',[Validators.required,Validators.pattern('^[A-Z]{1}[A-Z a-z]{2,}'),Validators.minLength(3)]),
         email : new FormControl('',[Validators.required,Validators.email]),
         password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
-        cpassword :new FormControl('',[Validators.required,Validators.pattern('234')])
+        cpassword :new FormControl('',[Validators.required])
       }
       );
   }
-
+   
   Register()
   {
     this.userService.Register(this.RegistrationForm.value)
     .subscribe((result : any)=>
     {
        console.log(result);
+       this.openSnackBar(result.message , '');
        if(result.status==true)
        {
-          this.openSnackBar(result.message , '');
           this.router.navigateByUrl('/login');
        } 
-       else
-       {
-         this.openSnackBar(result.message,'');
-       }
+      
     })
   }
   openSnackBar(message: string, action: string) {

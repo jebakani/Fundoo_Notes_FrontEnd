@@ -18,6 +18,6 @@ export class UserServiceService {
       Email:data.email,
       Password:data.password
     }
-    return this.httpService.post(`${environment.baseurl}/register`,params);
+    return this.httpService.post(`${environment.baseurl}/api/User/register`,params);
   }
 }
