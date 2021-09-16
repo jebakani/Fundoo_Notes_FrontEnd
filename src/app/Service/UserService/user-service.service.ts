@@ -20,4 +20,9 @@ export class UserServiceService {
     }
     return this.httpService.post(`${environment.baseurl}/api/User/register`,params);
   }
+
+  Login(data:any)
+  {
+    
+  }
 }
