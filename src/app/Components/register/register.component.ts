@@ -3,6 +3,7 @@ import { FormGroup,FormControl, Validators, ValidatorFn, AbstractControl, Valida
 import { UserServiceService } from 'src/app/Service/UserService/user-service.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router} from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -45,7 +46,11 @@ export class RegisterComponent implements OnInit {
           this.router.navigateByUrl('/login');
        } 
       
-    })
+    },
+    (error:HttpErrorResponse) => { 
+      if(error.status==400){            
+        this.openSnackBar(error.error.message , '');
+      }})
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

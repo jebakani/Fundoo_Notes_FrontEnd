@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -31,7 +32,10 @@ export class ForgetPasswordComponent implements OnInit {
       {
          console.log(result);
          this.openSnackBar(result.message,'');
-      })
+      }, (error:HttpErrorResponse) => { 
+        if(error.status==400){            
+          this.openSnackBar(error.error.message , '');
+        }})
     }
     openSnackBar(message: string, action: string) {
       this.snackBar.open(message, action, {
