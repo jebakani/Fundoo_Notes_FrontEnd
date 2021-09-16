@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors, FormControlDirective } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserServiceService } from 'src/app/Service/UserService/user-service.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   LoginForm!:FormGroup
   constructor(
-    private userService:UserServiceService) { }
+    private userService:UserServiceService,
+    private snackBar: MatSnackBar) { }
   hide=true;
   ngOnInit(): void {
     this.LoginForm=new FormGroup(
@@ -28,7 +30,13 @@ export class LoginComponent implements OnInit {
     .subscribe((result : any)=>
     {
        console.log(result);
-      
+       this.openSnackBar(result.message , '');
     })
   }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+       duration: 2000
+    }); 
+ } 
 }
