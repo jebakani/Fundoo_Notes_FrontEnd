@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-
+import { UserServiceService } from 'src/app/Service/UserService/user-service.service';
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,12 @@ export class RegisterComponent implements OnInit {
   RegistrationForm!: FormGroup;
   hide = true;
   email: any;
-  constructor() { }
+  constructor( 
+    private userService: UserServiceService,
+    public snackBar: MatSnackBar,
+    private router: Router
+    ) 
+    { }
 
   ngOnInit(): void {
     this.RegistrationForm=new FormGroup(
@@ -25,10 +32,29 @@ export class RegisterComponent implements OnInit {
       }
       );
   }
+
+  Register()
+  {
+    this.userService.Register(this.RegistrationForm.value)
+    .subscribe((result : any)=>
+    {
+       console.log(result);
+       if(result.status==true)
+       {
+          this.openSnackBar(result.message , '');
+          this.router.navigateByUrl('/login');
+       } 
+       else
+       {
+         this.openSnackBar(result.message,'');
+       }
+    })
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+       duration: 2000
+    }); 
+ } 
 }
 
-
-function password(password: any): ValidatorFn {
-  throw new Error('Function not implemented.');
-}
 

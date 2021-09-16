@@ -67,6 +67,12 @@
 { 
     @include columflex();
     margin-top: 15px;
+    .check
+    {
+        margin-top: -15px;
+        margin-left: 10px;
+    }
+    
 }
 .formField
 {
@@ -76,6 +82,7 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .ButtonContent
 {
    @include rowflex();
@@ -91,11 +98,8 @@
 
 a 
 {
+    margin-top: 5px;
     color: var(--gm-colortextbutton-ink-color,#1a73e8);
-}
-.passwordfield
-{
-    margin-bottom: 0px;
 }
 
 @media screen and (max-width: 850px)
@@ -110,12 +114,16 @@ a
    .MainContainer
     {
       width: 100%;
-      height: 100%;
+      height: 80%;
       @include bordered(#c6c3ca, 0px);
     }
 }
 @media screen and (max-width: 300px)
 {
+    .MainContainer
+    {
+        justify-content: center
+    }
     .ButtonContent
     {
         @include columflex();
