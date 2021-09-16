@@ -1,7 +1,7 @@
 <div class="LoginPage">
-    <mat-card class="MainContainer"> 
+    <mat-card class="MainContainer">
         <div class='HeaderContent'>
-            <h3 class ='Header'>
+            <h3 class='Header'>
                 <span style="color: blue;">F</span>
                 <span style="color:red;">U</span>
                 <span style="color:orangered;">N</span>
@@ -17,26 +17,31 @@
             <h3 class="subHeader">Use your Fundoo Account</h3>
         </div>
         <div>
-            <form>
+            <form [formGroup]="LoginForm">
                 <div class='RowContainer'>
                     <div>
-                    <mat-form-field appearance="outline" class='formField'>
-                        <mat-label>Email Id</mat-label>
-                        <input matInput>
-                    </mat-form-field>
+                        <mat-form-field appearance="outline" class='formField'>
+                            <mat-label >Email Id</mat-label>
+                            <input matInput formControlName="email">
+                            <mat-error *ngIf="LoginForm.hasError('email','email')">Invalid email</mat-error>
+                            <mat-error *ngIf="LoginForm.hasError('required','email')">Email is required</mat-error> 
+                        </mat-form-field>
+                    </div>
+                    <div >
+                        <mat-form-field appearance="outline" class="passwordfield formField">
+                            <mat-label>Password</mat-label>
+                            <input [type]="hide? 'password' : 'text'" matInput formControlName="password">
+                            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-error *ngIf="LoginForm.hasError('required','password')">Email is required</mat-error> 
+                        </mat-form-field>
                     </div>
                     <div>
-                    <mat-form-field appearance="outline" class="passwordfield formField">
-                        <mat-label>Password</mat-label>
-                        <input matInput>
-                    </mat-form-field>
+                        <a mat-flat-button href="/forget-password">Forget Password?</a>
                     </div>
-                    <div>
-                        <a mat-flat-button href="https://www.google.com/" target="_blank">Forget Password?</a>
-                    </div>
+                    
                     <div class="ButtonContent">
                         <a mat-button href="/register">Create new account</a>
-                        <button mat-flat-button color="primary">Log In</button>
+                        <button mat-flat-button color="primary" (click)='Login()'>Log In</button>
                     </div>
                 </div>
             </form>

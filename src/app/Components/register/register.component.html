@@ -35,7 +35,7 @@
                             <mat-label>UserName</mat-label>
                             <input matInput formControlName="email">
                             <mat-hint>You can use letters,numbers & periods</mat-hint>
-                            <mat-icon matSuffix class="icon">.com</mat-icon>
+                            <span matSuffix class="icon">.com</span>
                             <mat-error *ngIf="RegistrationForm.hasError('email','email')">Invalid email</mat-error>
                            <mat-error *ngIf="RegistrationForm.hasError('required','email')">Email is required</mat-error>
                         </mat-form-field>
@@ -52,7 +52,8 @@
                         <div>
                             <mat-form-field class ='FormField' appearance="outline">
                                 <mat-label>Confirm</mat-label>
-                                <input matInput formControlName="cpassword"  [type]="hide? 'password' : 'text'">
+                                <input matInput formControlName="cpassword"  [type]="hide? 'password' : 'text'" pattern="{{this.RegistrationForm.value.password}}" >
+                                <mat-error *ngIf="RegistrationForm.hasError('pattern','cpassword')">password not matched</mat-error>
                                 <mat-error *ngIf="RegistrationForm.hasError('required','cpassword')">password is required</mat-error>
                             </mat-form-field>
                         </div>
@@ -66,14 +67,14 @@
                     </div>
                     <div class="ButtonContent">
                         <a mat-button href="/login" >Sign in</a>
-                        <button mat-flat-button color="primary" click='Register()'>Register</button>
+                        <button mat-flat-button color="primary" (click)='Register()'>Register</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="RightDivision">
             <img src="../assets/Register/signin.jfif">
-            <p>One account. All of Google <br>
+            <p>One account. All of Fundoo <br>
                 working for you.</p>
         </div>
     </mat-card>
