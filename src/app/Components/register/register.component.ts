@@ -48,9 +48,14 @@ export class RegisterComponent implements OnInit {
       
     },
     (error:HttpErrorResponse) => { 
-      if(error.status==400){            
+      if(!error.error.status){            
         this.openSnackBar(error.error.message , '');
-      }})
+      }
+      else
+      {
+        this.openSnackBar('Unsuccessfull , Try again!' , '');
+      }
+    })
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

@@ -34,8 +34,12 @@ export class LoginComponent implements OnInit {
        this.openSnackBar(result.message , '');
     },
       (error:HttpErrorResponse) => { 
-      if(error.status==400){            
+      if(!error.error.status){            
          this.openSnackBar(error.error.message , '');
+      }
+      else
+      {
+        this.openSnackBar('Unsuccessfull , Try again!' , '');
       }
       
    })
