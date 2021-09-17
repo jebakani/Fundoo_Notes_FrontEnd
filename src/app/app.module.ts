@@ -17,6 +17,7 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
   ],

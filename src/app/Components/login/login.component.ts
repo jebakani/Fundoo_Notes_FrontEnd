@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     {
        console.log(result);
        this.openSnackBar(result.message , '');
+       
     },
       (error:HttpErrorResponse) => { 
       if(!error.error.status){            
