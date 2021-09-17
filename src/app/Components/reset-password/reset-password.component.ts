@@ -12,8 +12,8 @@ import { UserServiceService } from 'src/app/Service/UserService/user-service.ser
 })
 export class ResetPasswordComponent implements OnInit {
 
-  ResetPassword!:FormGroup
-  hide=true;
+  ResetPassword!: FormGroup
+  hide = true;
   constructor(
     private userService: UserServiceService,
     private snackBar: MatSnackBar,
@@ -23,39 +23,41 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.ResetPassword = new FormGroup(
       {
-        password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
-        cpassword :new FormControl('',[Validators.required])
+        password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+        cpassword: new FormControl('', [Validators.required])
       }
     )
   }
 
-   ResetPasswords()
-   { 
-    this.userService.ResetPasswords(this.ResetPassword.value)
-    .subscribe((result : any)=>
-    {
-       console.log(result);
-       this.openSnackBar(result.message , '');
-       if(result.status==true)
-       {
-          this.router.navigateByUrl('/login');
-       } 
-       
-    },
-    (error:HttpErrorResponse) => { 
-      if(!error.error.status){            
-        this.openSnackBar(error.error.message , '');
-      } else
-      {
-        this.openSnackBar('Unsuccessfull , Try again!' , '');
-      }
-   }
-    )
-   }
-  
-   openSnackBar(message: string, action: string) {
+  ResetPasswords() {
+    var data = localStorage.getItem('forgetpassword');
+    if (data != null) {
+      var email = JSON.parse(data).email;
+      this.userService.ResetPasswords(email, this.ResetPassword.value)
+        .subscribe((result: any) => {
+          console.log(result);
+          this.openSnackBar(result.message, '');
+          if (result.status == true) {
+            this.router.navigateByUrl('/login');
+            localStorage.removeItem('forgetpassword');
+          }
+
+        },
+          (error: HttpErrorResponse) => {
+            if (!error.error.status) {
+              this.openSnackBar(error.error.message, '');
+            } else {
+              this.openSnackBar('Unsuccessfull , Try again!', '');
+            }
+          }
+        )
+    }
+    localStorage.removeItem('forgetpassword');
+  }
+
+  openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-       duration: 2000
-    }); 
+      duration: 2000
+    });
   }
 }
