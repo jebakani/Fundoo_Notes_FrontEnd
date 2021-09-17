@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -41,7 +41,11 @@ export class ForgetPasswordComponent implements OnInit {
          console.log(result);
          this.openSnackBar(result.message,'');
          localStorage.setItem("forgetpassword",JSON.stringify(param));
-        //  console.log(JSON.parse(localStorage.getItem('fogetpassword').email));
+         var res=localStorage.getItem('forgetpassword');
+         if(res!=null)
+         {
+           console.log(JSON.parse(res).email)
+         }
       }, 
       (error:HttpErrorResponse) => { 
         if(error.status==400){            

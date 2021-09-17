@@ -1,4 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { jsDocComment } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors, FormControlDirective } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -32,7 +33,20 @@ export class LoginComponent implements OnInit {
     {
        console.log(result);
        this.openSnackBar(result.message , '');
-       
+       var param=
+       {
+           id:result.data.id,
+           FirstName:result.data.firstName,
+           LastName:result.data.lastName,
+           Email:result.data.email,
+           Token:result.resultMassage
+       }
+       if(localStorage.getItem('UserDataFundoo')!=null)
+       {
+             localStorage.removeItem('UserDataFundoo');
+       }
+       localStorage.setItem('UserDataFundoo',JSON.stringify(param));
+
     },
       (error:HttpErrorResponse) => { 
       if(!error.error.status){            
