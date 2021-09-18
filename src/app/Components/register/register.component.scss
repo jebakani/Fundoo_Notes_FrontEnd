@@ -1,0 +1,179 @@
+@mixin columnflex
+{
+    display: flex;
+    flex-flow: column;
+}
+@mixin rowflex {
+    display: flex;
+    flex-flow: row;
+}
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+  }
+  
+.RegisterPage
+{
+    @include rowflex();
+    justify-content: center;
+    min-height: 90%;
+    overflow: hidden;
+}
+.mainContainer
+{
+    @include rowflex();
+    height: auto;
+    padding:20px;
+    box-shadow: none;
+    @include bordered(#c6c3ca, 1px);
+    margin-top: 6ex;
+}
+.LeftDivision
+{
+   @include columnflex();
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px;
+    padding-left: 25px;
+}
+.mat-card>:first-child, .mat-card-content>:first-child {
+    margin-top: 40px;
+}
+.Header
+{
+   font-size: 18px;
+   margin-left: 6px;
+   font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+   font-weight: bold;
+}
+.sub-header
+{
+    @extend .Header;
+    font-size: 24px;
+}
+
+.mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
+    margin-bottom: 20px;
+}
+.RightDivision
+{
+    @include columnflex();
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    margin: 40px;
+    
+}
+::ng-deep .mat-form-field-suffix
+{
+    position: unset !important;
+}
+.icon
+{
+    font-size: 20px;;
+}
+.RowContainer
+{
+  @include rowflex();
+   margin-top: 15px;
+   div
+   {
+       margin-right: 10px;
+   }
+   .check
+   {
+       margin-left: 10px;
+   }
+}
+.passwordfield
+{
+    margin-bottom: -15px;
+}
+.passwordHint
+{
+
+    margin-left: 20px;
+    font-size: 11px;
+    text-align: center;
+}
+.ButtonContent
+{
+    @include rowflex();
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 30px;
+    
+    button{
+        color: white;
+        background-color: var(--gm-colortextbutton-ink-color,#1a73e8);
+        margin-right: 2ex;
+    }
+}
+.FormField
+{
+    min-width: 95% ;
+    margin-right: 10px;
+    padding:10px;
+}
+
+a 
+{
+    color: var(--gm-colortextbutton-ink-color,#1a73e8);
+}
+
+@media screen and (max-width: 900px) {
+    .RightDivision {
+      display: none;
+    }
+    .RegisterPage{
+        min-width: 80%;
+    }
+}
+@media screen and (max-width: 625px)
+{
+    .mainContainer
+    {
+        @include bordered(#c6c3ca, 0px);
+    }
+    .RowContainer
+    {
+        @include columnflex();
+        margin-top: 5px;
+        div
+        {        
+            margin-right: 0px;
+        }
+    }
+    .FormField
+   {
+     margin-right: 0px;
+     padding: 5px;
+   }
+   .LeftDivision
+   {
+       margin: 5px;
+       padding-left: 5px;
+   }
+   .mat-card>:first-child, .mat-card-content>:first-child {
+        margin-top: 5px;
+   }
+   .ButtonContent
+   {
+       margin-top: 20px;
+       button
+       {
+        margin-right:0px ;
+    }
+       
+   }
+   .sub-header
+   {
+       font-size: 18px;
+       font-weight: bold;
+   }
+   .passwordHint
+   {
+    font-size: 12px;
+    display: flex;
+   }
+}

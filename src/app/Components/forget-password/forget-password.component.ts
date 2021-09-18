@@ -2,7 +2,6 @@ import { HttpErrorResponse, JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/Service/UserService/user-service.service';
 
 
@@ -17,8 +16,7 @@ export class ForgetPasswordComponent implements OnInit {
   IsWait=false;
   constructor(
     private userService: UserServiceService,
-    private snackBar: MatSnackBar,
-    private router: Router
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -43,8 +41,9 @@ export class ForgetPasswordComponent implements OnInit {
          console.log(result);
          this.openSnackBar(result.message,'');
          localStorage.setItem("forgetpassword",JSON.stringify(param));
-        //  this.router.navigateByUrl('/login');
-       }, 
+          
+ 
+      }, 
       (error:HttpErrorResponse) => { 
         if(error.status==400){            
           this.openSnackBar(error.error.message , '');
