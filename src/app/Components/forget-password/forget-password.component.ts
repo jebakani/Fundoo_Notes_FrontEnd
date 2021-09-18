@@ -41,7 +41,8 @@ export class ForgetPasswordComponent implements OnInit {
          console.log(result);
          this.openSnackBar(result.message,'');
          localStorage.setItem("forgetpassword",JSON.stringify(param));
-
+          
+ 
       }, 
       (error:HttpErrorResponse) => { 
         if(error.status==400){            

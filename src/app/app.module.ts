@@ -17,7 +17,10 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { DashBoardComponent } from './Components/dash-board/dash-board.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     RegisterComponent,
     LoginComponent,
     ResetPasswordComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatToolbarModule
   ],
   providers: [
   ],
