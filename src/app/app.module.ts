@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { DashBoardComponent } from './Components/dash-board/dash-board.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RegisterComponent,
     LoginComponent,
     ResetPasswordComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,
