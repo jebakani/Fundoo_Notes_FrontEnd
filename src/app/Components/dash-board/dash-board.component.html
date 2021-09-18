@@ -1,17 +1,23 @@
 <div>
     <div class="ToolBar">
         <mat-toolbar>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <button mat-icon-button class="dashboardicon" aria-label="Example icon-button with menu icon">
              <mat-icon>menu</mat-icon>
            </button>
            <img src="../assets/dashboard/keep_2020q4_48dp.png">
            <span>Fundoo</span>
-           <span class="example-spacer"></span>
-           <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-             <mat-icon (click)="toggleIcon()" >{{icon}}</mat-icon>
+           <span class="example-spacer">
+             <mat-card class="searchcard">
+                 <mat-icon class="searchIcon">search</mat-icon>
+                 <input matInput class="searchinput"placeholder="Search">
+                 <mat-icon>close</mat-icon>
+             </mat-card>
+           </span>
+           <button mat-icon-button class="righticon"  aria-label="Example icon-button with heart icon">
+             <mat-icon class="toolbaricon" (click)="toggleIcon()" >{{icon}}</mat-icon>
            </button>
-           <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-             <mat-icon>account_circle</mat-icon>
+           <button mat-icon-button class="righticon" aria-label="Example icon-button with share icon">
+             <mat-icon class="toolbaricon">account_circle</mat-icon>
           </button>
          </mat-toolbar>
     </div>
