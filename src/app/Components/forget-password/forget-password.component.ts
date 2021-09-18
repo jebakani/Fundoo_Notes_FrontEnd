@@ -1,8 +1,9 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserServiceService } from 'src/app/Service/UserService/user-service.service';
+
 
 @Component({
   selector: 'app-forget-password',
@@ -12,6 +13,7 @@ import { UserServiceService } from 'src/app/Service/UserService/user-service.ser
 export class ForgetPasswordComponent implements OnInit {
 
   ForgetPasswordForm!:FormGroup
+  IsWait=false;
   constructor(
     private userService: UserServiceService,
     private snackBar: MatSnackBar
@@ -27,15 +29,30 @@ export class ForgetPasswordComponent implements OnInit {
   }
     ForgetPassword()
     {
+      this.IsWait=true;
       this.userService.ForgetPassword(this.ForgetPasswordForm.value)
       .subscribe((result : any)=>
       {
+        const param=
+        {
+          email:result.data,
+          token:result.result
+        }
          console.log(result);
          this.openSnackBar(result.message,'');
-      }, (error:HttpErrorResponse) => { 
+         localStorage.setItem("forgetpassword",JSON.stringify(param));
+
+      }, 
+      (error:HttpErrorResponse) => { 
         if(error.status==400){            
           this.openSnackBar(error.error.message , '');
-        }})
+        }
+      else
+    {
+      this.openSnackBar("Try again!" , '');
+
+    }})
+       
     }
     openSnackBar(message: string, action: string) {
       this.snackBar.open(message, action, {
