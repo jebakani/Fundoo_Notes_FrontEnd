@@ -1,24 +1,57 @@
 <div>
-    <div class="ToolBar">
-        <mat-toolbar>
-            <button mat-icon-button class="dashboardicon" aria-label="Example icon-button with menu icon">
-             <mat-icon>menu</mat-icon>
-           </button>
-           <img src="../assets/dashboard/keep_2020q4_48dp.png">
-           <span>Fundoo</span>
-           <span class="example-spacer">
-             <mat-card class="searchcard">
-                 <mat-icon class="searchIcon">search</mat-icon>
-                 <input matInput class="searchinput"placeholder="Search">
-                 <mat-icon>close</mat-icon>
-             </mat-card>
-           </span>
-           <button mat-icon-button class="righticon"  aria-label="Example icon-button with heart icon">
-             <mat-icon class="toolbaricon" (click)="toggleIcon()" >{{icon}}</mat-icon>
-           </button>
-           <button mat-icon-button class="righticon" aria-label="Example icon-button with share icon">
-             <mat-icon class="toolbaricon">account_circle</mat-icon>
-          </button>
-         </mat-toolbar>
-    </div>
+  <div class="ToolBar">
+    <mat-toolbar>
+      <button mat-icon-button class="dashboardicon" (click)="drawer.toggle()"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="../assets/dashboard/keep_2020q4_48dp.png">
+      <span>Fundoo</span>
+      <span class="example-spacer">
+        <mat-card class="searchcard">
+          <mat-icon class="searchIcon">search</mat-icon>
+          <input matInput class="searchinput" placeholder="Search">
+          <mat-icon>close</mat-icon>
+        </mat-card>
+      </span>
+      <button mat-icon-button class="righticon" aria-label="Example icon-button with heart icon">
+        <mat-icon class="toolbaricon" (click)="toggleIcon()">{{icon}}</mat-icon>
+      </button>
+      <button mat-icon-button class="righticon" aria-label="Example icon-button with share icon">
+        <mat-icon class="toolbaricon">account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+  <div>
+    <mat-drawer-container class="maincontainer">
+      <mat-drawer #drawer mode="side" >
+        <div class="navigationcontainer">
+        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
+          <mat-icon class="toolbaricon">lightbulb</mat-icon>
+          <mat-label>Notes</mat-label>          
+        </button>
+        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
+          <mat-icon class="toolbaricon">archive</mat-icon>
+          <mat-label>Archive</mat-label>          
+        </button>
+        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
+          <mat-icon class="toolbaricon">notifications_none</mat-icon>
+          <mat-label>Remainder</mat-label>          
+        </button>
+        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
+          <mat-icon class="toolbaricon">edit</mat-icon>
+          <mat-label>Edit label</mat-label>          
+        </button>
+        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
+          <mat-icon class="toolbaricon">delete</mat-icon>
+          <mat-label>Trash</mat-label>          
+        </button>
+       
+        </div>
+      </mat-drawer>
+      <mat-drawer-content>
+        <button mat-raised-button>main navigation</button>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
 </div>

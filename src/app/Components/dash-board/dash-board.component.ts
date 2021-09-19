@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashBoardComponent implements OnInit {
 
-  icon="view_list"
+  icon="view_list";
+  value="side";
   constructor() { }
 
   ngOnInit(): void {

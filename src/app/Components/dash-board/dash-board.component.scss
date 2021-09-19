@@ -16,6 +16,7 @@
 }
 .searchinput
 {
+  outline: none;
   border: 0px;
   width: 100%;
   font-size: 20px;
@@ -33,4 +34,24 @@
 .righticon
 {
   margin-right: 10px;
+}
+.maincontainer {
+  
+  height: 100ex;
+  border: 0px solid #555;
+}
+.navigationcontainer
+{
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.navigator
+{
+  padding: 10px 0px 10px 0px;
+  mat-icon
+  {
+    margin-right: 20px;
+  }
 }
