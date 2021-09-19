@@ -1,7 +1,7 @@
 <div>
   <div class="ToolBar">
     <mat-toolbar>
-      <button mat-icon-button class="dashboardicon" (click)="drawer.toggle()"
+      <button mat-icon-button class="dashboardicon" (click)="isExpanded = !isExpanded"
         aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
@@ -22,42 +22,41 @@
       </button>
       <mat-menu #menu="matMenu" class="menubar">
         <div class="menuicon">
-        <mat-icon class="toolbaricon menuicon" style="font-size: 12ex !important;">account_circle</mat-icon>
-      </div>
-        <div class="user">
-        <h1 class="account Name">{{userName}}</h1>
-        <h2 class="account mail">{{email}}</h2>
+          <mat-icon class="toolbaricon menuicon" style="font-size: 12ex !important;">account_circle</mat-icon>
         </div>
-        <button mat-flat-button color="primary">Log In</button>
+        <div class="user">
+          <p class="account Name">{{userName}}</p>
+          <p class="account mail">{{email}}</p>
+        </div>
+        <button mat-flat-button color="primary" (click)="LogOut()">Log In</button>
       </mat-menu>
     </mat-toolbar>
   </div>
   <div>
-    <mat-drawer-container class="maincontainer">
-      <mat-drawer #drawer mode="side" >
-        <div class="navigationcontainer">
-        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
-          <mat-icon class="toolbaricon">lightbulb</mat-icon>
-          <mat-label>Notes</mat-label>          
-        </button>
-        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
-          <mat-icon class="toolbaricon">archive</mat-icon>
-          <mat-label>Archive</mat-label>          
-        </button>
-        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
-          <mat-icon class="toolbaricon">notifications_none</mat-icon>
-          <mat-label>Remainder</mat-label>          
-        </button>
-        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
-          <mat-icon class="toolbaricon">edit</mat-icon>
-          <mat-label>Edit label</mat-label>          
-        </button>
-        <button mat-icon-button class="navigator" aria-label="Example icon-button with share icon">
-          <mat-icon class="toolbaricon">delete</mat-icon>
-          <mat-label>Trash</mat-label>          
-        </button>
-       
-        </div>
+    <mat-drawer-container class="maincontainer" autosize>
+      <mat-drawer #drawer mode="side" disableClose="true" opened="true" autosize>
+        <mat-nav-list class="sideNav">
+          <mat-list-item>
+              <mat-icon class="toolbaricon">lightbulb</mat-icon>
+              <mat-label class="navLabel" *ngIf="isExpanded">Notes</mat-label>
+          </mat-list-item>
+          <mat-list-item>
+              <mat-icon class="toolbaricon">archive</mat-icon>
+              <mat-label class="navLabel" *ngIf="isExpanded">Archive</mat-label>
+          </mat-list-item>
+          <mat-list-item>
+              <mat-icon class="toolbaricon">notifications_none</mat-icon>
+              <mat-label class="navLabel" *ngIf="isExpanded">Remainder</mat-label>
+          </mat-list-item>
+          <mat-list-item>
+              <mat-icon class="toolbaricon">edit</mat-icon>
+              <mat-label class="navLabel" *ngIf="isExpanded">Edit label</mat-label>
+          </mat-list-item>
+          <mat-list-item>
+              <mat-icon class="toolbaricon">delete</mat-icon>
+              <mat-label  class="navLabel" *ngIf="isExpanded">Trash</mat-label>
+          </mat-list-item>
+        </mat-nav-list>
       </mat-drawer>
       <mat-drawer-content>
         <button mat-raised-button>main navigation</button>

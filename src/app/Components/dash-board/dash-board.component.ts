@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dash-board',
@@ -10,7 +11,10 @@ export class DashBoardComponent implements OnInit {
   icon="view_list";
   userName="";
   email="";
-  constructor() { }
+  isExpanded=false;
+  constructor(
+    private router: Router
+  ) { }
   
   ngOnInit(): void {
 
@@ -18,7 +22,11 @@ export class DashBoardComponent implements OnInit {
     this.email=JSON.parse(data).Email;
     this.userName=JSON.parse(data).FirstName+ " " +JSON.parse(data).LastName;
   }
- 
+  LogOut()
+  {
+    localStorage.removeItem('UserDataFundoo');
+    this.router.navigateByUrl('/login');
+  }
   toggleIcon()
   {
      if(this.icon=="view_list")

@@ -23,6 +23,7 @@ import { DashBoardComponent } from './Components/dash-board/dash-board.component
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatToolbarModule,
     MatSidenavModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule
   ],
   providers: [
   ],
