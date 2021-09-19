@@ -21,7 +21,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { DashBoardComponent } from './Components/dash-board/dash-board.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatMenuModule,
+    MatDividerModule
   ],
   providers: [
   ],

@@ -55,3 +55,25 @@
     margin-right: 20px;
   }
 }
+
+::ng-deep .mat-menu-content
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5ex !important;
+}
+.menuicon
+{
+  align-items: center;
+  padding-right: 1.2ex;
+}
+.user
+{
+  text-align: center;
+  .Name
+  {
+  text-transform: uppercase;
+  }
+}

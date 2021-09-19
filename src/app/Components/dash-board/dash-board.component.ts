@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class DashBoardComponent implements OnInit {
 
   icon="view_list";
-  value="side";
+  userName="";
+  email="";
   constructor() { }
-
+  
   ngOnInit(): void {
+
+    var data=localStorage.getItem('UserDataFundoo')!;
+    this.email=JSON.parse(data).Email;
+    this.userName=JSON.parse(data).FirstName+ " " +JSON.parse(data).LastName;
   }
  
   toggleIcon()

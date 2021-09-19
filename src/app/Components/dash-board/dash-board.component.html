@@ -17,9 +17,19 @@
       <button mat-icon-button class="righticon" aria-label="Example icon-button with heart icon">
         <mat-icon class="toolbaricon" (click)="toggleIcon()">{{icon}}</mat-icon>
       </button>
-      <button mat-icon-button class="righticon" aria-label="Example icon-button with share icon">
+      <button mat-icon-button class="righticon" [matMenuTriggerFor]="menu">
         <mat-icon class="toolbaricon">account_circle</mat-icon>
       </button>
+      <mat-menu #menu="matMenu" class="menubar">
+        <div class="menuicon">
+        <mat-icon class="toolbaricon menuicon" style="font-size: 12ex !important;">account_circle</mat-icon>
+      </div>
+        <div class="user">
+        <h1 class="account Name">{{userName}}</h1>
+        <h2 class="account mail">{{email}}</h2>
+        </div>
+        <button mat-flat-button color="primary">Log In</button>
+      </mat-menu>
     </mat-toolbar>
   </div>
   <div>
