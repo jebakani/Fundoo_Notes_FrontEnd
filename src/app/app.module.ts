@@ -24,6 +24,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { CreateNoteComponent } from './Components/create-note/create-note.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatListModule} from '@angular/material/list';
     LoginComponent,
     ResetPasswordComponent,
     ForgetPasswordComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    CreateNoteComponent
   ],
   imports: [
     BrowserModule,

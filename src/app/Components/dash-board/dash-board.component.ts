@@ -11,6 +11,8 @@ export class DashBoardComponent implements OnInit {
   icon="view_list";
   userName="";
   email="";
+  value="side";
+  opened=true;
   isExpanded=false;
   constructor(
     private router: Router

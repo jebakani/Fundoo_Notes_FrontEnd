@@ -1,0 +1,25 @@
+<mat-card class="mainContainer" *ngIf="!create" (click)="create=true">
+     <div>
+         <h2>Create New Notes</h2>
+     </div>    
+</mat-card>
+<mat-card class="mainContainer" *ngIf="create">
+    <div>
+        <input matInput class="Title" placeholder="Title">
+    </div>  
+    <div>
+        <input matInput  class="Note" placeholder="Take a note ..">
+    </div>  
+    <div>
+        <mat-icon >add_alert</mat-icon>
+        <mat-icon >person_add</mat-icon>
+        <mat-icon >palette</mat-icon>
+        <mat-icon >portrait</mat-icon>
+        <mat-icon >archive</mat-icon>
+        <mat-icon >more_vert</mat-icon>
+        <mat-icon style="color: grey;">undo</mat-icon>
+        <mat-icon style="color: grey;">redo</mat-icon>
+        <button mat-flat-button (click)='create=false'>close</button>
+        
+    </div>
+</mat-card>
