@@ -1,0 +1,22 @@
+.mainContainer
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: fit-content;
+}
+.inputfield
+{
+    width: 100%;
+    font-size: 20px;
+    border: 0px;
+    outline: none;
+    margin: 10px;
+}
+.CreateIconList
+{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
