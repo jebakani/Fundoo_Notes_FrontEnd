@@ -1,22 +1,44 @@
 .mainContainer
 {
+    width: 50%;
+    min-width: fit-content;
     display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: fit-content;
+    flex-flow: column wrap;
+    align-items: center;
+    
+    height: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    // justify-content: flex-start !important;
 }
+.createmode
+{
+     height: auto;
+     min-height: 44px;
+     box-shadow: 2px grey;
+     border-radius: 4px;
+}
+
 .inputfield
 {
-    width: 100%;
-    font-size: 20px;
+    width: 90%;
+    font-size: 16px;
     border: 0px;
     outline: none;
-    margin: 10px;
+    margin-bottom: 10px;
 }
-.CreateIconList
+.Note
 {
-    width: 20%;
+    resize: none;
+    
+}
+.toolbarinNotes
+{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.icon
+{
+    margin-right: 16px;
 }

@@ -40,13 +40,7 @@
   height: 100ex;
   border: 0px solid #555;
 }
-// .navigationcontainer
-// {
-//   padding: 12px;
-//   display: flex;
-//   flex-direction: column;
-//   width: 200px;
-// }
+
 .sideNav
 {
   padding: 10px 0px 10px 0px;
@@ -59,6 +53,7 @@
     font-family: 'Google Sans',Roboto,Arial,sans-serif;
     font-size: 20px;
     font-weight: 500;
+    color: grey;
     line-height: 1.25rem;
     margin-top: 6px;
      }
@@ -92,3 +87,10 @@
     color:cadetblue;
   }
 }
+.createnotediv
+{
+  display:flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+

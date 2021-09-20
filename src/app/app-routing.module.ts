@@ -19,7 +19,9 @@ const routes: Routes = [
   {path:'createNote',component:CreateNoteComponent}
 ]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 

@@ -6,7 +6,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <img src="../assets/dashboard/keep_2020q4_48dp.png">
-      <span>Fundoo</span>
+      <span style="color: grey;">Fundoo</span>
       <span class="example-spacer">
         <mat-card class="searchcard">
           <mat-icon class="searchIcon">search</mat-icon>
@@ -58,8 +58,10 @@
           </mat-list-item>
         </mat-nav-list>
       </mat-drawer>
-      <mat-drawer-content>
-        <button mat-raised-button>main navigation</button>
+      <mat-drawer-content >
+        <div class="createnotediv" > 
+           <app-create-note class="notes" ></app-create-note>
+      </div>
       </mat-drawer-content>
     </mat-drawer-container>
   </div>
