@@ -37,8 +37,12 @@
     flex-direction: row;
     justify-content: space-between;
 }
-
 .icon
 {
     margin-right: 16px;
+}
+
+::ng-deep .mat-menu-content
+{
+    padding: 0ex !important;
 }

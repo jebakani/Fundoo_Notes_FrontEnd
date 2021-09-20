@@ -11,7 +11,14 @@ export class NoteServiceService {
 
   createNote(data:any)
   {
-    return this.httpService.post(`${environment.baseurl}/api/AddNotes`,data,true,
+    var user = JSON.parse(localStorage.getItem('UserDataFundoo')!);
+    const param= 
+    {
+        Title :data.title,
+        Description:data.desc,
+        UserId:user.id
+    }
+    return this.httpService.post(`${environment.baseurl}/api/AddNotes`,param,true,
     {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
