@@ -1,0 +1,48 @@
+<mat-icon class="icon" [matMenuTriggerFor]="remaindermenu">add_alert</mat-icon>
+<mat-menu #remaindermenu="matMenu" class="remaindermenuc" yPosition="below">
+    <h3>Remainder : </h3>
+    <button mat-menu-item>
+        <p>Later today : 8:00 pm</p>
+    </button>
+    <button mat-menu-item>
+        <p>Later today : 8:00 pm</p>
+    </button>
+    <button mat-menu-item>
+        <p>Later today : 8:00 pm</p>
+    </button>
+    <button mat-menu-item>
+        <p>pick a date and time</p>
+    </button>
+</mat-menu>
+<mat-icon class="icon" (click)="openDialog()">person_add</mat-icon>
+<mat-icon class="icon"  [matMenuTriggerFor]="colormenu" >palette</mat-icon>
+<mat-menu #colormenu="matMenu" yPosition="below" class="colorpallet">
+    <div>
+        <button mat-button ><mat-icon class="coloricon" style="color:#ff8080">circle</mat-icon>  </button> 
+        <button mat-button><mat-icon class="coloricon" style="color:#ff66d9">circle</mat-icon>  </button> 
+        <button mat-button><mat-icon class="coloricon" style="color:#4da6ff">circle</mat-icon>  </button>  
+
+    </div>
+    <div>
+        <button mat-button><mat-icon class="coloricon" style="color:#ffff33">circle</mat-icon>  </button> 
+        <button mat-button><mat-icon class="coloricon" style="color:#b84dff">circle</mat-icon>  </button> 
+        <button mat-button><mat-icon class="coloricon" style="color:#6699ff">circle</mat-icon>  </button>  
+
+    </div>
+    <div>
+        <button mat-button><mat-icon class="coloricon" style="color:#ff4d4d">circle</mat-icon>  </button> 
+        <button mat-button><mat-icon class="coloricon" style="color: #d279d2">circle</mat-icon>  </button> 
+        <button mat-button><mat-icon class="coloricon" style="color:#33ff33">circle</mat-icon>  </button>  
+
+    </div>
+</mat-menu>
+  
+<mat-icon class="icon">portrait</mat-icon>
+<mat-icon class="icon">archive</mat-icon>
+<mat-icon class="icon" [matMenuTriggerFor]="aboveMenu">more_vert</mat-icon>
+<mat-menu #aboveMenu="matMenu" class="menulabel" yPosition="below">
+    <button mat-menu-item>add label</button>
+    <button mat-menu-item>add label</button>
+</mat-menu>
+<mat-icon class="icon" style="color: grey;">undo</mat-icon>
+<mat-icon class="icon" style="color: grey;">redo</mat-icon>

@@ -56,17 +56,5 @@ export class CreateNoteComponent implements OnInit {
     textArea.style.height = '0px';
     textArea.style.height = textArea.scrollHeight + 'px';
   }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddCollaboratorComponent, {
-      width: '30%',
-      height:'40%',
-      data: {email: this.email}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.email = result;
-    });
-  }
 
 }

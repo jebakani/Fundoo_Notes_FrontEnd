@@ -27,6 +27,7 @@ import {MatListModule} from '@angular/material/list';
 import { CreateNoteComponent } from './Components/create-note/create-note.component';
 import { AddCollaboratorComponent } from './Components/add-collaborator/add-collaborator.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { IconsComponent } from './Components/icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ForgetPasswordComponent,
     DashBoardComponent,
     CreateNoteComponent,
-    AddCollaboratorComponent
+    AddCollaboratorComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
