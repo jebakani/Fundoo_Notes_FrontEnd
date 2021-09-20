@@ -1,11 +1,10 @@
 .mainContainer
 {
-    width: 50%;
+    width: 40%;
     min-width: fit-content;
     display: flex;
     flex-flow: column wrap;
-    align-items: center;
-    
+   
     height: 20px;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
     // justify-content: flex-start !important;
@@ -20,7 +19,7 @@
 
 .inputfield
 {
-    width: 90%;
+    width: 100%;
     font-size: 16px;
     border: 0px;
     outline: none;
@@ -46,4 +45,8 @@
 ::ng-deep .mat-menu-content
 {
     padding: 0ex !important;
+}
+.basictext
+{
+    margin-top: -6px;
 }
