@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Collaborator</h1>
+<div >
+<div class="ownerfield">
+    <mat-icon class="icon" style="color: grey;">person_add</mat-icon>
+    <div class="ownerdata">
+        <div>
+     <mat-label class="name">{{ownername}}</mat-label>
+     <span matSuffix class="suffix" >(owner)</span>
+     </div>
+    <mat-label>{{owner}}</mat-label>
+    </div>
+</div>  
+<div class="ownerfield">
+    <mat-icon class="icon" style="color: grey;">person_add</mat-icon>
+    <input class="collaboratorinput "matInput [(ngModel)]="data.email">
+  </div>
+</div>
+<div mat-dialog-actions class="button">
+  <button mat-button (click)="onNoClick()">close</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>save</button>
+</div>

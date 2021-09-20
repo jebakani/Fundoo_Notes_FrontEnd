@@ -10,8 +10,23 @@
             (keyup)="autogrow()"></textarea>
         <div class="toolbarinNotes">
             <div class="CreateIconList">
-                <mat-icon class="icon">add_alert</mat-icon>
-                <mat-icon class="icon">person_add</mat-icon>
+                <mat-icon class="icon" [matMenuTriggerFor]="remaindermenu">add_alert</mat-icon>
+                <mat-menu #remaindermenu="matMenu" class="remaindermenuc" yPosition="below">
+                    <h3>Remainder : </h3>
+                    <button mat-menu-item>
+                        <p>Later today : 8:00 pm</p>
+                    </button>
+                    <button mat-menu-item>
+                        <p>Later today : 8:00 pm</p>
+                    </button>
+                    <button mat-menu-item>
+                        <p>Later today : 8:00 pm</p>
+                    </button>
+                    <button mat-menu-item >
+                        <p>pick a date and time</p>
+                    </button>
+                </mat-menu>
+                <mat-icon class="icon" (click)="openDialog()">person_add</mat-icon>
                 <mat-icon class="icon">palette</mat-icon>
                 <mat-icon class="icon">portrait</mat-icon>
                 <mat-icon class="icon">archive</mat-icon>
@@ -30,4 +45,5 @@
             </div>
         </div>
     </form>
+   
 </mat-card>

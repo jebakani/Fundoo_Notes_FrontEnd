@@ -25,7 +25,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { CreateNoteComponent } from './Components/create-note/create-note.component';
-
+import { AddCollaboratorComponent } from './Components/add-collaborator/add-collaborator.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CreateNoteComponent } from './Components/create-note/create-note.compon
     ResetPasswordComponent,
     ForgetPasswordComponent,
     DashBoardComponent,
-    CreateNoteComponent
+    CreateNoteComponent,
+    AddCollaboratorComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -56,7 +58,8 @@ import { CreateNoteComponent } from './Components/create-note/create-note.compon
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [
   ],
