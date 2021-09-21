@@ -23,4 +23,13 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+
+  getNotes()
+  {
+    var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+    return this.httpService.get(`${environment.baseurl}/api/GetNotes?userId=${user}`,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
 }

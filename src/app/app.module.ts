@@ -29,6 +29,7 @@ import { AddCollaboratorComponent } from './Components/add-collaborator/add-coll
 import {MatDialogModule} from '@angular/material/dialog';
 import { IconsComponent } from './Components/icons/icons.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.c
     MatMenuModule,
     MatDividerModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
   ],
   providers: [
   ],
