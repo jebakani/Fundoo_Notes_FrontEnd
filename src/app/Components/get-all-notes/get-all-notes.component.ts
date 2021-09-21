@@ -8,14 +8,14 @@ import { NoteServiceService } from 'src/app/Service/NoteService/note-service.ser
 })
 export class GetAllNotesComponent implements OnInit {
 
-  notes=[];
-  title:String | undefined;
-  description: String | undefined;
+  notes:any;
+  
   constructor(
     private NoteService:NoteServiceService
   ) { }
 
   ngOnInit(): void {
+    this.getNotes();
   }
   
   getNotes()
@@ -25,6 +25,7 @@ export class GetAllNotesComponent implements OnInit {
     {
        console.log(result);
        this.notes=result.data;
+       console.log(this.notes);
     });
   }
 }

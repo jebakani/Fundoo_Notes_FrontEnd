@@ -1,6 +1,6 @@
 <div>
   <div class="ToolBar">
-    <mat-toolbar>
+    <mat-toolbar class="toolbar">
       <button mat-icon-button class="dashboardicon" (click)='isExpanded = !isExpanded; value="side"'
         aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
@@ -32,11 +32,12 @@
       </mat-menu>
     </mat-toolbar>
   </div>
+  <mat-divider></mat-divider>  
   <div>
     <mat-drawer-container class="maincontainer" autosize>
       <mat-drawer #drawer mode="side" disableClose="true" opened="true" autosize>
         <mat-nav-list class="sideNav" (mouseover)="isExpanded==false? isExpanded=!isExpanded : ' ' ;value='side'">
-          <mat-list-item class="listItem">
+          <mat-list-item class="listItem" >
               <mat-icon class="toolbaricon">lightbulb</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Notes</mat-label>
           </mat-list-item>
@@ -48,8 +49,8 @@
               <mat-icon class="toolbaricon">notifications_none</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Remainder</mat-label>
           </mat-list-item>
-          <mat-list-item *ngFor="let label of labels">
-            <mat-icon class="toolbaricon">notifications_none</mat-icon>
+          <mat-list-item *ngFor="let label of labels" class="listItem">
+            <mat-icon class="toolbaricon  material-icons-outlined">label</mat-icon>
             <mat-label class="navLabel" *ngIf="isExpanded">{{label.labelName}}</mat-label>
           </mat-list-item>
           <mat-list-item class="listItem">
@@ -67,7 +68,7 @@
            <app-create-note class="notes" ></app-create-note>
       </div>
       <div>
-        <app-get-all-notes></app-get-all-notes>
+        <app-get-all-notes class="getNotes" ></app-get-all-notes>
       </div>
       </mat-drawer-content>
     </mat-drawer-container>

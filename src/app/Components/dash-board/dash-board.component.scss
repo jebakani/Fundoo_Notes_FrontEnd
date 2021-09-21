@@ -2,10 +2,15 @@
     display: flex;
     justify-content: space-around;
     flex: 1 1 auto;
+     
   }
   ::ng-deep .mat-preffix
 {
     position: unset !important;
+}
+.toolbar
+{
+  box-shadow: grey;
 }
 .searchcard
 {
@@ -95,4 +100,10 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
+}
+
+.getNotes
+{
+  display: flex;
+  flex-flow: column wrap;
 }
