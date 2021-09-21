@@ -36,23 +36,23 @@
     <mat-drawer-container class="maincontainer" autosize>
       <mat-drawer #drawer mode="side" disableClose="true" opened="true" autosize>
         <mat-nav-list class="sideNav" (mouseover)="isExpanded==false? isExpanded=!isExpanded : ' ' ;value='side'">
-          <mat-list-item>
+          <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">lightbulb</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Notes</mat-label>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">archive</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Archive</mat-label>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">notifications_none</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Remainder</mat-label>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">edit</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Edit label</mat-label>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">delete</mat-icon>
               <mat-label  class="navLabel" *ngIf="isExpanded">Trash</mat-label>
           </mat-list-item>

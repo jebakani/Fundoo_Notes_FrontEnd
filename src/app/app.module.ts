@@ -28,6 +28,7 @@ import { CreateNoteComponent } from './Components/create-note/create-note.compon
 import { AddCollaboratorComponent } from './Components/add-collaborator/add-collaborator.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { IconsComponent } from './Components/icons/icons.component';
+import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { IconsComponent } from './Components/icons/icons.component';
     DashBoardComponent,
     CreateNoteComponent,
     AddCollaboratorComponent,
-    IconsComponent
+    IconsComponent,
+    GetAllNotesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

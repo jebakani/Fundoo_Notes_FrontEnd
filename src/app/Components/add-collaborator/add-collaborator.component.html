@@ -12,10 +12,10 @@
 </div>  
 <div class="ownerfield">
     <mat-icon class="icon" style="color: grey;">person_add</mat-icon>
-    <input class="collaboratorinput "matInput [(ngModel)]="data.email">
+    <input class="collaboratorinput "matInput [(ngModel)]="data.email" >
+    <mat-icon class="save" *ngIf= "data.email" >done</mat-icon>
   </div>
 </div>
 <div mat-dialog-actions class="button">
   <button mat-button (click)="onNoClick()">close</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>save</button>
 </div>

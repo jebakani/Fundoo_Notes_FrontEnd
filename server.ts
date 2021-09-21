@@ -7,7 +7,7 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
-import 'localstorage-polyfill'
+import 'localstorage-polyfill';
 
 global['localStorage'] = localStorage;
 
