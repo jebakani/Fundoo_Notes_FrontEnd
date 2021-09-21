@@ -7,8 +7,17 @@
    
     height: 20px;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
-    // justify-content: flex-start !important;
 }
+.titlebar
+{
+    display: flex;
+    flex-direction: row;
+    .pinicon
+    {
+        cursor: pointer;
+    }
+}
+
 .createmode
 {
      height: auto;

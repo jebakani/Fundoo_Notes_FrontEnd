@@ -16,6 +16,7 @@ export class CreateNoteComponent implements OnInit {
   NoteForm!:FormGroup
   create=false;
   data="remaindermenu";
+  isPinned=false;
   email: string | undefined;
   
   constructor(
@@ -28,7 +29,7 @@ export class CreateNoteComponent implements OnInit {
      this.NoteForm=new  FormGroup(
      {
       title: new FormControl(),
-      desc:new FormControl()
+      desc:new FormControl(),
   });
 }
   createNote()

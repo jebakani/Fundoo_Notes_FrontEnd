@@ -1,11 +1,16 @@
-<mat-card class="mainContainer" *ngIf="!create" (click)="create=true">
+<mat-card class="mainContainer" *ngIf="!create" (click)="create=true" >
     <div>
         <h2 class="basictext">Create New Notes</h2>
     </div>
 </mat-card>
 <mat-card class="createmode mainContainer" *ngIf="create">
     <form [formGroup]="NoteForm">
+       
+        <div class="titlebar">
         <input matInput class=" inputfield Title" placeholder="Title" formControlName="title">
+        <mat-icon  class="material-icons-outlined pinicon" *ngIf="!isPinned" (click)="isPinned=true" >push_pin</mat-icon>
+        <mat-icon  class="material-icons pinicon" *ngIf="isPinned"  (click)="isPinned=false" >push_pin</mat-icon>
+       </div>
         <textarea matInput formControlName="desc" class="inputfield Note" placeholder="Take a note .." id="textarea"
             (keyup)="autogrow()"></textarea>
         <div class="toolbarinNotes">
@@ -13,9 +18,7 @@
                <app-icons></app-icons>
             </div>
             <div>
-                <button mat-flat-button class="closebutton " (click)='create=false'>close</button>
-                <button mat-flat-button class="closebutton " (click)='createNote()'>create</button>
-
+                <button mat-flat-button class="closebutton " (click)='createNote();create=false'>close</button>                
             </div>
         </div>
     </form>

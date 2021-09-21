@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetAllNotesComponent implements OnInit {
 
+  allnote:[] | undefined;
   constructor() { }
 
   ngOnInit(): void {
   }
+  
 
 }
