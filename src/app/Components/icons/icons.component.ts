@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.component';
-import { Injectable } from '@angular/core';
+import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 
 @Component({
   selector: 'app-icons',
@@ -12,14 +12,16 @@ export class IconsComponent implements OnInit {
   email: string | undefined;
   colur=false;
   notecolor='#fafafa';
-  isArchive =false;
-  note:any
+  isArchive=false;
   archive='archive_outline'
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private noteService:NoteServiceService
   ) { }
-
+ @Input() note!:any;
+ id!:number;
   ngOnInit(): void {
+     this.isArchive=this.note.Archive;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {
@@ -57,5 +59,20 @@ export class IconsComponent implements OnInit {
       { color: "slategray", name: "grey" },
     ]
   ]
-
+  setArchive()
+  {
+    console.log(this.note);
+    if(this.isArchive==true)
+    {
+    this.noteService.setArchive(this.note.notesId).subscribe((result : any) =>{
+        console.log(result)});
+    }
+    
+    else
+    {
+      this.noteService.unarchive(this.note.notesId).subscribe((result : any) =>{
+        console.log(result)});
+    }
+  
+  }
 }

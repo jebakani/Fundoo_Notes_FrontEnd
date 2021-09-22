@@ -51,4 +51,18 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  setArchive(noteid:number)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/MoveToArchieve?noteId=${noteid}`,null,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
+  unarchive(noteid:number)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/UnArchive?noteId=${noteid}`,null,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
 }

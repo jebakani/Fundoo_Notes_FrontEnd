@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
@@ -18,8 +18,8 @@ export class CreateNoteComponent implements OnInit {
   create=false;
   data="remaindermenu";
   isPinned=false;
+  notecolor:string | undefined;
   email: string | undefined;
-  notecolor: 'white' | undefined;
   @ViewChild(IconsComponent) icon: any;
 
   constructor(
@@ -34,7 +34,12 @@ export class CreateNoteComponent implements OnInit {
       title: new FormControl(),
       desc:new FormControl(),
   });
+  
 }
+ngOnChanges(changes: SimpleChanges) {
+   this.notecolor=this.icon.notecolor;
+}
+ 
   createNote()
   {
     var data={
@@ -45,7 +50,7 @@ export class CreateNoteComponent implements OnInit {
       color:this.icon.notecolor
     }
     console.log(data.archive);
-    console.log(data.color)
+    console.log(data.color);
   this.noteService.createNote(data).subscribe
   ((result:any)=>{
   this.openSnackBar(result.message , '');

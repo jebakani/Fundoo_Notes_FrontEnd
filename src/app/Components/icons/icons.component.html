@@ -27,8 +27,8 @@
         </div>
 </mat-menu>
 <mat-icon class="icon material-icons-outlined">portrait</mat-icon>
-<mat-icon class="icon material-icons-outlined" *ngIf="!isArchive" (click)="isArchive=true">archive</mat-icon>
-<mat-icon class="material-icons icon" *ngIf="isArchive" (click)="isArchive=false">archive</mat-icon>
+<mat-icon class="icon material-icons-outlined" *ngIf="!isArchive" (click)="isArchive=true ;setArchive()">archive</mat-icon>
+<mat-icon class="material-icons icon" *ngIf="isArchive" (click)="isArchive=false;setArchive()">archive</mat-icon>
 <mat-icon class="icon material-icons-outlined" [matMenuTriggerFor]="aboveMenu">more_vert</mat-icon>
 <mat-menu #aboveMenu="matMenu" class="menulabel" yPosition="below">
     <button mat-menu-item>add label</button>
