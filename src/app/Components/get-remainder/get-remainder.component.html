@@ -1,1 +1,15 @@
-<p>get-remainder works!</p>
+<div class="notes">
+    <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}">
+            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;">
+        <div>
+           <div class="titlebar" > <mat-card-title class="title">
+                {{note.title}}
+            </mat-card-title>
+        </div>
+        <div class="desc">
+                {{note.description}}
+            </div>
+        </div>
+        <app-icons ></app-icons>
+    </mat-card>
+</div>
