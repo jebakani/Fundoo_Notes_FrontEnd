@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.component';
+import { IconsComponent } from '../icons/icons.component';
 
 @Component({
   selector: 'app-create-note',
@@ -19,11 +20,12 @@ export class CreateNoteComponent implements OnInit {
   isPinned=false;
   email: string | undefined;
   notecolor: 'white' | undefined;
-  
+  @ViewChild(IconsComponent) icon: any;
+
   constructor(
     private noteService:NoteServiceService,
     private snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -38,8 +40,12 @@ export class CreateNoteComponent implements OnInit {
     var data={
       title : this.NoteForm.value.title,
       desc :this.NoteForm.value.desc,
-      pin: this.isPinned
+      archive:this.icon.isArchive,
+      pin:this.isPinned,
+      color:this.icon.notecolor
     }
+    console.log(data.archive);
+    console.log(data.color)
   this.noteService.createNote(data).subscribe
   ((result:any)=>{
   this.openSnackBar(result.message , '');

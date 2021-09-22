@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.component';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-icons',
@@ -10,6 +11,7 @@ import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.c
 export class IconsComponent implements OnInit {
   email: string | undefined;
   colur=false;
+  notecolor='#fafafa';
   isArchive =false;
   note:any
   archive='archive_outline'
@@ -53,8 +55,7 @@ export class IconsComponent implements OnInit {
       { color: "deeppink", name: "pink" },
       { color: " brown", name: "brown" },
       { color: "slategray", name: "grey" },
-    
-     
     ]
   ]
+
 }

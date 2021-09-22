@@ -17,7 +17,9 @@ export class NoteServiceService {
         Title :data.title,
         Description:data.desc,
         Pin:data.pin,
-        UserId:user.id
+        Archieve:data.archive,
+        UserId:user.id,
+        Color:data.color
     }
     return this.httpService.post(`${environment.baseurl}/api/AddNotes`,param,true,
     {

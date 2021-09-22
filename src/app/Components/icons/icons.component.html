@@ -16,12 +16,12 @@
 </mat-menu>
 <mat-icon class="icon" (click)="openDialog()">person_add_alt</mat-icon>
 <mat-icon class="icon  material-icons-outlined" [matMenuTriggerFor]="colorlist" matTooltip="color change">palette</mat-icon>
-<mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+<mat-menu #colorlist="matMenu" [overlapTrigger]="false" >
         <div>
             <div class="colormenu" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
                 <div class="colorrow" *ngFor="let color of colors">
-                    <button 
-                        [ngStyle]="{ 'background-color': color.color }"  mat-mini-fab></button>
+                    <button
+                        [ngStyle]="{ 'background-color': color.color }"  mat-mini-fab (click)='notecolor=color.color'></button>
                 </div>
             </div>
         </div>
