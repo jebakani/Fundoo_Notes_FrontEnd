@@ -9,7 +9,8 @@ import { NoteServiceService } from 'src/app/Service/NoteService/note-service.ser
 export class GetAllNotesComponent implements OnInit {
 
   notes:any;
-  
+  pinNote:any;
+  isPinned=false;
   constructor(
     private NoteService:NoteServiceService
   ) { }

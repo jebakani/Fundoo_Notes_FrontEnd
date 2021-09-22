@@ -30,6 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { IconsComponent } from './Components/icons/icons.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { GetArchiveComponent } from './Components/get-archive/get-archive.component';
+import { GetRemainderComponent } from './Components/get-remainder/get-remainder.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {MatChipsModule} from '@angular/material/chips';
     CreateNoteComponent,
     AddCollaboratorComponent,
     IconsComponent,
-    GetAllNotesComponent
+    GetAllNotesComponent,
+    GetArchiveComponent,
+    GetRemainderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

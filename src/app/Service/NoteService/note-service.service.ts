@@ -16,6 +16,7 @@ export class NoteServiceService {
     {
         Title :data.title,
         Description:data.desc,
+        Pin:data.pin,
         UserId:user.id
     }
     return this.httpService.post(`${environment.baseurl}/api/AddNotes`,param,true,

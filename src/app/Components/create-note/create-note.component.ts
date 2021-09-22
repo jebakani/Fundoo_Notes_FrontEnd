@@ -18,6 +18,7 @@ export class CreateNoteComponent implements OnInit {
   data="remaindermenu";
   isPinned=false;
   email: string | undefined;
+  notecolor: 'white' | undefined;
   
   constructor(
     private noteService:NoteServiceService,
@@ -34,7 +35,12 @@ export class CreateNoteComponent implements OnInit {
 }
   createNote()
   {
-  this.noteService.createNote(this.NoteForm.value).subscribe
+    var data={
+      title : this.NoteForm.value.title,
+      desc :this.NoteForm.value.desc,
+      pin: this.isPinned
+    }
+  this.noteService.createNote(data).subscribe
   ((result:any)=>{
   this.openSnackBar(result.message , '');
   console.log(result);
