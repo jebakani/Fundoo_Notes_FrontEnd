@@ -13,6 +13,7 @@ export class DashBoardComponent implements OnInit {
   userName="";
   email="";
   value="side";
+  getnotes="Notes";
   labels:any;
   opened=true;
   isExpanded=false;

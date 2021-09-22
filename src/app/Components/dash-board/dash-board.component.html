@@ -37,38 +37,41 @@
     <mat-drawer-container class="maincontainer" autosize>
       <mat-drawer #drawer mode="side" disableClose="true" opened="true" autosize>
         <mat-nav-list class="sideNav" (mouseover)="isExpanded==false? isExpanded=!isExpanded : ' ' ;value='side'">
-          <mat-list-item class="listItem" >
-              <mat-icon class="toolbaricon">lightbulb</mat-icon>
+          <mat-list-item class="listItem" (click)="getnotes='Notes'" >
+              <mat-icon class="toolbaricon" >lightbulb</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Notes</mat-label>
           </mat-list-item>
-          <mat-list-item class="listItem">
+          <mat-list-item class="listItem" (click)="getnotes='Archive'">
               <mat-icon class="toolbaricon">archive</mat-icon>
-              <mat-label class="navLabel" *ngIf="isExpanded">Archive</mat-label>
+              <mat-label class="navLabel" *ngIf="isExpanded" >Archive</mat-label>
           </mat-list-item>
-          <mat-list-item class="listItem">
+          <mat-list-item class="listItem" (click)="getnotes='Remainder'">
               <mat-icon class="toolbaricon">notifications_none</mat-icon>
-              <mat-label class="navLabel" *ngIf="isExpanded">Remainder</mat-label>
+              <mat-label class="navLabel" *ngIf="isExpanded" >Remainder</mat-label>
           </mat-list-item>
-          <mat-list-item *ngFor="let label of labels" class="listItem">
+          <mat-list-item *ngFor="let label of labels" class="listItem" >
             <mat-icon class="toolbaricon  material-icons-outlined">label</mat-icon>
             <mat-label class="navLabel" *ngIf="isExpanded">{{label.labelName}}</mat-label>
           </mat-list-item>
           <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">edit</mat-icon>
-              <mat-label class="navLabel" *ngIf="isExpanded">Edit label</mat-label>
+              <mat-label class="navLabel" *ngIf="isExpanded" (click)="getnotes='Label'">Edit label</mat-label>
           </mat-list-item>
           <mat-list-item class="listItem">
               <mat-icon class="toolbaricon">delete</mat-icon>
-              <mat-label  class="navLabel" *ngIf="isExpanded">Trash</mat-label>
+              <mat-label  class="navLabel" *ngIf="isExpanded" (click)="getnotes='Trash'">Trash</mat-label>
           </mat-list-item>
         </mat-nav-list>
       </mat-drawer>
       <mat-drawer-content >
-        <div class="createnotediv" align="center"> 
+        <div class="createnotediv" align="center" *ngIf='getnotes!="Trash"'> 
            <app-create-note class="notes" ></app-create-note>
       </div>
       <div>
-        <app-get-all-notes class="getNotes" ></app-get-all-notes>
+        <app-get-all-notes class="getNotes" *ngIf="getnotes=='Notes'"></app-get-all-notes>
+        <app-get-all-notes class="getNotes" *ngIf="getnotes=='Remainder'"></app-get-all-notes>
+        <app-get-archive class="getNotes" *ngIf="getnotes=='Archive'"></app-get-archive>
+        
       </div>
       </mat-drawer-content>
     </mat-drawer-container>

@@ -33,4 +33,12 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  getArchive()
+  {
+    var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+    return this.httpService.get(`${environment.baseurl}/api/GetArchive?userId=${user}`,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
 }
