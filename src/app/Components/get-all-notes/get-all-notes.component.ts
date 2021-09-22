@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
+import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
   selector: 'app-get-all-notes',
@@ -12,7 +14,9 @@ export class GetAllNotesComponent implements OnInit {
   pinNote:any;
   isPinned=false;
   constructor(
-    private NoteService:NoteServiceService
+    private NoteService:NoteServiceService,
+    public dialog: MatDialog,
+    
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +31,17 @@ export class GetAllNotesComponent implements OnInit {
        console.log(result);
        this.notes=result.data;
        console.log(this.notes);
+    });
+  }
+  openNoteDialog(note:any): void {
+    const dialogRef = this.dialog.open(UpdateNoteComponent, {
+      width: '50%',
+      height:'50%',
+      data: { note  }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }

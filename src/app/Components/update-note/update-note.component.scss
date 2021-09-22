@@ -1,0 +1,59 @@
+.updateMode {
+    height: 90% !important;
+    min-height: 44px;
+    box-shadow: 2px grey;
+    border-radius: 4px;
+}
+.mainContainer
+{
+    width: 0%;
+    min-width: fit-content;
+    display: flex;
+    flex-flow: wrap;
+   
+    height: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+.titlebar
+{
+    display: flex;
+    flex-direction: row;
+    .pinicon
+    {
+        cursor: pointer;
+    }
+}
+
+.createmode
+{
+     height: 50%;
+     min-height: 44px;
+     box-shadow: 2px grey;
+     border-radius: 4px;
+}
+
+.inputfield
+{
+    width: 100%;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+    margin-bottom: 10px;
+}
+.Note
+{
+    resize: none;
+    
+}
+.toolbarinNotes
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.basictext
+{
+    margin-top: -6px;
+}

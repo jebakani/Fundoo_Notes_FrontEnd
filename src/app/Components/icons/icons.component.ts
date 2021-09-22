@@ -21,7 +21,7 @@ export class IconsComponent implements OnInit {
  @Input() note!:any;
  id!:number;
   ngOnInit(): void {
-     this.isArchive=this.note.Archive;
+    // this.isArchive=this.note.Archive;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {

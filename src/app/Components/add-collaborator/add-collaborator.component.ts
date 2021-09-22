@@ -19,6 +19,5 @@ export class AddCollaboratorComponent implements OnInit {
   }
   onNoClick(): void {
     this.dialogRef.close();
-    console.log(this.data.id);
   }
 }

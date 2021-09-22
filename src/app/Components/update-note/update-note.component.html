@@ -1,0 +1,17 @@
+<mat-card class="updateMode mainContainer">
+       
+        <div class="titlebar">
+        <input matInput [(ngModel)]="data.title" class=" inputfield Title" placeholder="Title" value="{{data.title}}" > 
+       </div>
+        <textarea matInput  class="inputfield Note" [(ngModel)]="data.description" placeholder="Take a note .." id="textarea"
+            (keyup)="autogrow()"></textarea>
+        <div class="toolbarinNotes">
+            <div class="CreateIconList">
+               <app-icons ></app-icons>
+            </div>
+            <div>
+                <button mat-flat-button class="closebutton " (click)='updateNote()'>close</button>                
+            </div>
+        </div>
+   
+</mat-card>

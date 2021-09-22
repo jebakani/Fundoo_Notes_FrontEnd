@@ -32,6 +32,7 @@ import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.c
 import {MatChipsModule} from '@angular/material/chips';
 import { GetArchiveComponent } from './Components/get-archive/get-archive.component';
 import { GetRemainderComponent } from './Components/get-remainder/get-remainder.component';
+import { UpdateNoteComponent } from './Components/update-note/update-note.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { GetRemainderComponent } from './Components/get-remainder/get-remainder.
     IconsComponent,
     GetAllNotesComponent,
     GetArchiveComponent,
-    GetRemainderComponent
+    GetRemainderComponent,
+    UpdateNoteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
