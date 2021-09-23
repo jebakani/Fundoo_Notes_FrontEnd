@@ -16,6 +16,7 @@ export class DashBoardComponent implements OnInit {
   getnotes="Notes";
   labels:any;
   opened=true;
+  noteLabel:any;
   isExpanded=false;
   constructor(
     private router: Router,

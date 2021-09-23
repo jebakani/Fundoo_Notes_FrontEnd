@@ -49,7 +49,7 @@
               <mat-icon class="toolbaricon">notifications_none</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded" >Remainder</mat-label>
           </mat-list-item>
-          <mat-list-item *ngFor="let label of labels" class="listItem" >
+          <mat-list-item *ngFor="let label of labels" class="listItem" (click)="getnotes='labelcheck'; noteLabel=label">
             <mat-icon class="toolbaricon  material-icons-outlined">label</mat-icon>
             <mat-label class="navLabel" *ngIf="isExpanded">{{label.labelName}}</mat-label>
           </mat-list-item>
@@ -71,8 +71,8 @@
         <app-get-all-notes class="getNotes" *ngIf="getnotes=='Notes'"></app-get-all-notes>
         <app-get-remainder class="getNotes" *ngIf="getnotes=='Remainder'"></app-get-remainder>
         <app-get-archive class="getNotes" *ngIf="getnotes=='Archive'"></app-get-archive>
-        <app-trash class="getNotes" *ngIf="getnotes=='Trash'"></app-trash>
-        
+        <app-trash class="getnotes" *ngIf="getnotes=='Trash'"></app-trash>
+        <app-get-notes-for-label *ngIf="getnotes=='labelcheck'" [labels]="noteLabel" ></app-get-notes-for-label>
       </div>
       </mat-drawer-content>
     </mat-drawer-container>

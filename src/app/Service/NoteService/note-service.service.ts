@@ -120,7 +120,7 @@ export class NoteServiceService {
   }
   Restore(notesId:number)
   {
-    return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,null,true,
+    return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,true,
     {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
