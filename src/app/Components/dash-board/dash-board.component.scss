@@ -49,6 +49,7 @@
 .sideNav
 {
   padding: 10px 0px 10px 0px;
+  width: 20%;
   .navLabel
   {
     font-family: 'Google Sans',Roboto,Arial,sans-serif;
@@ -58,6 +59,8 @@
     line-height: 1.25rem;
     margin-top: 6px;
     margin-left: 2ex;
+    margin-right: 7ex;
+    flex: 1 0 auto;
  }
 }
 .listItem
@@ -65,6 +68,7 @@
   margin-bottom: 13px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+  
 }
 ::ng-deep .mat-menu-content
 {
@@ -100,6 +104,7 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .getNotes

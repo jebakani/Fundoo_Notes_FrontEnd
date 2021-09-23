@@ -12,16 +12,27 @@ export class IconsComponent implements OnInit {
   email: string | undefined;
   colur=false;
   notecolor='#fafafa';
-  isArchive=false;
+  isArchive:any;
+  image=false;
+  file!: File ;
   archive='archive_outline'
   constructor(
     public dialog: MatDialog,
     private noteService:NoteServiceService
   ) { }
+  @Input() create!:any;
  @Input() note!:any;
  id!:number;
   ngOnInit(): void {
-    // this.isArchive=this.note.Archive;
+
+    if(this.create)
+    {
+       this.isArchive=false;
+    }
+    else
+    {
+      this.isArchive=this.note.archieve;
+    }
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {
@@ -75,14 +86,27 @@ export class IconsComponent implements OnInit {
   
   }
   setColor(color: any){
+    if(this.note==null)
+    {
+      this.notecolor=color;
+      console.log(this.notecolor)
+    }
+    else
+    {
     console.log(this.note,color)
     this.noteService.colorNote(this.note.notesId,color).subscribe((result:any) =>{
     
     });
+  }
   }
   MoveToTrash()
   {
     this.noteService.MoveToTrash(this.note.notesId).subscribe((result : any) =>{
       console.log(result)});
   }
+  onChange(event:any) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+   
+}
 }

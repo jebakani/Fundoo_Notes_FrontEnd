@@ -2,32 +2,43 @@
 <mat-menu #remaindermenu="matMenu" class="remaindermenuc" yPosition="below">
     <h3>Remainder : </h3>
     <button mat-menu-item>
-        Later today :      8:00 pm
+        Later today : 8:00 pm
     </button>
     <button mat-menu-item>
-        Later today :      8:00 pm
+        Later today : 8:00 pm
     </button>
     <button mat-menu-item>
-        Later today :      8:00 pm 
+        Later today : 8:00 pm
     </button>
-    <button mat-menu-item [matMenuTriggerFor]="colorlist" >
+    <button mat-menu-item [matMenuTriggerFor]="datepicker">
         <p>pick a date and time</p>
     </button>
+    </mat-menu>
+<mat-menu #datepicker="matMenu" [overlapTrigger]="false">
+<div>
+    <mat-icon>arrow</mat-icon>
+    <div>pick a date</div>
+</div>
+
 </mat-menu>
 <mat-icon class="icon" (click)="openDialog()">person_add_alt</mat-icon>
-<mat-icon class="icon  material-icons-outlined" [matMenuTriggerFor]="colorlist" matTooltip="color change" >palette</mat-icon>
-<mat-menu #colorlist="matMenu" [overlapTrigger]="false" >
-        <div>
-            <div class="colormenu" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
-                <div class="colorrow" *ngFor="let color of colors">
-                    <button
-                        [ngStyle]="{ 'background-color': color.color }"  mat-mini-fab (click)='notecolor=color.color;setColor(color.color)'></button>
-                </div>
+<mat-icon class="icon  material-icons-outlined" [matMenuTriggerFor]="colorlist" matTooltip="color change">palette
+</mat-icon>
+<mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+    <div>
+        <div class="colormenu" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
+            <div class="colorrow" *ngFor="let color of colors">
+                <button [ngStyle]="{ 'background-color': color.color }" mat-mini-fab
+                    (click)='setColor(color.color)'></button>
             </div>
         </div>
+    </div>
 </mat-menu>
-<mat-icon class="icon material-icons-outlined">portrait</mat-icon>
-<mat-icon class="icon material-icons-outlined" *ngIf="!isArchive" (click)="isArchive=true ;setArchive()">archive</mat-icon>
+<input class="ng-hide" id="input-file-id" multiple type="file" *ngIf="image" (change)="onChange($event)" />
+<mat-icon class="icon material-icons-outlined" (click)="image=true">portrait</mat-icon>
+
+<mat-icon class="icon material-icons-outlined" *ngIf="!isArchive" (click)="isArchive=true ;setArchive()">archive
+</mat-icon>
 <mat-icon class="material-icons icon" *ngIf="isArchive" (click)="isArchive=false;setArchive()">archive</mat-icon>
 <mat-icon class="icon material-icons-outlined" [matMenuTriggerFor]="aboveMenu">more_vert</mat-icon>
 <mat-menu #aboveMenu="matMenu" class="menulabel" yPosition="below">

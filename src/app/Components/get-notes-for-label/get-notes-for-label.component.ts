@@ -15,6 +15,7 @@ export class GetNotesForLabelComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.labels)
     this.getLabel();
   }
   getLabel()

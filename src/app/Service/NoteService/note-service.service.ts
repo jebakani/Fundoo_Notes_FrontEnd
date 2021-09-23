@@ -87,9 +87,9 @@ export class NoteServiceService {
     var user = JSON.parse(localStorage.getItem('UserDataFundoo')!);
     const param= 
     {
-      Title :data.title,
+        Title :data.title,
         Description:data.description,
-        Notes:data.note.notesId
+        Notes:data.notesId
     }
     return this.httpService.put(`${environment.baseurl}/api/UpdateNote`,param,true,
     {
@@ -120,7 +120,7 @@ export class NoteServiceService {
   }
   Restore(notesId:number)
   {
-    return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,true,
+    return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,null,true,
     {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });

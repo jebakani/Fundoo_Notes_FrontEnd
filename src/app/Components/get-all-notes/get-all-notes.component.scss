@@ -9,6 +9,8 @@
 .notes {
     display: flex;
     flex-wrap: wrap;
+    padding-right: 5ex;
+    padding-left: 10ex;
 }
 .desc
 {
@@ -24,4 +26,13 @@
     {
         cursor: pointer;
     }
+}
+.notescontainer
+{
+    margin-bottom: 4ex;
+}
+.labelnote
+{
+    padding-left: 10ex;
+    font-size: 20px;
 }

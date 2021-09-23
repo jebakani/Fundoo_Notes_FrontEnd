@@ -15,12 +15,11 @@ export class UpdateNoteComponent implements OnInit {
     private NoteService:NoteServiceService
     ) { }
   ngOnInit(): void {
-    console.log(this.data);
   }
   updateNote()
   {
-    console.log(this.data);
-    this.NoteService.updateNote(this.data).subscribe((result:any)=>
+    console.log(this.data.note);
+    this.NoteService.updateNote(this.data.note).subscribe((result:any)=>
     {
       console.log(result);
     });

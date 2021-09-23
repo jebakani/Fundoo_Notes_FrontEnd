@@ -16,9 +16,9 @@ export class CreateNoteComponent implements OnInit {
 
   NoteForm!:FormGroup
   create=false;
+  notecolor="white";
   data="remaindermenu";
   isPinned=false;
-  notecolor:string | undefined;
   email: string | undefined;
   @ViewChild(IconsComponent) icon: any;
 
@@ -34,12 +34,13 @@ export class CreateNoteComponent implements OnInit {
       title: new FormControl(),
       desc:new FormControl(),
   });
-  
 }
-ngOnChanges(changes: SimpleChanges) {
-   this.notecolor=this.icon.notecolor;
+
+changeColor()
+{
+  var card=document.getElementById('maincontainer');
+  this.notecolor=this.icon.notecolor;
 }
- 
   createNote()
   {
     var data={

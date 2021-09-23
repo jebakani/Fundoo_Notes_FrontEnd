@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
@@ -11,7 +12,6 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
 export class GetAllNotesComponent implements OnInit {
 
   notes:any;
-  pinNote:any;
   isPinned=false;
   constructor(
     private NoteService:NoteServiceService,
@@ -22,7 +22,6 @@ export class GetAllNotesComponent implements OnInit {
   ngOnInit(): void {
     this.getNotes();
   }
-  
   getNotes()
   {
     this.NoteService.getNotes()
