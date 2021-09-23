@@ -24,11 +24,33 @@ export class TrashComponent implements OnInit {
        console.log(result);
        this.notes=result.data;
        console.log(this.notes);
-    });
+   });
   }
   EmptyTrash()
   {
     this.NoteService.EmptyTrash()
+    .subscribe((result : any)=>
+    {
+       console.log(result);
+       this.notes=result.data;
+       console.log(this.notes);
+       this.ngOnInit();
+    });
+  }
+  deleteForever(note:any)
+  {
+    this.NoteService.Deletetrash(note.notesId)
+    .subscribe((result : any)=>
+    {
+       console.log(result);
+       this.notes=result.data;
+       console.log(this.notes);
+       this.ngOnInit();
+    });
+  }
+  restore(note:any)
+  {
+    this.NoteService.Restore(note.notesId)
     .subscribe((result : any)=>
     {
        console.log(result);

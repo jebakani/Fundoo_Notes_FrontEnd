@@ -106,7 +106,21 @@ export class NoteServiceService {
   EmptyTrash()
   {
     var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
-    return this.httpService.delete(`${environment.baseurl}/api/EmptyTrash?noteId=${user}`,true,
+    return this.httpService.delete(`${environment.baseurl}/api/EmptyTrash?userId=${user}`,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
+  Deletetrash(notesId:number)
+  {
+    return this.httpService.delete(`${environment.baseurl}/api/DeleteFromTrash?noteId=${notesId}`,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
+  Restore(notesId:number)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,null,true,
     {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
