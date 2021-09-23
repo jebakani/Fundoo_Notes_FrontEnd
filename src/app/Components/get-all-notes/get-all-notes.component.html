@@ -1,36 +1,38 @@
 <div class="notescontainer">
     <div class="labelnote">pinned</div>
     <div class="notes" *ngFor="let note of notes">
-    <mat-card class="getNotesMat"  *ngIf="note.pin" [ngStyle]="{'background':note.color}" >
+        <mat-card class="getNotesMat" *ngIf="note.pin" [ngStyle]="{'background':note.color}">
             <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
-        <div (click)="openNoteDialog(note)">
-           <div class="titlebar" > <mat-card-title class="title">
-                {{note.title}}
-            </mat-card-title>
-        </div>
-        <div class="desc" (click)="openNoteDialog(note)">
-                {{note.description}}
+            <div (click)="openNoteDialog(note)">
+                <div class="titlebar">
+                    <mat-card-title class="title">
+                        {{note.title}}
+                    </mat-card-title>
+                </div>
+                <div class="desc" (click)="openNoteDialog(note)">
+                    {{note.description}}
+                </div>
             </div>
-        </div>
-        <app-icons [note]="note" ></app-icons>
-    </mat-card>
+            <app-icons [note]="note"></app-icons>
+        </mat-card>
     </div>
 </div>
 <div class="notescontainer">
-    <div  class="labelnote">others</div>
-<div class="notes">
-    <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}" >
+    <div class="labelnote">others</div>
+    <div class="notes">
+        <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}">
             <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
-        <div (click)="openNoteDialog(note)">
-           <div class="titlebar" > <mat-card-title class="title">
-                {{note.title}}
-            </mat-card-title>
-        </div>
-        <div class="desc" (click)="openNoteDialog(note)">
-                {{note.description}}
+            <div (click)="openNoteDialog(note)">
+                <div class="titlebar">
+                    <mat-card-title class="title">
+                        {{note.title}}
+                    </mat-card-title>
+                </div>
+                <div class="desc" (click)="openNoteDialog(note)">
+                    {{note.description}}
+                </div>
             </div>
-        </div>
-        <app-icons [note]="note" ></app-icons>
-    </mat-card>
-</div>
+            <app-icons [note]="note"></app-icons>
+        </mat-card>
+    </div>
 </div>

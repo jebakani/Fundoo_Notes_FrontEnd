@@ -1,6 +1,7 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 
@@ -13,10 +14,12 @@ export class GetAllNotesComponent implements OnInit {
 
   notes:any;
   isPinned=false;
+  labels:any;
+
   constructor(
     private NoteService:NoteServiceService,
     public dialog: MatDialog,
-    
+    private labelService:LabelserviceService
   ) { }
 
   ngOnInit(): void {
@@ -43,5 +46,14 @@ export class GetAllNotesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+  getlabel(noteId:number):any
+  {
+    this.labelService.GetLabelForNotes(noteId).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+      return result
+    })
   }
 }

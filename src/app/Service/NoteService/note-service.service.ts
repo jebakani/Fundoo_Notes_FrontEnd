@@ -125,4 +125,11 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  AddImage(noteId:number,image:any)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/AddImage?noteId=${noteId}&image=${image}`,null,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
 }

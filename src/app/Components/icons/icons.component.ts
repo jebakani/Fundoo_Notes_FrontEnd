@@ -106,9 +106,18 @@ export class IconsComponent implements OnInit {
     this.noteService.MoveToTrash(this.note.notesId).subscribe((result : any) =>{
       console.log(result)});
   }
-  onChange(event:any) {
+  onFileChanged(event:any) {
     this.file = event.target.files[0];
     console.log(this.file);
-   
-}
+  }
+  Addfile()
+  {
+    const form=new FormData();
+    form.append('image',this.file,this.file.name);
+    this.noteService.AddImage(this.note.notesId,form).
+    subscribe((result:any)=>{
+      console.log(result);
+    })
+  }
+
 }
