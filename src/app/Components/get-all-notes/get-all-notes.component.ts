@@ -34,9 +34,10 @@ export class GetAllNotesComponent implements OnInit {
   }
   openNoteDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateNoteComponent, {
-      width: '50%',
-      height:'50%',
-      data: { note  }
+      width: '40%',
+      height:'30%',
+      data: { note  },
+      panelClass: 'my-custom-dialog-class'
     });
 
     dialogRef.afterClosed().subscribe(result => {

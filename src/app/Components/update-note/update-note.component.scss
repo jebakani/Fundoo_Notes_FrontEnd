@@ -1,8 +1,8 @@
 .updateMode {
-    height: 90% !important;
+    height: 85.5% !important;
     min-height: 44px;
     box-shadow: 2px grey;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 .mainContainer
 {
@@ -45,7 +45,7 @@
     resize: none;
     
 }
-.toolbarinNotes
+.toolbarinNote
 {
     display: flex;
     flex-direction: row;
@@ -56,4 +56,16 @@
 .basictext
 {
     margin-top: -6px;
+}
+::ng-deep .my-custom-dialog-class {
+    mat-dialog-container {
+      padding: 0;
+    border-radius: 10px;
+
+    }
+  }
+.closebutton
+{
+    margin-left: 13ex;
+    
 }

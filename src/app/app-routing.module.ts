@@ -7,6 +7,7 @@ import { ForgetPasswordComponent } from './Components/forget-password/forget-pas
 import { DashBoardComponent } from './Components/dash-board/dash-board.component';
 import { CreateNoteComponent } from './Components/create-note/create-note.component';
 
+
 var data =localStorage.getItem('forgetpassword');
 var usertoken=data==null?' ':JSON.parse(data).token;
 

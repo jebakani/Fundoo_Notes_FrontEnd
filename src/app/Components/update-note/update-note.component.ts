@@ -26,6 +26,9 @@ export class UpdateNoteComponent implements OnInit {
     this.dialogRef.close();
 
   }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
   autogrow(){
     let  textArea = document.getElementById("textarea")!;       
     textArea.style.overflow = 'hidden';

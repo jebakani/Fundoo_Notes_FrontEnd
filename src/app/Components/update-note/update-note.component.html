@@ -5,12 +5,12 @@
        </div>
         <textarea id="desfield" [ngStyle]="{'background':data.note.color}" matInput  class="inputfield Note" [(ngModel)]="data.note.description" placeholder="Take a note .." id="textarea"
             (keyup)="autogrow()"></textarea>
-        <div class="toolbarinNotes">
+        <div class="toolbarinNote">
             <div class="CreateIconList">
                <app-icons [note]="data.note"></app-icons>
             </div>
             <div>
-                <button mat-flat-button class="closebutton " (click)='updateNote()'>close</button>                
+                <button  [ngStyle]="{'background':data.note.color}" mat-flat-button class="closebutton " (click)='updateNote();onNoClick()'>close</button>                
             </div>
         </div>
    

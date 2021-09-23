@@ -35,7 +35,8 @@ import { GetRemainderComponent } from './Components/get-remainder/get-remainder.
 import { UpdateNoteComponent } from './Components/update-note/update-note.component';
 import { TrashComponent } from './Components/trash/trash.component';
 import { GetNotesForLabelComponent } from './Components/get-notes-for-label/get-notes-for-label.component';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,9 @@ import { GetNotesForLabelComponent } from './Components/get-notes-for-label/get-
     MatDividerModule,
     MatListModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
   ],

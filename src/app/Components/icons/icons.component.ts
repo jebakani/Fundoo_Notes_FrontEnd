@@ -21,7 +21,7 @@ export class IconsComponent implements OnInit {
     private noteService:NoteServiceService
   ) { }
   @Input() create!:any;
- @Input() note!:any;
+ @Input() note:any;
  id!:number;
   ngOnInit(): void {
 
@@ -38,7 +38,9 @@ export class IconsComponent implements OnInit {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {
       width: '30%',
       height:'40%',
-      data: {email: this.email,
+      data: {
+            noteId:this.note.notesId,
+            email: this.email
           }
     });
 
