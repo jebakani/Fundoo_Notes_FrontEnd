@@ -33,6 +33,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { GetArchiveComponent } from './Components/get-archive/get-archive.component';
 import { GetRemainderComponent } from './Components/get-remainder/get-remainder.component';
 import { UpdateNoteComponent } from './Components/update-note/update-note.component';
+import { TrashComponent } from './Components/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UpdateNoteComponent } from './Components/update-note/update-note.compon
     GetAllNotesComponent,
     GetArchiveComponent,
     GetRemainderComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

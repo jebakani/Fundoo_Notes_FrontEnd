@@ -1,0 +1,28 @@
+.getNotesMat{
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    height: fit-content;
+    width: 25%;
+}
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+}
+.desc
+{
+    margin-bottom: 10px;
+    margin-top: 2ex;
+}
+.titlebar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .pinicon
+    {
+        cursor: pointer;
+    }
+}

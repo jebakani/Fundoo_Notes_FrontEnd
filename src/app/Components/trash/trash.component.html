@@ -1,0 +1,18 @@
+<div class="notes">
+    <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}" >
+            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;">
+        <div>
+           <div class="titlebar" > <mat-card-title class="title">
+                {{note.title}}
+            </mat-card-title>
+        </div>
+        <div class="desc">
+                {{note.description}}
+            </div>
+        </div>
+        <div>
+            <mat-icon class="icon">delete_forever</mat-icon>
+            <mat-icon class="icon">restore_from_trash</mat-icon>
+        </div>
+    </mat-card>
+</div>

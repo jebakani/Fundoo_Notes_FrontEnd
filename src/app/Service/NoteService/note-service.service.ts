@@ -51,6 +51,14 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  GetTrash()
+  {
+    var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+    return this.httpService.get(`${environment.baseurl}/api/GetTrash?userId=${user}`,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
   colorNote(noteid:number,color:string)
   {
     console.log(noteid);
