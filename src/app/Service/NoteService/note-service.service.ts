@@ -103,4 +103,12 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  EmptyTrash()
+  {
+    var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+    return this.httpService.delete(`${environment.baseurl}/api/EmptyTrash?noteId=${user}`,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
 }

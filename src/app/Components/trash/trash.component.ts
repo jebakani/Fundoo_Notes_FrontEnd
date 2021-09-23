@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class TrashComponent implements OnInit {
   ngOnInit(): void {
     this.getTrash();
   }
+
   getTrash()
   {
     this.NoteService.GetTrash()
@@ -23,6 +24,17 @@ export class TrashComponent implements OnInit {
        console.log(result);
        this.notes=result.data;
        console.log(this.notes);
+    });
+  }
+  EmptyTrash()
+  {
+    this.NoteService.EmptyTrash()
+    .subscribe((result : any)=>
+    {
+       console.log(result);
+       this.notes=result.data;
+       console.log(this.notes);
+       this.ngOnInit();
     });
   }
 }

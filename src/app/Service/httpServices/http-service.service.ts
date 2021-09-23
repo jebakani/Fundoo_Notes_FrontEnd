@@ -22,4 +22,8 @@ export class HttpServiceService {
   {
      return this.http.get(url,isHeaderRequired && headers)
   }
+  delete(url:string, isHeaderRequired :any=false, headers:any =null)
+  {
+     return this.http.delete(url,isHeaderRequired && headers)
+  }
 }
