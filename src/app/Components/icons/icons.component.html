@@ -1,4 +1,4 @@
-<mat-icon class="icon" [matMenuTriggerFor]="remaindermenu">add_alert</mat-icon>
+<mat-icon class="icon" [matMenuTriggerFor]="!pickers? remaindermenu:datepicker ">add_alert</mat-icon>
 <mat-menu #remaindermenu="matMenu" class="remaindermenuc" yPosition="below">
     <h3>Remainder : </h3>
     <button mat-menu-item>
@@ -10,29 +10,34 @@
     <button mat-menu-item >
         Later today : 8:00 pm
     </button>
-    <button mat-menu-item [matMenuTriggerFor]="datepicker">
+    <button mat-menu-item (click)="pickers=true">
         <p>pick a date and time</p>
     </button>
     </mat-menu>
 <mat-menu #datepicker="matMenu" [overlapTrigger]="false">
-<div>
-    <div>
-    <mat-icon>arrow</mat-icon>
-    <div>pick a date</div>
+<div class="remaindermenu">
+    <div class="datepick">
+    <mat-icon class="back" (click)="pickers=false">arrow_back</mat-icon>
+    <div class="pichead">Pick date and time</div>
 </div>
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="fill" (click)='$event.stopPropagation()'>
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="note.reminder">
+        <input matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker">
           <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="note.reminder">
+      <mat-form-field appearance="fill" (click)='$event.stopPropagation()'>
+        <mat-label>Pick time</mat-label>
+        <select matNativeControl required >
+          <option class="space"value="Morning 8am"><p>Morning</p><p>8am</p></option>
+          <option  class="space" value="Afternoon 12pm"><p>Afternoon </p><p>12pm</p></option>
+          <option  class="space" value="Evening 6pm"><p>Evening </p><p>6pm</p></option>
+          <option  class="space" value="Night 9pm"><p>Night</p><p>9pm</p></option>
+        </select>
       </mat-form-field>
-
+      <button mat-flat-button class="saveButton">save</button>                
 </div>
 
 </mat-menu>
@@ -49,7 +54,7 @@
         </div>
     </div>
 </mat-menu>
-<input class="ng-hide" id="input-file-id" multiple type="file" *ngIf="image" (change)="onFileChanged($event)" />
+<input class="ng-hide" id="input-file-id" type="file" name="image" accept="image/*" id="image" style="display:none;" />
 <mat-icon class="icon material-icons-outlined" (click)="image=true">portrait</mat-icon>
 
 <mat-icon class="icon material-icons-outlined" *ngIf="!isArchive" (click)="isArchive=true ;setArchive()">archive

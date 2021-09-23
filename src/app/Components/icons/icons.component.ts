@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.component';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-icons',
@@ -15,7 +16,10 @@ export class IconsComponent implements OnInit {
   isArchive:any;
   image=false;
   file!: File ;
-  archive='archive_outline'
+  dateAndTime!:string;
+  public date = new Date();
+  pickers:boolean=false;
+  archive='archive_outline';
   constructor(
     public dialog: MatDialog,
     private noteService:NoteServiceService
@@ -115,9 +119,7 @@ export class IconsComponent implements OnInit {
     const form=new FormData();
     form.append('image',this.file,this.file.name);
     this.noteService.AddImage(this.note.notesId,form).
-    subscribe((result:any)=>{
-      console.log(result);
-    })
+    subscribe((result:any)=>{});
   }
-
+ 
 }

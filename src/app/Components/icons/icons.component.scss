@@ -17,3 +17,26 @@
     margin-left: 2px;
     margin-right: 2px;
 }
+.saveButton
+{
+    margin-left: 26ex;
+}
+.datepick
+{
+    display: flex;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    .back
+    {
+        margin-right: 2ex;
+    }
+   .pichead
+   {
+       font-size: 16px;
+   }
+}
+.space
+{
+    display: flex;
+    align-content:space-between;
+}
