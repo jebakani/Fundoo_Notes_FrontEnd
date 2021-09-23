@@ -67,12 +67,22 @@ export class IconsComponent implements OnInit {
     this.noteService.setArchive(this.note.notesId).subscribe((result : any) =>{
         console.log(result)});
     }
-    
     else
     {
       this.noteService.unarchive(this.note.notesId).subscribe((result : any) =>{
         console.log(result)});
     }
   
+  }
+  setColor(color: any){
+    console.log(this.note,color)
+    this.noteService.colorNote(this.note.notesId,color).subscribe((result:any) =>{
+    
+    });
+  }
+  MoveToTrash()
+  {
+    this.noteService.MoveToTrash(this.note.notesId).subscribe((result : any) =>{
+      console.log(result)});
   }
 }

@@ -19,10 +19,13 @@ export class UpdateNoteComponent implements OnInit {
   }
   updateNote()
   {
-    this.NoteService.getNotes().subscribe((result:any)=>
+    console.log(this.data);
+    this.NoteService.updateNote(this.data).subscribe((result:any)=>
     {
       console.log(result);
-    })
+    });
+    this.dialogRef.close();
+
   }
   autogrow(){
     let  textArea = document.getElementById("textarea")!;       
