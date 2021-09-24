@@ -1,19 +1,4 @@
-.textarea{
-    outline: none;
-    font-size: 18px;
-  }
-  .labelName
-  {
-      outline: none;
-      border: none;
-  }
-  .labelfield
-  {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-  }
+
   .editLabel
   {
     background-color: #fff;
@@ -23,13 +8,9 @@
     width: 300px;
     border: none;
     box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
-    position: fixed;
-    z-index: 5001;
+
   }
- .flextextfield
- {
-     margin-bottom: 10px;
- }
+ 
  .labelicons
  {
      cursor: pointer;
@@ -41,3 +22,60 @@
     overflow-y: auto;
     padding: 15px;
  }
+ .editlabelhead
+ {
+    color: #202124;
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    height: 25px;
+}
+.labelfield
+{
+    display: flex;
+    align-items: center;
+    height: 45px;
+}
+.labelIconAndDelete
+{
+
+    background-size: 18px 18px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    height: 24px;
+    opacity: 0.54;
+    width: 24px;
+}
+.textarea
+{
+    flex: 1 1 auto;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 15px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    color: #3c4043;
+    font-size: 16px;
+    font-family: 'Roboto',arial,sans-serif;
+    height: 25px;
+    outline: none;
+    padding: 0;
+}
+
+::ng-deep .custom-label-dialogue {
+    mat-dialog-container {
+      padding: 0;
+    border-radius: 10px;
+
+    }
+  }
+  .labelfooter
+  {
+    border-top: 1px solid #dadce0;
+    padding: 15px 10px;
+    text-align: right;
+  }

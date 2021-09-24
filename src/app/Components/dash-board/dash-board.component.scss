@@ -159,12 +159,21 @@
     position: relative;
 }
 
-.getNotes
+.noteContain
 {
-  display: flex;
-  flex-flow: column wrap;
+  background-color: transparent;
+    margin: 0 auto;
 }
 .sideNavmain
 {
   border: none;
+}
+::ng-deep .mat-drawer-content
+{
+  overflow: none ;
+}
+.dashboard
+{
+  height:100%;
+  overflow: hidden;
 }

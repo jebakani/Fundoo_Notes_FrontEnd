@@ -63,14 +63,33 @@ export class GetAllNotesComponent implements OnInit {
     this.labelService.GetLabelForNotes(noteId).
     subscribe((result:any)=>
     {
-      console.log(result);
-      return result
+      this.labels=result;
     })
   }
 
   pinNote(notesId:number)
   {
     this.NoteService.pinNotes(notesId).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+      this.openSnackBar(result.message , 'ok');
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ })
+    this.ngOnInit();
+  }
+  RemoveRemainder(note:any)
+  {
+    this.NoteService.RemoveRemainder(note.notesId).
     subscribe((result:any)=>
     {
       console.log(result);

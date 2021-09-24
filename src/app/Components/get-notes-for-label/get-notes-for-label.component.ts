@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
+import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
@@ -16,7 +18,8 @@ export class GetNotesForLabelComponent implements OnInit {
   constructor(
     private labelService:LabelserviceService,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private NoteService:NoteServiceService
   ) { }
 
   ngOnInit(): void {
@@ -42,7 +45,7 @@ export class GetNotesForLabelComponent implements OnInit {
   openNoteDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateNoteComponent, {
       width: '40%',
-      height:'30%',
+      height:'auto',
       data: { note  },
       panelClass: 'my-custom-dialog-class'
     });
@@ -50,5 +53,25 @@ export class GetNotesForLabelComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+  RemoveRemainder(note:any)
+  {
+    this.NoteService.RemoveRemainder(note.notesId).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+      this.openSnackBar(result.message , 'ok');
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ })
+    this.ngOnInit();
   }
 }

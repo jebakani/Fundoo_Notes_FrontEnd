@@ -24,9 +24,9 @@
             
         </form>
     </div>
-        <div class="toolbarinNotes">
-            <div class="CreateIconList">
-               <app-icons [create]="create" ></app-icons>
+        <div class="toolbarinNotes" [ngStyle]="{'background': notecolor}">
+            <div class="CreateIconList" >
+               <app-icons [create]="create" [ngStyle]="{'background': notecolor}"></app-icons>
             </div>
             <div>
                 <button mat-flat-button class="closebutton " (click)='createNote();create=false'>close</button>                

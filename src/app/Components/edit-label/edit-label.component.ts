@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
@@ -19,6 +20,7 @@ export class EditLabelComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data.labels)
+    
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
@@ -34,6 +36,7 @@ export class EditLabelComponent implements OnInit {
      {
        console.log(result);
      });
+     this.ngOnInit();
   }
   onClickCreateLabel(label:any)
   {
@@ -43,5 +46,20 @@ export class EditLabelComponent implements OnInit {
       console.log(result);
     });
      this.data.name=""
+  }
+  onNoClick(): void {
+    if(this.data.name!=null)
+    {
+      this.onClickCreateLabel(this.data);
+    }
+    this.dialogRef.close();
+  }
+  editLabel(label:any)
+  {
+    this.labelService.editLabel(label,label.labelName).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+    });
   }
 }

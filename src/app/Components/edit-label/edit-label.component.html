@@ -1,25 +1,28 @@
 <div class="editLabel">
     <div class="maincontaineredit">
-        <div>Edit label</div>
-    <div class="flextextfield labelfield">
-     
-    <mat-icon class="labelicons">clear</mat-icon>
-    <input [(ngModel)]="data.name" matInput placeholder="CreateLabel"> 
-    <mat-icon class="labelicons" (click)="onClickCreateLabel(data)" *ngIf="data.name">done</mat-icon>
+        <div class="editlabelhead">Edit label</div>
+        <div class="flextextfield labelfield">
+
+            <div class="labelIconAndDelete">
+                <mat-icon class="labelicons">clear</mat-icon>
+            </div>
+            <input [(ngModel)]="data.name" class="textarea" matInput placeholder="CreateLabel">
+            <mat-icon class="labelicons labelIconAndDelete " (click)="onClickCreateLabel(data)" *ngIf="data.name">done
+            </mat-icon>
+        </div>
+
+        <div *ngFor="let label of data.labels" class="labelfield">
+            <div class="labelIconAndDelete" >
+                <mat-icon class="labelicons" (mouseover)="deleteicon=true" *ngIf="!deleteicon">label</mat-icon>
+                <mat-icon *ngIf="deleteicon" (mouseout)="deleteicon=false" class="labelicons"
+                    (click)="onClickDeleteLabel(label)">delete</mat-icon>
+            </div>
+            <div class="textarea" contenteditable="true" id="text" #labl>
+                {{label.labelName}}</div>
+            <mat-icon class="labelicons labelIconAndDelete" (click)="editLabel(label)">edit</mat-icon>
+        </div>
     </div>
-
-   <div *ngFor="let label of data.labels" class="labelfield">
-       <div (mouseover)="deleteicon=true" (mouseout)="deleteicon=false">
-       <mat-icon class="labelicons" *ngIf="!deleteicon">label</mat-icon>
-       <mat-icon  *ngIf="deleteicon" class="labelicons" (click)= "onClickDeleteLabel(label)">delete</mat-icon>
-       </div>
-    <div class="textarea" contenteditable="true" id="text" #labl>
-      {{label.labelName}}</div>
-      <mat-icon class="labelicons">edit</mat-icon>
-   </div>
-</div>
-<div>
-<button mat-button style="float:right" >Done</button>
-
-</div>
+    <div class="labelfooter">
+            <button mat-button (click)="onNoClick()" >Done</button>
+    </div>
 </div>

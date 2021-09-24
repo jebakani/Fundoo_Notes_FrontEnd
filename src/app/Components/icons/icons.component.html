@@ -1,68 +1,126 @@
-<mat-icon class="icon" matTooltip="Remind me" [matMenuTriggerFor]="!pickers? remaindermenu:datepicker ">add_alert</mat-icon>
+<div class="iconcontainer">
+<div class="iconcontent">
+    <mat-icon class="icon" matTooltip="Remind me" [matMenuTriggerFor]="!pickers? remaindermenu:datepicker ">add_alert
+    </mat-icon>
+</div>
 <mat-menu #remaindermenu="matMenu" class="remaindermenuc" yPosition="below">
-    <h3>Remainder : </h3>
-    <button mat-menu-item>
-        Later today : 8:00 pm
-    </button>
-    <button mat-menu-item>
-        Later today : 8:00 pm
-    </button>
-    <button mat-menu-item >
-        Later today : 8:00 pm
-    </button>
-    <button mat-menu-item (click)="pickers=true">
+    
+    <div style="font-size: 24px;
+    padding: 15px;">Remainder : </div>
+    <div class="menuItem" (click)="setRemainder('Later today,8:00 pm')">
+        <div class="items">
+        <div class="menulabel"> Later today </div>
+        <div> : 8:00 pm</div>
+    </div>
+    </div>
+    <div class="menuItem" (click)="setRemainder('Later today,8:00 pm')" >
+        <div class="items">
+        <div class="menulabel"> Tomorrow </div>
+        <div> 8:00 pm </div>
+    </div>
+    </div>
+    <div class="menuItem" (click)="setRemainder('Later today,8:00 pm')">
+        <div class="items">
+        <div class="menulabel"> Next week</div>
+        <div> 8:00 pm </div>
+    </div>
+    </div>
+    <div class="menuItem" (click)="pickers=true">
+        <div>
         <p>pick a date and time</p>
-    </button>
-    </mat-menu>
+    </div>
+    </div>
+</mat-menu>
 <mat-menu #datepicker="matMenu" [overlapTrigger]="false">
-<div class="remaindermenu">
-    <div class="datepick">
-    <mat-icon class="back" (click)="pickers=false">arrow_back</mat-icon>
-    <div class="pichead">Pick date and time</div>
-</div>
-    <mat-form-field class="example-full-width" appearance="fill" (click)='$event.stopPropagation()'>
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker">
-          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-        </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field appearance="fill" (click)='$event.stopPropagation()'>
-        <mat-label>Pick time</mat-label>
-        <select matNativeControl required >
-          <option class="space"value="Morning 8am"><p>Morning</p><p>8am</p></option>
-          <option  class="space" value="Afternoon 12pm"><p>Afternoon </p><p>12pm</p></option>
-          <option  class="space" value="Evening 6pm"><p>Evening </p><p>6pm</p></option>
-          <option  class="space" value="Night 9pm"><p>Night</p><p>9pm</p></option>
-        </select>
-      </mat-form-field>
-      <button mat-flat-button class="saveButton">save</button>                
-</div>
+    <div class="remaindermenu">
+        <div class="datepick">
+            <mat-icon class="back" (click)="pickers=false">arrow_back</mat-icon>
+            <div class="pichead">Pick date and time</div>
+        </div>
+        <mat-form-field class="example-full-width" appearance="fill" (click)='$event.stopPropagation()'>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" (click)='$event.stopPropagation()'>
+            <mat-label>Pick time</mat-label>
+            <select matNativeControl required>
+                <option class="space" value="Morning 8am">
+                    <p>Morning</p>
+                    <p>8am</p>
+                </option>
+                <option class="space" value="Afternoon 12pm">
+                    <p>Afternoon </p>
+                    <p>12pm</p>
+                </option>
+                <option class="space" value="Evening 6pm">
+                    <p>Evening </p>
+                    <p>6pm</p>
+                </option>
+                <option class="space" value="Night 9pm">
+                    <p>Night</p>
+                    <p>9pm</p>
+                </option>
+            </select>
+        </mat-form-field>
+        <button mat-flat-button class="saveButton">save</button>
+    </div>
 
 </mat-menu>
-<mat-icon matTooltip="Collaborator" class="icon"  matTooltip="Add Collobrate" (click)="openDialog()">person_add_alt</mat-icon>
-<mat-icon class="icon  material-icons-outlined" [matMenuTriggerFor]="colorlist" matTooltip="change color ">palette
-</mat-icon>
-<mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+<div class="iconcontent">
+    <mat-icon matTooltip="Collaborator" class="icon" matTooltip="Add Collobrate" (click)="openDialog()">person_add_alt
+    </mat-icon>
+</div>
+<div class="iconcontent">
+    <mat-icon class="icon  material-icons-outlined" [matMenuTriggerFor]="colorlist" matTooltip="change color ">palette
+    </mat-icon>
+</div>
+<mat-menu #colorlist="matMenu" [overlapTrigger]="false" >
     <div>
         <div class="colormenu" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
             <div class="colorrow" *ngFor="let color of colors">
-                <button [ngStyle]="{ 'background-color': color.color }" mat-mini-fab
-                    (click)='setColor(color.color)' matTooltip="color.name"></button>
+                <button [ngStyle]="{ 'background-color': color.color }" mat-mini-fab (click)='setColor(color.color)'
+                    matTooltip="color.name"></button>
             </div>
         </div>
     </div>
 </mat-menu>
+<div class="iconcontent">
 <label for="image">
-<input type="file" name="image"  accept="image/*" id="image" style="display:none;"  (change)="onFileChanged($event)"/>
-<mat-icon class="icon material-icons-outlined" matTooltip="add image">portrait</mat-icon>
+    <input type="file" name="image" accept="image/*" id="image" style="display:none;"
+        (change)="onFileChanged($event)" />
+    <mat-icon class="icon material-icons-outlined" matTooltip="add image">portrait</mat-icon>
 </label>
-<mat-icon class="icon material-icons-outlined" matTooltip="archive" *ngIf="!isArchive" (click)="isArchive=true ;setArchive()">archive
+</div>
+<div class="iconcontent">
+<mat-icon class="icon material-icons-outlined" matTooltip="archive" *ngIf="!isArchive"
+    (click)="isArchive=true ;setArchive()">archive
 </mat-icon>
-<mat-icon class="material-icons icon" *ngIf="isArchive" matTooltip="Unarchive" (click)="isArchive=false;setArchive()">archive</mat-icon>
-<mat-icon class="icon material-icons-outlined" matTooltip="More"  [matMenuTriggerFor]="aboveMenu">more_vert</mat-icon>
+<mat-icon class="material-icons icon" *ngIf="isArchive" matTooltip="Unarchive" (click)="isArchive=false;setArchive()">
+    archive</mat-icon>
+</div>
+<div class="iconcontent">
+<mat-icon class="icon material-icons-outlined" matTooltip="More" [matMenuTriggerFor]="aboveMenu">more_vert</mat-icon>
+</div>
 <mat-menu #aboveMenu="matMenu" class="menulabel" yPosition="below">
-    <button mat-menu-item>add label</button>
+    <button mat-menu-item [matMenuTriggerFor]="Addlabel">add label</button>
     <button mat-menu-item (click)='MoveToTrash()'>Delete Note</button>
 </mat-menu>
+<mat-menu #Addlabel="matMenu" class="labelmenu" yPosition="below" (click)='$event.stopPropagation()'>
+    <div class="menuItem" (click)="setRemainder('Later today,8:00 pm')">
+        <div class="items">
+            <input class="textarea" matInput placeholder="CreateLabel" [(ngModel)]="labelname" (click)='$event.stopPropagation()'>
+            <mat-icon class="labelicons labelIconAndDelete "(click)="addlabel(labelname)" >done
+            </mat-icon>
+    </div>
+    </div>
+    <div class="menuItem" *ngFor="let label of labels" >
+        <div class="items">
+            <mat-checkbox class="example-margin" (click)='$event.stopPropagation();addExistinglabellabel(label)'>{{label.labelName}}</mat-checkbox>
+    </div></div>
+  
+</mat-menu>
+</div>

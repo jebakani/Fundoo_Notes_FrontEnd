@@ -1,4 +1,4 @@
-<div>
+<div class="dashboard">
   <div class="ToolBar">
     <mat-toolbar class="toolbar">
       <button mat-icon-button class="dashboardicon" (click)='isExpanded = !isExpanded; value="side"'
@@ -70,11 +70,11 @@
           </mat-list-item>
         </mat-nav-list>
       </mat-sidenav>
-      <mat-sidenav-content style="background-color: white;" >
+      <mat-sidenav-content style="background-color: white;" class="sidenavecontent">
         <div class="createnotediv" align="center" *ngIf='getnotes!="Trash"'> 
            <app-create-note class="notes" ></app-create-note>
       </div>
-      <div>
+      <div class="noteContain">
         <app-get-all-notes class="getNotes" *ngIf="getnotes=='Notes'"></app-get-all-notes>
         <app-get-remainder class="getNotes" *ngIf="getnotes=='Remainder'"></app-get-remainder>
         <app-get-archive class="getNotes" *ngIf="getnotes=='Archive'"></app-get-archive>

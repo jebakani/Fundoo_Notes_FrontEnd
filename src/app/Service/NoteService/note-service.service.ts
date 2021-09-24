@@ -118,6 +118,13 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  RemoveRemainder(notesId:number)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/DeleteRemainder?noteId=${notesId}`,null,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
   Restore(notesId:number)
   {
     return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,null,true,
@@ -136,6 +143,13 @@ export class NoteServiceService {
   pinNotes(noteId:any)
   {
     return this.httpService.put(`${environment.baseurl}/api/PinAndUnpinNotes?noteId=${noteId}`,null,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
+  AddRemainder(noteId:number,remainder:any)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/UpdateRemainder?noteId=${noteId}&remainder=${remainder}`,null,true,
     {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });

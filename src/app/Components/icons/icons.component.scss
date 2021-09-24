@@ -1,7 +1,21 @@
+.iconcontainer
+{
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    bottom: 0;
+    display: flex;
+  justify-content: space-between;
+}
 .icon
 {
     margin-right: 1ex;
     cursor: pointer;
+}
+.iconcontent
+{
+    height: 32px;
+    margin: 0 8px;
+    width: 27px;
 }
 
 .colormenu
@@ -39,4 +53,52 @@
 {
     display: flex;
     align-content:space-between;
+}
+::ng-deep .mat-menu-content
+{
+ align-items: unset;
+}
+::ng-deep  .remaindermenuc
+{
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    width: 100%;
+    z-index: 5003;
+    border-radius: 4px;
+    transition: opacity 0.218s;
+    background: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.2);
+    cursor: default;
+    font-size: 13px;
+    margin: 0;
+    outline: none;
+    padding: 6px 0;
+    position: absolute;
+    align-items: unset !important;
+}
+.menuItem
+{
+    border: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px 0;
+    color: #3c4043;
+}
+.items
+{
+    display: flex;
+    justify-content: space-between;
+}
+.labelmenu
+{
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302),0 2px 6px 2px rgba(60,64,67,0.149);
+        font-size: 13px;
+        max-width: 225px;
+        padding-top: 11px;
+        position: absolute;
+        width: 225px;
+        z-index: 5003;
 }

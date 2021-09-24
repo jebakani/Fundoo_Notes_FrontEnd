@@ -74,4 +74,54 @@ return this.httpService.get(`${environment.baseurl}/api/GetLabelByNoteId?noteId=
     headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
   });
  }
+ 
+ addlabel(label:any,notesId:any)
+ {
+  var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+   
+    var param=
+    {
+      LabelName:label,
+      UserId:user,
+      NoteId:notesId
+    }
+    
+  return this.httpService.post(`${environment.baseurl}/api/AddLabel`,param,true,
+  {
+    headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+  });
+ }
+ addExistinglabel(label:any,notesId:any)
+ {
+  var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+   
+    var param=
+    {
+      LabelId:label.labelId,
+      LabelName:label.labelName,
+      UserId:user,
+      NoteId:notesId
+    }
+    
+  return this.httpService.post(`${environment.baseurl}/api/AddLabel`,param,true,
+  {
+    headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+  });
+ }
+ editLabel(label:any,name:any)
+ {
+  var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+   
+    var param=
+    {
+      LabelId:label.labelId,
+      LabelName:name,
+      UserId:user
+    }
+    
+  return this.httpService.put(`${environment.baseurl}/api/UpdateLabel`,param,true,
+  {
+    headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+  });
+}
 }

@@ -71,8 +71,9 @@ export class DashBoardComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(EditLabelComponent, {
-      width: '450px',
+      width: 'auto',
       height: 'auto',
+      panelClass:'custom-label-dialogue',
       data: {
             labels:this.labels,
             name:this.name

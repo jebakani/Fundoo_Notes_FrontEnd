@@ -5,6 +5,7 @@ import { NoteServiceService } from 'src/app/Service/NoteService/note-service.ser
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 
 @Component({
   selector: 'app-icons',
@@ -17,7 +18,10 @@ export class IconsComponent implements OnInit {
   notecolor='#fafafa';
   isArchive:any;
   image=false;
+  remainder!:string
   file: any;
+  labels: any;
+  labelname!:string
   ;
   dateAndTime!:string;
   public date = new Date();
@@ -26,7 +30,8 @@ export class IconsComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private noteService:NoteServiceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private labelService:LabelserviceService
   ) { }
   @Input() create!:any;
  @Input() note:any;
@@ -41,6 +46,7 @@ export class IconsComponent implements OnInit {
     {
       this.isArchive=this.note.archieve;
     }
+    this.GetLabel();
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {
@@ -182,5 +188,45 @@ export class IconsComponent implements OnInit {
       verticalPosition:'bottom',
       horizontalPosition:'start',
     });
+  }
+  setRemainder(remainderstr:string)
+  {
+     if(this.note==null)
+     {
+         this.remainder=remainderstr;
+     }
+     else
+     {
+      this.noteService.AddRemainder(this.note.notesId,remainderstr).
+      subscribe((result:any)=>{
+        console.log(result);
+      });
+     }
+  }
+  GetLabel()
+  {
+    this.labelService.getAlllabel().subscribe(
+      (result:any) => {
+        console.log(result);
+        this.labels=result.data;
+        console.log(this.labels);
+
+    })
+  }
+  addlabel(label:any)
+  {
+    this.labelService.addlabel(label,this.note.notesId).subscribe(
+      (result:any) => {
+        console.log(result);
+    });
+    this.labelname="";
+  }
+  addExistinglabellabel(label:any)
+  {
+    this.labelService.addExistinglabel(label,this.note.notesId).subscribe(
+      (result:any) => {
+        console.log(result);
+    });
+    this.labelname="";
   }
 }
