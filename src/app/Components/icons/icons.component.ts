@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.component';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-icons',
@@ -22,7 +24,8 @@ export class IconsComponent implements OnInit {
   archive='archive_outline';
   constructor(
     public dialog: MatDialog,
-    private noteService:NoteServiceService
+    private noteService:NoteServiceService,
+    private snackBar: MatSnackBar
   ) { }
   @Input() create!:any;
  @Input() note:any;
@@ -82,12 +85,27 @@ export class IconsComponent implements OnInit {
     if(this.isArchive==true)
     {
     this.noteService.setArchive(this.note.notesId).subscribe((result : any) =>{
-        console.log(result)});
+        console.log(result)
+        this.openSnackBar(result.message , 'ok');
+      });
+        
     }
     else
     {
       this.noteService.unarchive(this.note.notesId).subscribe((result : any) =>{
-        console.log(result)});
+        console.log(result)
+        this.openSnackBar(result.message , 'ok');
+      },
+      (error:HttpErrorResponse) => { 
+      if(!error.error.status){            
+         this.openSnackBar(error.error.message , '');
+      }
+      else
+      {
+        this.openSnackBar('Unsuccessfull , Try again!' , '');
+      }
+      
+   });
     }
   
   }
@@ -101,14 +119,37 @@ export class IconsComponent implements OnInit {
     {
     console.log(this.note,color)
     this.noteService.colorNote(this.note.notesId,color).subscribe((result:any) =>{
+      this.openSnackBar(result.message , 'ok');
     
-    });
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ });
   }
   }
   MoveToTrash()
   {
     this.noteService.MoveToTrash(this.note.notesId).subscribe((result : any) =>{
-      console.log(result)});
+      console.log(result)
+      this.openSnackBar(result.message , 'ok');
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ });
   }
   onFileChanged(event:any) {
     this.file = event.target.files[0];
@@ -121,5 +162,11 @@ export class IconsComponent implements OnInit {
     this.noteService.AddImage(this.note.notesId,form).
     subscribe((result:any)=>{});
   }
- 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
+    });
+  }
 }

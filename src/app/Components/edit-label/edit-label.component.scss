@@ -1,0 +1,30 @@
+.textarea{
+    outline: none;
+    font-size: 18px;
+  }
+  .labelName
+  {
+      outline: none;
+      border: none;
+  }
+  .labelfield
+  {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .editLabel
+  {
+    display: flex;
+    flex-direction: column;
+  }
+ .flextextfield
+ {
+     margin-bottom: 10px;
+ }
+ .labelicons
+ {
+     cursor: pointer;
+
+ }

@@ -1,0 +1,29 @@
+<div class="editLabel">
+<p style="font-size: 20px;">Edit label</p>
+<div class="flextextfield labelfield">
+  <div>
+    <mat-icon class="labelicons">clear</mat-icon>
+  </div>
+  <mat-form-field >
+    <input [(ngModel)]="data.name" matInput placeholder="CreateLabel"> 
+  </mat-form-field>
+  <div>
+    <mat-icon class="labelicons" (click)="onClickCreateLabel(data)" *ngIf="data.name">done</mat-icon>
+</div>
+</div>
+
+<div *ngFor="let label of data.labels">
+  <div class="labelfield">
+    <div (mouseover)="deleteicon=true" (mouseout)="deleteicon=false">
+      <mat-icon class="labelicons" *ngIf="!deleteicon">label</mat-icon>
+      <mat-icon  *ngIf="deleteicon" class="labelicons" (click)= "onClickDeleteLabel(label)">delete</mat-icon>
+    </div>
+    <div class="textarea" contenteditable="true" id="text" #labl>
+      {{label.labelName}}</div>
+    <div >
+      <mat-icon class="labelicons">edit</mat-icon></div>
+  </div>
+</div>
+
+<button mat-button style="float:right" >Done</button>
+</div>

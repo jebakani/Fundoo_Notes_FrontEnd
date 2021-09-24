@@ -1,6 +1,7 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
@@ -19,11 +20,20 @@ export class GetAllNotesComponent implements OnInit {
   constructor(
     private NoteService:NoteServiceService,
     public dialog: MatDialog,
-    private labelService:LabelserviceService
+    private labelService:LabelserviceService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.getNotes();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
+    });
   }
   getNotes()
   {

@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { NoteServiceService } from 'src/app/Service/NoteService/note-service.ser
 export class TrashComponent implements OnInit {
   notes!:any;
   constructor(
-    private NoteService:NoteServiceService
+    private NoteService:NoteServiceService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,8 @@ export class TrashComponent implements OnInit {
        console.log(result);
        this.notes=result.data;
        console.log(this.notes);
+      this.openSnackBar(result.message , 'ok');
+
        this.ngOnInit();
     });
   }
@@ -45,6 +49,8 @@ export class TrashComponent implements OnInit {
        console.log(result);
        this.notes=result.data;
        console.log(this.notes);
+      this.openSnackBar(result.message , 'ok');
+
        this.ngOnInit();
     });
   }
@@ -56,7 +62,16 @@ export class TrashComponent implements OnInit {
        console.log(result);
        this.notes=result.data;
        console.log(this.notes);
+      this.openSnackBar(result.message , 'ok');
+
        this.ngOnInit();
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
     });
   }
 }

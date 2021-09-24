@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CollaboratorserviceService } from 'src/app/Service/CollaboratorService/collaboratorservice.service';
 
 @Component({
@@ -16,7 +18,8 @@ export class AddCollaboratorComponent implements OnInit {
   constructor(  
     public dialogRef: MatDialogRef<AddCollaboratorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private collaboratorservice:CollaboratorserviceService
+    private collaboratorservice:CollaboratorserviceService,
+    private snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -41,9 +44,20 @@ export class AddCollaboratorComponent implements OnInit {
     .subscribe((result : any)=>
     {
        console.log(result);
-    this.ngOnInit();
+      this.openSnackBar(result.message , 'ok');
+       this.ngOnInit();
       this.data.email="";
-    });
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ });
   }
   Removecollaborator(col:any)
   {
@@ -51,8 +65,26 @@ export class AddCollaboratorComponent implements OnInit {
     this.collaboratorservice.RemoveCollaborator(col.colId).subscribe((result:any)=>
     {
       console.log(result);
+      this.openSnackBar(result.message , 'ok');
       this.ngOnInit();
-    });
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ });
   
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
+    });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class UpdateNoteComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<UpdateNoteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private NoteService:NoteServiceService
+    private NoteService:NoteServiceService,
+    private snackBar: MatSnackBar
     ) { }
   ngOnInit(): void {
   }
@@ -34,5 +36,12 @@ export class UpdateNoteComponent implements OnInit {
     textArea.style.overflow = 'hidden';
     textArea.style.height = '0px';
     textArea.style.height = textArea.scrollHeight + 'px';
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
+    });
   }
 }

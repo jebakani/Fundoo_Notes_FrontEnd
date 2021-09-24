@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
+import { EditLabelComponent } from '../edit-label/edit-label.component';
 
 @Component({
   selector: 'app-dash-board',
@@ -18,9 +21,12 @@ export class DashBoardComponent implements OnInit {
   opened=true;
   noteLabel:any;
   isExpanded=false;
+  name: any;
   constructor(
     private router: Router,
-    private labelService:LabelserviceService
+    private labelService:LabelserviceService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) { }
   
   ngOnInit(): void {
@@ -35,7 +41,13 @@ export class DashBoardComponent implements OnInit {
     localStorage.removeItem('UserDataFundoo');
     this.router.navigateByUrl('/login');
   }
-
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
+    });
+  }
   GetLabel()
   {
     this.labelService.getAlllabel().subscribe(
@@ -56,5 +68,15 @@ export class DashBoardComponent implements OnInit {
      {
        this.icon="view_list";
      }
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(EditLabelComponent, {
+      width: '450px',
+      height: 'auto',
+      data: {
+            labels:this.labels,
+            name:this.name
+          }
+    });
   }
 }

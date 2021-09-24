@@ -1,13 +1,13 @@
 
 <div class="notes">
-    <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}">
-            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;">
+    <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}" >
+            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
         <div>
-           <div class="titlebar" > <mat-card-title class="title">
+           <div class="titlebar" > <mat-card-title class="title" (click)="openNoteDialog(note)">
                 {{note.title}}
             </mat-card-title>
         </div>
-        <div class="desc">
+        <div class="desc" (click)="openNoteDialog(note)">
                 {{note.description}}
             </div>
         </div>

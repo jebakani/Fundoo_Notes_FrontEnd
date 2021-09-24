@@ -34,4 +34,44 @@ return this.httpService.get(`${environment.baseurl}/api/GetLabelByNoteId?noteId=
   headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
 });
 }
+ DeleteLabel(labelid:number)
+ {
+  var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+
+  return this.httpService.delete(`${environment.baseurl}/api/DeleteLabel?labelid=${labelid}&userid=${user}`,true,
+  {
+    headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+  });
+ }
+ UpdateLabel(label:any)
+ {
+  var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+   
+    var param=
+    {
+      LabelName:label.labelName,
+      UserId:user,
+      NoteId:label.noteId
+    }
+    
+  return this.httpService.put(`${environment.baseurl}/api/UpdateLabel`,param,true,
+  {
+    headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+  });
+ }
+ create(label:any)
+ {
+  var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+   
+    var param=
+    {
+      LabelName:label,
+      UserId:user
+    }
+    
+  return this.httpService.post(`${environment.baseurl}/api/CreateLabel`,param,true,
+  {
+    headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+  });
+ }
 }

@@ -37,6 +37,8 @@ import { TrashComponent } from './Components/trash/trash.component';
 import { GetNotesForLabelComponent } from './Components/get-notes-for-label/get-notes-for-label.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { EditLabelComponent } from './Components/edit-label/edit-label.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +55,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     GetRemainderComponent,
     UpdateNoteComponent,
     TrashComponent,
-    GetNotesForLabelComponent
+    GetNotesForLabelComponent,
+    EditLabelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
