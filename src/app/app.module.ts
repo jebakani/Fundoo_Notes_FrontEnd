@@ -38,6 +38,7 @@ import { GetNotesForLabelComponent } from './Components/get-notes-for-label/get-
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { EditLabelComponent } from './Components/edit-label/edit-label.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { EditLabelComponent } from './Components/edit-label/edit-label.component
     MatDialogModule,
     MatChipsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTooltipModule
   ],
   providers: [
   ],
