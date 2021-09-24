@@ -54,9 +54,10 @@
         </div>
     </div>
 </mat-menu>
-<input class="ng-hide" id="input-file-id" type="file" name="image" accept="image/*" id="image" style="display:none;" />
-<mat-icon class="icon material-icons-outlined" matTooltip="add image" (click)="image=true">portrait</mat-icon>
-
+<label for="image">
+<input type="file" name="image"  accept="image/*" id="image" style="display:none;"  (change)="onFileChanged($event)"/>
+<mat-icon class="icon material-icons-outlined" matTooltip="add image">portrait</mat-icon>
+</label>
 <mat-icon class="icon material-icons-outlined" matTooltip="archive" *ngIf="!isArchive" (click)="isArchive=true ;setArchive()">archive
 </mat-icon>
 <mat-icon class="material-icons icon" *ngIf="isArchive" matTooltip="Unarchive" (click)="isArchive=false;setArchive()">archive</mat-icon>

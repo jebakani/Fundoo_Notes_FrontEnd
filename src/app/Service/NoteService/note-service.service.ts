@@ -127,7 +127,8 @@ export class NoteServiceService {
   }
   AddImage(noteId:number,image:any)
   {
-    return this.httpService.post(`${environment.baseurl}/api/AddImage?noteId=${noteId}`,image,true,
+    console.log("Image:"+image);
+    return this.httpService.put(`${environment.baseurl}/api/AddImage?noteId=${noteId}`,image,true,
     {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });

@@ -17,7 +17,8 @@ export class IconsComponent implements OnInit {
   notecolor='#fafafa';
   isArchive:any;
   image=false;
-  file!: File ;
+  file: any;
+  ;
   dateAndTime!:string;
   public date = new Date();
   pickers:boolean=false;
@@ -153,9 +154,26 @@ export class IconsComponent implements OnInit {
  });
   }
   onFileChanged(event:any) {
-    this.file = event.target.files[0];
+    var files: File = event.target.files.item(0);
+    var reader = new FileReader();
+    reader.readAsDataURL(files);
+    reader.onload =(event:any)=>{
+      this.image = event.target.result;
+    console.log(files);
+     const formData = new FormData();
+      formData.append('image', files,files.name);
+      console.log(formData);
+      this.file = formData;
+      this.AddImage();
+  }
+    
+  }
+  AddImage()
+  {
     this.noteService.AddImage(this.note.notesId,this.file).
-    subscribe((result:any)=>{});
+    subscribe((result:any)=>{
+      console.log(result);
+    });
   }
   
   openSnackBar(message: string, action: string) {
