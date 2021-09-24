@@ -21,21 +21,28 @@
         <mat-icon class="toolbaricon">account_circle</mat-icon>
       </button>
       <mat-menu #menu="matMenu" class="menubar">
+        <div class="userData">
         <div class="menuicon">
-          <mat-icon class="toolbaricon menuicon" style="font-size: 12ex !important;">account_circle</mat-icon>
+          <img src="../assets/dashboard/person.png" class="profilepic">
         </div>
         <div class="user">
           <p class="account Name">{{userName}}</p>
           <p class="account mail">{{email}}</p>
         </div>
-        <button mat-flat-button color="primary" (click)="LogOut()">Log In</button>
+      </div>
+      <div class="logout">
+        <div></div>
+        <div class="logoutbuttondiv">
+        <button mat-flat-button color="primary" class="logoutbutton"(click)="LogOut()">Log In</button>
+      </div>
+      </div>
       </mat-menu>
     </mat-toolbar>
   </div>
   <mat-divider></mat-divider>  
   <div>
-    <mat-drawer-container class="maincontainer" autosize>
-      <mat-drawer #drawer mode="side" disableClose="true" opened="true" autosize>
+    <mat-sidenav-container class="maincontainer" autosize>
+      <mat-sidenav #drawer mode="side"  class="sideNavmain"  disableClose="true" opened="true" autosize>
         <mat-nav-list class="sideNav" (mouseover)="isExpanded==false? isExpanded=!isExpanded : ' ' ;value='side'">
           <mat-list-item class="listItem" (click)="getnotes='Notes'" >
               <mat-icon class="toolbaricon" >lightbulb</mat-icon>
@@ -62,8 +69,8 @@
               <mat-label  class="navLabel" *ngIf="isExpanded" (click)="getnotes='Trash'">Trash</mat-label>
           </mat-list-item>
         </mat-nav-list>
-      </mat-drawer>
-      <mat-drawer-content >
+      </mat-sidenav>
+      <mat-sidenav-content style="background-color: white;" >
         <div class="createnotediv" align="center" *ngIf='getnotes!="Trash"'> 
            <app-create-note class="notes" ></app-create-note>
       </div>
@@ -74,7 +81,7 @@
         <app-trash class="getnotes" *ngIf="getnotes=='Trash'"></app-trash>
         <app-get-notes-for-label *ngIf="getnotes=='labelcheck'" [labels]="noteLabel" ></app-get-notes-for-label>
       </div>
-      </mat-drawer-content>
-    </mat-drawer-container>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
 </div>

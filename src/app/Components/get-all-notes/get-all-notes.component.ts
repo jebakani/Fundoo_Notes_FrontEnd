@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -48,7 +49,7 @@ export class GetAllNotesComponent implements OnInit {
   openNoteDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateNoteComponent, {
       width: '40%',
-      height:'30%',
+      height:'auto',
       data: { note  },
       panelClass: 'my-custom-dialog-class'
     });
@@ -65,5 +66,26 @@ export class GetAllNotesComponent implements OnInit {
       console.log(result);
       return result
     })
+  }
+
+  pinNote(notesId:number)
+  {
+    this.NoteService.pinNotes(notesId).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+      this.openSnackBar(result.message , 'ok');
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ })
+    this.ngOnInit();
   }
 }

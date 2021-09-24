@@ -1,17 +1,24 @@
-<mat-card class="updateMode mainContainer" [ngStyle]="{'background':data.note.color}">
-       
-        <div class="titlebar">
-        <input id="titlefield" [ngStyle]="{'background':data.note.color}" matInput [(ngModel)]="data.note.title" class=" inputfield Title" placeholder="Title" value="{{data.title}}" > 
+<div class="updateNote">
+    <div class="updateMode mainContainer" [ngStyle]="{'background':data.note.color}">
+       <div class="titlebar">
+             <input id="titlefield" [ngStyle]="{'background':data.note.color}" matInput [(ngModel)]="data.note.title" class=" inputfield Title" placeholder="Title" value="{{data.title}}" > 
        </div>
-        <textarea id="desfield" [ngStyle]="{'background':data.note.color}" matInput  class="inputfield Note" [(ngModel)]="data.note.description" placeholder="Take a note .." id="textarea"
+        <div class="describtion">
+            <textarea id="desfield" [ngStyle]="{'background':data.note.color}" matInput  class="inputfield Note" [(ngModel)]="data.note.description" placeholder="Take a note .." id="textarea"
             (keyup)="autogrow()"></textarea>
-        <div class="toolbarinNote">
+       </div>
+       <div>
+
+       </div>
+    </div>
+    <div class="footerbar">
+        <div class="toolbarinNotes">
             <div class="CreateIconList">
                <app-icons [note]="data.note"></app-icons>
             </div>
+    </div>
+
             <div>
                 <button  [ngStyle]="{'background':data.note.color}" mat-flat-button class="closebutton " (click)='updateNote();onNoClick()'>close</button>                
             </div>
-        </div>
-   
-</mat-card>
+</div>

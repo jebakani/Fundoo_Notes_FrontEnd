@@ -16,8 +16,15 @@
   }
   .editLabel
   {
-    display: flex;
-    flex-direction: column;
+    background-color: #fff;
+    border-radius: 1px;
+    overflow-y: auto;
+    padding: 0;
+    width: 300px;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+    position: fixed;
+    z-index: 5001;
   }
  .flextextfield
  {
@@ -27,4 +34,10 @@
  {
      cursor: pointer;
 
+ }
+ .maincontaineredit
+ {
+    max-height: 392px;
+    overflow-y: auto;
+    padding: 15px;
  }

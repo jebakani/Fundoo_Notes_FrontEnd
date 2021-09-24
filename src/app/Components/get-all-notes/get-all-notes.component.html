@@ -2,8 +2,7 @@
     <div class="labelnote">pinned</div>
     <div class="notes" *ngFor="let note of notes">
         <mat-card class="getNotesMat" *ngIf="note.pin" [ngStyle]="{'background':note.color}">
-             <mat-icon class="pinicon">push_pin</mat-icon>
-
+             <mat-icon class="pinicon " *ngIf="note.pin" (click)="pinNote(note.notesId)">push_pin</mat-icon>
             <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
             <div (click)="openNoteDialog(note)">
                 <div class="titlebar">
@@ -23,7 +22,7 @@
     <div class="labelnote">others</div>
     <div class="notes">
         <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}">
-        <mat-icon class="pinicon">push_pin</mat-icon>
+        <mat-icon class="pinicon material-icons-outlined" (click)="pinNote(note.notesId)">push_pin</mat-icon>
             <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
             <div (click)="openNoteDialog(note)">
                 <div class="titlebar">

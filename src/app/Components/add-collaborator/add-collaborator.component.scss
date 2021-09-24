@@ -1,61 +1,88 @@
-.ownerfield
+.collaboratorMain
 {
+    box-sizing: border-box;
+    left: 0;
+    max-height: 400px;
+    min-height: 150px;
+    overflow-y: auto;
+}
+.collaboratorcontainer
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+  .colaboratorheader
+  {
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    font-size: 18px;
+    font-weight: 500;
+    height: 25px;
+    padding: 0 0 10px 0;
+  }
+  .existingcollaborator
+  {
+    align-items: center;
     display: flex;
-    flex-direction: row;
-    .icon
-    {
-       font-size:30px
+    padding: 5px;
+  }
+  .addpersonIcon
+  {
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px 1px rgb(60 64 67 / 15%);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+  }
+  .labelName
+  {
+    flex: 1 0 auto;
+    margin: 0 13px;
+  }
+  .name
+  {
+    font-size: 13px; 
+  }
+  .namehead
+  {
+    font-weight: 700;
+  }
+  .suffix
+  {
+    font-style: italic;
+    margin-left: 5px;
+  }
+  .subheader
+  {
+    color: #5f6368;
+  }
+ .personicon
+ {
+    font-size: 27px;
+    padding: 3px;
+ }
+.inputcola
+{
+    width: auto;
+}
+.buttondiv
+{
+    background-color: rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 15px;
+}
+.topcontainer
+{
+    padding: 15px 15px 0;
+}
+::ng-deep .custom-col-dialogue {
+    mat-dialog-container {
+      padding: 0;
+    border-radius: 10px;
+
     }
-}
-.ownerdata
-{
-display: flex;
-flex-direction: column;
-margin-left: 20px;
-.name
-{
-    font-weight: bold;
-    text-transform: capitalize;
-}
-margin-bottom: 10px;
-}
-.collaboratorinput
-{
-    width: 90%;
-    outline: none;
-    font-size: 20px;
-    margin-left: 10px;
-    border: 0px;
-    margin-top: 5px;
-}
-.cdk-overlay-pane{
-    width: unset !important;
-    height: unset !important;
-    max-width: 100% !important;
-  }
-  
-  .mat-dialog-container{
-    max-width: 100%;
-    max-height: 100% !important;
-    resize: both;
-  }
-  .button
-  {
-      margin-top:7ex;
-      justify-content: flex-end;
-  }
-  .collaboratorfield
-  {
-      margin-bottom: 10px;
-  }
-  .save
-  {
-      font-size: 20px;
-      margin-top: 7px;
-      cursor: pointer;
-  }
-  .colaboratorname
-  {
-      font-size: 14px !important;
-      margin-left: 20px;
   }

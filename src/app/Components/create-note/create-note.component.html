@@ -10,8 +10,9 @@
 
 </div>
 </mat-card>
+
 <mat-card class=" createmode mainContainer" id="maincontainer" *ngIf="create" (click)="changeColor()" [ngStyle]="{'background': notecolor}" >
-    <form [formGroup]="NoteForm">
+   <div class="mainform"> <form [formGroup]="NoteForm">
        
         <div class="titlebar">
         <input matInput class=" inputfield Title" [ngStyle]="{'background': notecolor}" placeholder="Title" formControlName="title">
@@ -20,6 +21,9 @@
        </div>
         <textarea matInput formControlName="desc" [ngStyle]="{'background': notecolor}" class="inputfield Note" placeholder="Take a note .." id="textarea"
             (keyup)="autogrow()"></textarea>
+            
+        </form>
+    </div>
         <div class="toolbarinNotes">
             <div class="CreateIconList">
                <app-icons [create]="create" ></app-icons>
@@ -28,6 +32,5 @@
                 <button mat-flat-button class="closebutton " (click)='createNote();create=false'>close</button>                
             </div>
         </div>
-    </form>
-   
+  
 </mat-card>

@@ -44,11 +44,12 @@ export class IconsComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {
       width: '30%',
-      height:'40%',
+      height:'auto',
       data: {
             noteId:this.note.notesId,
             email: this.email
-          }
+          },
+      panelClass: 'custom-col-dialogue'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -153,15 +154,10 @@ export class IconsComponent implements OnInit {
   }
   onFileChanged(event:any) {
     this.file = event.target.files[0];
-    console.log(this.file);
-  }
-  Addfile()
-  {
-    const form=new FormData();
-    form.append('image',this.file,this.file.name);
-    this.noteService.AddImage(this.note.notesId,form).
+    this.noteService.AddImage(this.note.notesId,this.file).
     subscribe((result:any)=>{});
   }
+  
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 2000,
