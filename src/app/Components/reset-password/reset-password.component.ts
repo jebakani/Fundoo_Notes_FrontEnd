@@ -30,9 +30,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   ResetPasswords() {
-    var data = localStorage.getItem('forgetpassword');
-    if (data != null) {
-      var email = JSON.parse(data).email;
+      var email = JSON.parse( localStorage.getItem('forgetpassword')!).email;
       this.userService.ResetPasswords(email, this.ResetPassword.value)
         .subscribe((result: any) => {
           console.log(result);
@@ -51,7 +49,6 @@ export class ResetPasswordComponent implements OnInit {
             }
           }
         )
-    }
     localStorage.removeItem('forgetpassword');
   }
 

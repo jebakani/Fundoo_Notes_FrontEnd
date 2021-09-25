@@ -1,0 +1,24 @@
+<div class="updateNote" [ngStyle]="{'background': data.note.color}">
+    <div class="updateMode mainContainer" [ngStyle]="{'background':data.note.color}">
+       <div class="titlebar">
+             <input id="titlefield" [ngStyle]="{'background':data.note.color}" matInput [(ngModel)]="data.note.title" class=" inputfield Title" placeholder="Title" value="{{data.title}}" > 
+       </div>
+        <div class="describtion">
+            <textarea id="desfield" [ngStyle]="{'background':data.note.color}" matInput  class="inputfield Note" [(ngModel)]="data.note.description" placeholder="Take a note .." id="textarea"
+            (keyup)="autogrow()"></textarea>
+       </div>
+       <div>
+
+       </div>
+    </div>
+    <div class="footerbar" [ngStyle]="{'background': data.note.color}">
+        <div class="toolbarinNotes">
+            <div class="CreateIconList">
+               <app-icons [note]="data.note"></app-icons>
+            </div>
+    </div>
+
+            <div>
+                <button  [ngStyle]="{'background':data.note.color}" mat-flat-button class="closebutton " (click)='updateNote();onNoClick()'>close</button>                
+            </div>
+</div>

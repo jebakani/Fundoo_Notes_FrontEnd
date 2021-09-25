@@ -1,0 +1,49 @@
+<div class="topcontainer">
+  <div class="colaboratorheader" mat-dialog-title>Collaborator</div>
+  <div class="collaboratorMain"> 
+    <div class="collaboratorcontainer">
+      <div class="existingcollaborator">
+         <div class="addpersonIcon">
+          <span style="color: grey;"><mat-icon class="personicon">person_add</mat-icon></span>
+         </div>
+         <div class="labelName">
+             <div class="name">
+              <span class="namehead">{{ownername}}</span>
+              <span matSuffix class="suffix" >(owner)</span>
+            </div>
+               <div class="subheader">{{owner}}</div>
+         </div>
+      </div>
+      <div class="existingcollaborator" *ngFor="let colaborator of collaboratorList" >
+        <div class="addpersonIcon">
+          <span class="personicon " style="color: grey;"><mat-icon class="personicon">person_add</mat-icon></span>
+        </div>
+        <div class="labelName">
+          <div class="name" >
+            <span class="name colaboratorname collaboratorinput">{{colaborator.emailId}}</span>
+          </div>
+          </div>
+        <div>
+          <mat-icon class="save" (click)="Removecollaborator(colaborator)" >close</mat-icon>
+         </div>
+     </div>
+     <div class="existingcollaborator">
+      <div class="addpersonIcon">
+        <span  style="color: grey;"><mat-icon  class="personicon">person_add</mat-icon></span>
+      </div>
+      <div class="labelName inputcola">
+        <input class="colaboratorname collaboratorinput " matInput placeholder="person or email to share with" [(ngModel)]="data.email" >
+      </div>
+      <mat-icon class="save" *ngIf= "data.email" (click)="Addcollaborator()" >done</mat-icon>
+
+   </div>
+    </div>
+  </div> 
+</div>
+  <div class="buttondiv">
+      <div>
+        <button mat-button (click)="onNoClick()">close</button>
+        <button mat-button (click)="onNoClick()">save</button>
+      </div>
+  </div>
+

@@ -1,0 +1,90 @@
+.getNotesMat{
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    height: fit-content;
+    padding: 0px !important;
+    border-radius: 8px;
+
+}
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5ex;
+}
+.desc
+{
+    margin-bottom: 10px;
+    margin-top: 2ex;
+    margin-left: 10px;
+    font-size:16px ;
+   
+}
+.titlebar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+
+    .pinicon
+    {
+        cursor: pointer;
+    }
+}
+.pinicon
+{
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    cursor: pointer;
+}
+.iconDiv
+{
+    align-items: center;
+    color: rgba(0,0,0, 0.54 );
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 12px;
+    line-height: 26px;
+    margin: 4px 4px;
+    position: relative;
+    transition: background-color 0.218s ease-in-out,box-shadow 0.218s ease-in-out;
+}
+.remainderchip
+{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+}
+.remaindercard
+{
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px transparent;
+    box-sizing: border-box;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+.remaindercontent
+{
+    display: flex;
+    align-items: center;
+    height: 18px;
+    justify-content: center;
+    min-width: 35px;
+    padding: 3px 5px;
+}
+.datacontent
+{
+    margin: 10px;
+}

@@ -1,0 +1,36 @@
+<mat-card class="  mainContainer createcard " *ngIf="!create" (click)="create=true"  >
+    <div>
+        <h2 class="basictext">Take a note ...</h2>
+      
+    </div>
+    <div >
+    <mat-icon class="icon" >check_box</mat-icon>
+    <mat-icon class="icon">brush</mat-icon>
+    <mat-icon class="icon">portrait</mat-icon>
+
+</div>
+</mat-card>
+
+<mat-card class=" createmode mainContainer" id="maincontainer" *ngIf="create" (click)="changeColor()" [ngStyle]="{'background': notecolor}" >
+   <div class="mainform"> <form [formGroup]="NoteForm">
+       
+        <div class="titlebar">
+        <input matInput class=" inputfield Title" [ngStyle]="{'background': notecolor}" placeholder="Title" formControlName="title">
+        <mat-icon  class="material-icons-outlined pinicon" *ngIf="!isPinned" (click)="isPinned=true" >push_pin</mat-icon>
+        <mat-icon  class="material-icons pinicon" *ngIf="isPinned"  (click)="isPinned=false" >push_pin</mat-icon>
+       </div>
+        <textarea matInput formControlName="desc" [ngStyle]="{'background': notecolor}" class="inputfield Note" placeholder="Take a note .." id="textarea"
+            (keyup)="autogrow()"></textarea>
+            
+        </form>
+    </div>
+        <div class="toolbarinNotes" [ngStyle]="{'background': notecolor}">
+            <div class="CreateIconList" >
+               <app-icons [create]="create" [ngStyle]="{'background': notecolor}"></app-icons>
+            </div>
+            <div>
+                <button mat-flat-button class="closebutton " (click)='createNote();create=false'>close</button>                
+            </div>
+        </div>
+  
+</mat-card>

@@ -3,6 +3,7 @@ import { jsDocComment } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors, FormControlDirective } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/Service/UserService/user-service.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   LoginForm!:FormGroup
   constructor(
     private userService:UserServiceService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private router: Router) { }
   hide=true;
   ngOnInit(): void {
     this.LoginForm=new FormGroup(
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
            Token:result.resultMassage
        }
        localStorage.setItem('UserDataFundoo',JSON.stringify(param));
-
+       this.router.navigateByUrl('/login');
     },
       (error:HttpErrorResponse) => { 
       if(!error.error.status){            

@@ -20,7 +20,25 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { DashBoardComponent } from './Components/dash-board/dash-board.component';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { CreateNoteComponent } from './Components/create-note/create-note.component';
+import { AddCollaboratorComponent } from './Components/add-collaborator/add-collaborator.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { IconsComponent } from './Components/icons/icons.component';
+import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { GetArchiveComponent } from './Components/get-archive/get-archive.component';
+import { GetRemainderComponent } from './Components/get-remainder/get-remainder.component';
+import { UpdateNoteComponent } from './Components/update-note/update-note.component';
+import { TrashComponent } from './Components/trash/trash.component';
+import { GetNotesForLabelComponent } from './Components/get-notes-for-label/get-notes-for-label.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { EditLabelComponent } from './Components/edit-label/edit-label.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -29,10 +47,20 @@ import { DashBoardComponent } from './Components/dash-board/dash-board.component
     LoginComponent,
     ResetPasswordComponent,
     ForgetPasswordComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    CreateNoteComponent,
+    AddCollaboratorComponent,
+    IconsComponent,
+    GetAllNotesComponent,
+    GetArchiveComponent,
+    GetRemainderComponent,
+    UpdateNoteComponent,
+    TrashComponent,
+    GetNotesForLabelComponent,
+    EditLabelComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -46,7 +74,16 @@ import { DashBoardComponent } from './Components/dash-board/dash-board.component
     MatSnackBarModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
+    MatDialogModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTooltipModule
   ],
   providers: [
   ],

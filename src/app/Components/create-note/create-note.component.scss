@@ -1,0 +1,78 @@
+.mainContainer
+{
+    width: 40%;
+    min-width: fit-content;
+    display: flex;
+    border-radius: 10px;
+    flex-flow: column wrap;
+   
+    height: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+.createcard
+{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    color: grey;
+    .icon
+    {
+        margin-right: 5px;
+    }
+    h2
+    {
+        font-size: 16px;
+    }
+}
+.titlebar
+{
+    display: flex;
+    flex-direction: row;
+    .pinicon
+    {
+        cursor: pointer;
+    }
+}
+
+.createmode
+{
+    opacity: 1;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #fff;
+    border-color: #e0e0e0;
+    height: auto;
+}
+.mainform
+{
+    max-height: 600px;
+    overflow-y: auto;
+    min-height: 60px;
+}
+.inputfield
+{
+    width: 100%;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+    margin-bottom: 10px;
+    text-align: start;
+}
+.Note
+{
+    resize: none;
+    
+}
+.toolbarinNotes
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.basictext
+{
+    margin-top: -6px;
+}

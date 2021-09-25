@@ -1,3 +1,183 @@
 .example-spacer {
+    display: flex;
+    justify-content: space-around;
     flex: 1 1 auto;
+     
   }
+  ::ng-deep .mat-preffix
+{
+    position: unset !important;
+}
+.userData
+{
+  
+  margin: 20px 33px;
+
+}
+.toolbar
+{
+  box-shadow: grey;
+}
+.searchcard
+{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px !important;
+  width:55%;
+}
+.searchinput
+{
+  outline: none;
+  border: 0px;
+  width: 100%;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-top: 3px;
+}
+ .material-icons
+{
+  font-size: 26px !important;
+}
+.toolbaricon
+{
+  font-size: 30px !important;
+}
+.righticon
+{
+  margin-right: 15px;
+}
+.maincontainer {
+  
+  height: 100ex;
+  border: 0px solid #555;
+}
+
+.sideNav
+{
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+  .navLabel
+  {
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: grey;
+    line-height: 1.25rem;
+    margin-top: 6px;
+    margin-left: 2ex;
+    margin-right: 7ex;
+    flex: 1 0 auto;
+ }
+}
+.listItem
+{
+  margin-bottom: 13px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  
+}
+::ng-deep .mat-menu-content
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2ex ;
+}
+@mixin  logmenu {
+  margin-bottom: 10px;
+  position: relative;
+  height: 86px;
+  display: flex;
+  justify-content: center;
+}
+.menuicon
+{
+  @include logmenu();
+
+}
+.profilepic
+{
+  border: none;
+  margin-right: 6px;
+  vertical-align: top;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.user
+{
+  display: block;
+  text-align: center; 
+   .Name
+  {
+    color: #202124;
+    font: 500 20px/22px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    letter-spacing: 0.29px;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+  
+  .mail
+  {
+    color: #5f6368;
+    font: 400 16px/19px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    letter-spacing: normal;
+  }
+}
+.logout
+{
+  border-top: 1px solid #8c939e;
+}
+.logoutbuttondiv
+{
+  border-top: 1px solid #e8eaed;
+  padding: 0 17px;
+  text-align: center;
+}
+.logoutbutton
+{
+  background-color: #ffffff;
+  color: #202124;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  display: inline-block;
+  font: 500 14px/16px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  letter-spacing: .15px;
+  margin: 16px;
+  outline: 0;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.createnotediv
+{
+  margin: 32px auto 16px auto;
+    position: relative;
+}
+
+.noteContain
+{
+  background-color: transparent;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.sideNavmain
+{
+  border: none;
+}
+::ng-deep .mat-drawer-content
+{
+  overflow: none ;
+}
+.dashboard
+{
+  height:100%;
+  overflow: auto;
+}
+mat-list-option[aria-selected="true"] {
+  background: rgba(0, 139, 139, 0.7);
+}
