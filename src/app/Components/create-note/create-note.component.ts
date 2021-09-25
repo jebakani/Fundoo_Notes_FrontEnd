@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCollaboratorComponent } from '../add-collaborator/add-collaborator.component';
 import { IconsComponent } from '../icons/icons.component';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 
 @Component({
   selector: 'app-create-note',
@@ -26,6 +27,8 @@ export class CreateNoteComponent implements OnInit {
     private noteService:NoteServiceService,
     private snackBar: MatSnackBar,
     public dialog: MatDialog,
+    private statusdata: DataSharingService
+
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +43,7 @@ changeColor()
 {
   var card=document.getElementById('maincontainer');
   this.notecolor=this.icon.notecolor;
+
 }
   createNote()
   {
@@ -48,7 +52,8 @@ changeColor()
       desc :this.NoteForm.value.desc,
       archive:this.icon.isArchive,
       pin:this.isPinned,
-      color:this.icon.notecolor
+      color:this.icon.notecolor,
+      remainder:this.icon.remainder
     }
     console.log(data.archive);
     console.log(data.color);
@@ -57,7 +62,9 @@ changeColor()
   this.openSnackBar(result.message , '');
   console.log(result);
   this.NoteForm.reset();
-  this.create=false
+  this.create=false;
+  this.statusdata.changeStatus(true);
+
   }
   );
   }

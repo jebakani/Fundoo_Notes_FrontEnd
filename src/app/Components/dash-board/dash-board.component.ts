@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 import { EditLabelComponent } from '../edit-label/edit-label.component';
 
@@ -26,7 +27,9 @@ export class DashBoardComponent implements OnInit {
     private router: Router,
     private labelService:LabelserviceService,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private statusdata: DataSharingService
+
   ) { }
   
   ngOnInit(): void {
@@ -35,6 +38,15 @@ export class DashBoardComponent implements OnInit {
     this.email=JSON.parse(data).Email;
     this.userName=JSON.parse(data).FirstName+ " " +JSON.parse(data).LastName;
     this.GetLabel();
+
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status)
+      {
+        this.statusdata.changeStatus(false);
+        this.GetLabel();
+      }
+    })
   }
   LogOut()
   {

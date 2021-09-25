@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
@@ -19,16 +20,29 @@ export class GetNotesForLabelComponent implements OnInit {
     private labelService:LabelserviceService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private NoteService:NoteServiceService
+    private NoteService:NoteServiceService,
+    private statusdata:DataSharingService
+
   ) { }
 
   ngOnInit(): void {
-    console.log(this.labels)
+    console.log(this.labels);
     this.getLabel();
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status)
+      {
+        console.log(this.labels)
+        this.statusdata.changeStatus(false);
+        this.getLabel();
+      }
+    })
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 2000
+      duration: 2000,
+      verticalPosition:'bottom',
+      horizontalPosition:'start',
     });
   }
   getLabel()
@@ -37,7 +51,7 @@ export class GetNotesForLabelComponent implements OnInit {
     this.labelService.getLabelNotes(this.labels.labelId)
     .subscribe((result : any)=>
     {
-       console.log(result);
+       console.log("label notes:"+result);
        this.notes=result.data;
        console.log(this.notes);
     });
@@ -61,6 +75,7 @@ export class GetNotesForLabelComponent implements OnInit {
     {
       console.log(result);
       this.openSnackBar(result.message , 'ok');
+      this.statusdata.changeStatus(true);
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            
@@ -73,5 +88,27 @@ export class GetNotesForLabelComponent implements OnInit {
     
  })
     this.ngOnInit();
+  }
+
+  pinNote(notesId:number)
+  {
+    this.NoteService.pinNotes(notesId).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+      this.openSnackBar(result.message , 'ok');
+      this.statusdata.changeStatus(true);
+
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ })
   }
 }

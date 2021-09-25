@@ -1,9 +1,10 @@
 
     <div class="labelnote">pinned</div>
-    <div class="notes" *ngFor="let note of notes">
+    <div class="notes">
+    <div  *ngFor="let note of notes">
         <mat-card class="getNotesMat" *ngIf="note.pin" [ngStyle]="{'background':note.color}">
              <mat-icon class="pinicon " *ngIf="note.pin" (click)="pinNote(note.notesId)">push_pin</mat-icon>
-            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
+            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;border-top-right-radius: 8px;border-top-left-radius:8px ;" (click)="openNoteDialog(note)">
             <div (click)="openNoteDialog(note)" class="datacontent">
                 <div class="titlebar">
                     <mat-card-title class="title">
@@ -28,14 +29,14 @@
             </div>
         </mat-card>
     </div>
-
+</div>
     <div class="labelnote">others</div>
     <div class="notes">
         <div  *ngFor="let note of notes" >
         <mat-card class="getNotesMat" *ngIf="!note.pin" [ngStyle]="{'background':note.color}">
            <mat-icon class="pinicon material-icons-outlined" (click)="pinNote(note.notesId)">push_pin</mat-icon>
            <div class="floticon"></div>
-           <img src='{{note.image}}' alt='' style="margin-bottom: 10px;" (click)="openNoteDialog(note)">
+           <img src='{{note.image}}' alt='' style="margin-bottom: 10px;border-top-right-radius: 8px;border-top-left-radius:8px ;" (click)="openNoteDialog(note)">
             <div (click)="openNoteDialog(note)" class="datacontent">
                 <div class="titlebar">
                     <mat-card-title class="title">

@@ -3,6 +3,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
@@ -22,11 +23,23 @@ export class GetAllNotesComponent implements OnInit {
     private NoteService:NoteServiceService,
     public dialog: MatDialog,
     private labelService:LabelserviceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private statusdata:DataSharingService
+
   ) { }
 
   ngOnInit(): void {
     this.getNotes();
+
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status==true)
+      {
+         this.getNotes();
+         this.statusdata.changeStatus(false);
+      }
+      
+    });
   }
 
   openSnackBar(message: string, action: string) {
@@ -64,6 +77,7 @@ export class GetAllNotesComponent implements OnInit {
     subscribe((result:any)=>
     {
       this.labels=result;
+      return this.labels;
     })
   }
 
@@ -74,6 +88,7 @@ export class GetAllNotesComponent implements OnInit {
     {
       console.log(result);
       this.openSnackBar(result.message , 'ok');
+      this.statusdata.changeStatus(true);
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            
@@ -94,6 +109,7 @@ export class GetAllNotesComponent implements OnInit {
     {
       console.log(result);
       this.openSnackBar(result.message , 'ok');
+      this.statusdata.changeStatus(true);
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            

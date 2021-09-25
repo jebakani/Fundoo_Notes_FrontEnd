@@ -6,6 +6,7 @@
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
     height: fit-content;
     padding: 0px !important;
+    border-radius: 8px;
 }
 .notes {
     display: flex;
@@ -17,6 +18,7 @@
 {
     margin-bottom: 10px;
     margin-top: 2ex;
+    font-size:17px ;
     margin-left: 10px;
 }
 .titlebar
@@ -66,6 +68,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5px 10px;
+    margin-bottom: 10px;
 }
 .remaindercard
 {
@@ -79,6 +82,7 @@
     font-weight: 500;
     line-height: 1.25rem;
     position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.08);
 }
 .remaindercontent
 {

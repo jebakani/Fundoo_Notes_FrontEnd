@@ -6,6 +6,7 @@ import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 
 @Component({
   selector: 'app-icons',
@@ -31,13 +32,15 @@ export class IconsComponent implements OnInit {
     public dialog: MatDialog,
     private noteService:NoteServiceService,
     private snackBar: MatSnackBar,
-    private labelService:LabelserviceService
+    private labelService:LabelserviceService,
+    private statusdata: DataSharingService
+
   ) { }
   @Input() create!:any;
  @Input() note:any;
  id!:number;
   ngOnInit(): void {
-
+   console.log(this.note);
     if(this.create)
     {
        this.isArchive=false;
@@ -47,6 +50,13 @@ export class IconsComponent implements OnInit {
       this.isArchive=this.note.archieve;
     }
     this.GetLabel();
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status)
+      {
+        this.statusdata.changeStatus(false);
+      }
+    });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCollaboratorComponent, {
@@ -95,6 +105,8 @@ export class IconsComponent implements OnInit {
     this.noteService.setArchive(this.note.notesId).subscribe((result : any) =>{
         console.log(result)
         this.openSnackBar(result.message , 'ok');
+        this.statusdata.changeStatus(true);
+
       });
         
     }
@@ -103,10 +115,14 @@ export class IconsComponent implements OnInit {
       this.noteService.unarchive(this.note.notesId).subscribe((result : any) =>{
         console.log(result)
         this.openSnackBar(result.message , 'ok');
+        this.statusdata.changeStatus(true);
+
       },
       (error:HttpErrorResponse) => { 
       if(!error.error.status){            
          this.openSnackBar(error.error.message , '');
+         this.statusdata.changeStatus(true);
+
       }
       else
       {
@@ -121,24 +137,26 @@ export class IconsComponent implements OnInit {
     if(this.note==null)
     {
       this.notecolor=color;
-      console.log(this.notecolor)
+      console.log(this.notecolor);
+      this.statusdata.changeStatus(true);
     }
     else
     {
     console.log(this.note,color)
     this.noteService.colorNote(this.note.notesId,color).subscribe((result:any) =>{
       this.openSnackBar(result.message , 'ok');
-    
+    this.statusdata.changeStatus(true);
+
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            
        this.openSnackBar(error.error.message , '');
+
     }
     else
     {
       this.openSnackBar('Unsuccessfull , Try again!' , '');
     }
-    
  });
   }
   }
@@ -147,14 +165,18 @@ export class IconsComponent implements OnInit {
     this.noteService.MoveToTrash(this.note.notesId).subscribe((result : any) =>{
       console.log(result)
       this.openSnackBar(result.message , 'ok');
+    this.statusdata.changeStatus(true);
+
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            
        this.openSnackBar(error.error.message , '');
+
     }
     else
     {
       this.openSnackBar('Unsuccessfull , Try again!' , '');
+
     }
     
  });
@@ -165,7 +187,7 @@ export class IconsComponent implements OnInit {
     reader.readAsDataURL(files);
     reader.onload =(event:any)=>{
       this.image = event.target.result;
-    console.log(files);
+      console.log(files);
      const formData = new FormData();
       formData.append('image', files,files.name);
       console.log(formData);
@@ -176,9 +198,11 @@ export class IconsComponent implements OnInit {
   }
   AddImage()
   {
+    console.log(this.note)
     this.noteService.AddImage(this.note.notesId,this.file).
     subscribe((result:any)=>{
-      console.log(result);
+    console.log(result);
+    this.statusdata.changeStatus(true);
     });
   }
   
@@ -194,12 +218,16 @@ export class IconsComponent implements OnInit {
      if(this.note==null)
      {
          this.remainder=remainderstr;
+         this.statusdata.changeStatus(true);
+ 
      }
      else
      {
       this.noteService.AddRemainder(this.note.notesId,remainderstr).
       subscribe((result:any)=>{
         console.log(result);
+        this.statusdata.changeStatus(true);
+
       });
      }
   }
@@ -210,7 +238,6 @@ export class IconsComponent implements OnInit {
         console.log(result);
         this.labels=result.data;
         console.log(this.labels);
-
     })
   }
   addlabel(label:any)
@@ -220,6 +247,8 @@ export class IconsComponent implements OnInit {
         console.log(result);
     });
     this.labelname="";
+    this.statusdata.changeStatus(true);
+
   }
   addExistinglabellabel(label:any)
   {
@@ -228,5 +257,7 @@ export class IconsComponent implements OnInit {
         console.log(result);
     });
     this.labelname="";
+    this.statusdata.changeStatus(true);
+
   }
 }

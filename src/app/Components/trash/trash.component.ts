@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 
 @Component({
@@ -11,11 +12,20 @@ export class TrashComponent implements OnInit {
   notes!:any;
   constructor(
     private NoteService:NoteServiceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private statusdata: DataSharingService
+
   ) { }
 
   ngOnInit(): void {
     this.getTrash();
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status)
+      {
+        this.statusdata.changeStatus(false);
+      }
+    })
   }
 
   getTrash()
@@ -27,6 +37,7 @@ export class TrashComponent implements OnInit {
        this.notes=result.data;
        console.log(this.notes);
    });
+
   }
   EmptyTrash()
   {
@@ -37,7 +48,8 @@ export class TrashComponent implements OnInit {
        this.notes=result.data;
        console.log(this.notes);
       this.openSnackBar(result.message , 'ok');
-
+      this.statusdata.changeStatus(true);
+       
        this.ngOnInit();
     });
   }
@@ -50,7 +62,7 @@ export class TrashComponent implements OnInit {
        this.notes=result.data;
        console.log(this.notes);
       this.openSnackBar(result.message , 'ok');
-
+      this.statusdata.changeStatus(true);
        this.ngOnInit();
     });
   }
@@ -63,7 +75,7 @@ export class TrashComponent implements OnInit {
        this.notes=result.data;
        console.log(this.notes);
       this.openSnackBar(result.message , 'ok');
-
+      this.statusdata.changeStatus(true);
        this.ngOnInit();
     });
   }

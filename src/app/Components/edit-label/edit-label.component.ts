@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 import { LabelserviceService } from 'src/app/Service/LabelService/labelservice.service';
 
 @Component({
@@ -15,11 +16,20 @@ export class EditLabelComponent implements OnInit {
     public dialogRef: MatDialogRef<EditLabelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private labelService:LabelserviceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private statusdata:DataSharingService
+
   ) { }
 
   ngOnInit(): void {
     console.log(this.data.labels)
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status==true)
+      {
+        this.statusdata.changeStatus(false);
+      }
+    })
     
   }
   openSnackBar(message: string, action: string) {
@@ -36,6 +46,7 @@ export class EditLabelComponent implements OnInit {
      {
        console.log(result);
      });
+     this.statusdata.changeStatus(true);
      this.ngOnInit();
   }
   onClickCreateLabel(label:any)
@@ -45,7 +56,9 @@ export class EditLabelComponent implements OnInit {
     {
       console.log(result);
     });
-     this.data.name=""
+     this.data.name="";
+     this.statusdata.changeStatus(true);
+
   }
   onNoClick(): void {
     if(this.data.name!=null)
@@ -61,5 +74,6 @@ export class EditLabelComponent implements OnInit {
     {
       console.log(result);
     });
+    this.statusdata.changeStatus(true);
   }
 }

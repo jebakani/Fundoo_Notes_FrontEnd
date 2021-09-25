@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 import { NoteServiceService } from 'src/app/Service/NoteService/note-service.service';
 
 @Component({
@@ -14,9 +15,18 @@ export class UpdateNoteComponent implements OnInit {
     public dialogRef: MatDialogRef<UpdateNoteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private NoteService:NoteServiceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private statusdata: DataSharingService
+
     ) { }
   ngOnInit(): void {
+    this.statusdata.currentStatus.subscribe((status: boolean) => 
+    {
+      if(status)
+      {
+        this.statusdata.changeStatus(false);
+      }
+    })
   }
   updateNote()
   {

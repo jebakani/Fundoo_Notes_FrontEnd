@@ -163,6 +163,7 @@
 {
   background-color: transparent;
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 .sideNavmain
 {
@@ -175,5 +176,8 @@
 .dashboard
 {
   height:100%;
-  overflow: hidden;
+  overflow: auto;
+}
+mat-list-option[aria-selected="true"] {
+  background: rgba(0, 139, 139, 0.7);
 }

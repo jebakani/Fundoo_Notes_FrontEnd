@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CollaboratorserviceService } from 'src/app/Service/CollaboratorService/collaboratorservice.service';
+import { DataSharingService } from 'src/app/Service/DatsSharingService/data-sharing.service';
 
 @Component({
   selector: 'app-add-collaborator',
@@ -15,15 +16,26 @@ export class AddCollaboratorComponent implements OnInit {
   owner=this.data1.Email;
   ownername=this.data1.FirstName+" "+this.data1.LastName;
   collaboratorList:any;
+  status!:boolean
   constructor(  
     public dialogRef: MatDialogRef<AddCollaboratorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private collaboratorservice:CollaboratorserviceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private statusdata: DataSharingService
     ) { }
-
+  
   ngOnInit(): void {
-    this.getCollaborator(this.data)
+    this.getCollaborator(this.data);
+
+    this.statusdata.currentStatus.subscribe((status:boolean) => 
+    {
+      if(status)
+      {
+        this.statusdata.changeStatus(false);
+        this.getCollaborator(this.data);
+      }
+    })
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -40,13 +52,17 @@ export class AddCollaboratorComponent implements OnInit {
   }
   Addcollaborator()
   {
+    if(this.data.notesId==null)
+    {
+       
+    }
     this.collaboratorservice.AddCollaborator(this.data)
     .subscribe((result : any)=>
     {
        console.log(result);
       this.openSnackBar(result.message , 'ok');
-       this.ngOnInit();
       this.data.email="";
+      this.statusdata.changeStatus(result.status);
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            
@@ -66,11 +82,12 @@ export class AddCollaboratorComponent implements OnInit {
     {
       console.log(result);
       this.openSnackBar(result.message , 'ok');
-      this.ngOnInit();
+      this.statusdata.changeStatus(result.status);
     },
     (error:HttpErrorResponse) => { 
     if(!error.error.status){            
-       this.openSnackBar(error.error.message , '');
+      this.statusdata.changeStatus(error.error.status);
+      this.openSnackBar(error.error.message , '');
     }
     else
     {

@@ -1,6 +1,6 @@
 <div class="iconcontainer">
 <div class="iconcontent">
-    <mat-icon class="icon" matTooltip="Remind me" [matMenuTriggerFor]="!pickers? remaindermenu:datepicker ">add_alert
+    <mat-icon class="icon material-icons-outlined" matTooltip="Remind me" [matMenuTriggerFor]="!pickers? remaindermenu:datepicker ">add_alert
     </mat-icon>
 </div>
 <mat-menu #remaindermenu="matMenu" class="remaindermenuc" yPosition="below">
@@ -13,13 +13,13 @@
         <div> : 8:00 pm</div>
     </div>
     </div>
-    <div class="menuItem" (click)="setRemainder('Later today,8:00 pm')" >
+    <div class="menuItem" (click)="setRemainder('Tomorrow,8:00 pm')" >
         <div class="items">
         <div class="menulabel"> Tomorrow </div>
         <div> 8:00 pm </div>
     </div>
     </div>
-    <div class="menuItem" (click)="setRemainder('Later today,8:00 pm')">
+    <div class="menuItem" (click)="setRemainder('Next week,8:00 pm')">
         <div class="items">
         <div class="menulabel"> Next week</div>
         <div> 8:00 pm </div>
