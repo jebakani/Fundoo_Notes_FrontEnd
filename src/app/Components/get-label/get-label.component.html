@@ -1,0 +1,8 @@
+<div class="remainderchip" >
+    <div class="remaindercard" *ngFor="let label of labels" >
+        <div class="remaindercontent">
+            <label>{{label.labelName}}</label>
+            <mat-icon (click)="RemoveLabel(label.labelId)">close</mat-icon>
+        </div>
+    </div>
+</div>

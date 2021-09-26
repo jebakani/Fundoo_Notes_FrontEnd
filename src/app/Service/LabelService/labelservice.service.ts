@@ -123,4 +123,13 @@ return this.httpService.get(`${environment.baseurl}/api/GetLabelByNoteId?noteId=
     headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
   });
 }
+removeLabel(labelid:number)
+{
+ var user = JSON.parse(localStorage.getItem('UserDataFundoo')!).id;
+
+ return this.httpService.delete(`${environment.baseurl}/api/RemoveLabel?labelid=${labelid}`,true,
+ {
+   headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+ });
+}
 }

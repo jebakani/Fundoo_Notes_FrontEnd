@@ -70,13 +70,17 @@
     position: relative;
     transition: background-color 0.218s ease-in-out,box-shadow 0.218s ease-in-out;
 }
+.chip
+{
+    margin-bottom: 10px;
+}
 .remainderchip
 {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     padding: 5px 10px;
-    margin-bottom: 10px;
+
 }
 .remaindercard
 {

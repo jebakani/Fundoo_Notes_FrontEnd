@@ -39,6 +39,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { EditLabelComponent } from './Components/edit-label/edit-label.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { GetLabelComponent } from './Components/get-label/get-label.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     UpdateNoteComponent,
     TrashComponent,
     GetNotesForLabelComponent,
-    EditLabelComponent
+    EditLabelComponent,
+    GetLabelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

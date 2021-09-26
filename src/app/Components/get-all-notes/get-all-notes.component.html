@@ -16,6 +16,7 @@
                     {{note.description}}
                 </div>
             </div>
+            <div class="chip">
             <div class="remainderchip" *ngIf="note.remainder!=null">
                 <div class="remaindercard">
                     <div class="remaindercontent">
@@ -24,13 +25,15 @@
                         <mat-icon (click)="RemoveRemainder(note)">close</mat-icon>
                     </div>
                 </div>
-            </div>
+        </div>
+        <app-get-label [note]="note"></app-get-label>
+</div>
             <div style="width: 100%;">
             <div class="iconDiv" >
             <app-icons [note]="note" (mouseout)="showicon=false"></app-icons>
             </div>
         </div>
-            <div style="margin:5px"></div>
+            <div style="margin:2px"></div>
         </mat-card>
         
     </div>
@@ -53,15 +56,18 @@
                     {{note.description}}
                 </div>
             </div>
-            <div class="remainderchip" *ngIf="note.remainder!=null">
-                <div class="remaindercard">
-                    <div class="remaindercontent">
-                        <mat-icon>schedule</mat-icon>
-                        <label>{{note.remainder}}</label>
-                        <mat-icon (click)="RemoveRemainder(note)">close</mat-icon>
+            <div class="chip">
+                <div class="remainderchip" *ngIf="note.remainder!=null">
+                    <div class="remaindercard">
+                        <div class="remaindercontent">
+                            <mat-icon>schedule</mat-icon>
+                            <label>{{note.remainder}}</label>
+                            <mat-icon (click)="RemoveRemainder(note)">close</mat-icon>
+                        </div>
                     </div>
-                </div>
             </div>
+            <app-get-label [note]="note"></app-get-label>
+    </div>
         <div class="iconDiv">
             <app-icons [note]="note" (mouseout)="showicon=false"></app-icons>
         </div>

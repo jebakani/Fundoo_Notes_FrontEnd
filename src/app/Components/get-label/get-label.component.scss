@@ -1,0 +1,35 @@
+.remainderchip
+{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+}
+.remaindercard
+{
+
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px transparent;
+    box-sizing: border-box;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+.remaindercontent
+{
+    display: flex;
+    align-items: center;
+    height: 18px;
+    justify-content: center;
+    min-width: 35px;
+    padding: 3px 5px;
+}
+.datacontent
+{
+    margin: 10px;
+}
