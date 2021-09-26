@@ -1,5 +1,6 @@
 <div class="notes">
     <mat-card class="getNotesMat" *ngFor="let note of notes" [ngStyle]="{'background':note.color}" (click)="openNoteDialog(note)">
+        <mat-icon class="imageclose " *ngIf="note.image!=null" (click)="removeImage(note)">close</mat-icon>
         <mat-icon class="pinicon " *ngIf="note.pin" (click)="pinNote(note.notesId)" >push_pin</mat-icon>
         <mat-icon class="pinicon material-icons-outlined" *ngIf="!note.pin"  (click)="pinNote(note.notesId)" >push_pin</mat-icon>
             

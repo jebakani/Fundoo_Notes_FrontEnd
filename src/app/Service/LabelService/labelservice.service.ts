@@ -97,7 +97,6 @@ return this.httpService.get(`${environment.baseurl}/api/GetLabelByNoteId?noteId=
    
     var param=
     {
-      LabelId:label.labelId,
       LabelName:label.labelName,
       UserId:user,
       NoteId:notesId

@@ -1,9 +1,10 @@
 
     <div class="labelnote">pinned</div>
-    <div class="notes">
-    <div  *ngFor="let note of notes">
+    <div class="notes" >
+    <div  *ngFor="let note of notes" (mouseover)="showicon=true">
         <mat-card class="getNotesMat" *ngIf="note.pin" [ngStyle]="{'background':note.color}">
-             <mat-icon class="pinicon " *ngIf="note.pin" (click)="pinNote(note.notesId)">push_pin</mat-icon>
+            <mat-icon class="imageclose " *ngIf="note.image!=null"  (click)="removeImage(note)">close</mat-icon>
+            <mat-icon class="pinicon " *ngIf="note.pin " (click)="pinNote(note.notesId)">push_pin</mat-icon>
             <img src='{{note.image}}' alt='' style="margin-bottom: 10px;border-top-right-radius: 8px;border-top-left-radius:8px ;" (click)="openNoteDialog(note)">
             <div (click)="openNoteDialog(note)" class="datacontent">
                 <div class="titlebar">
@@ -24,17 +25,22 @@
                     </div>
                 </div>
             </div>
-            <div class="iconDiv">
-            <app-icons [note]="note"></app-icons>
+            <div style="width: 100%;">
+            <div class="iconDiv" >
+            <app-icons [note]="note" (mouseout)="showicon=false"></app-icons>
             </div>
+        </div>
+            <div style="margin:5px"></div>
         </mat-card>
+        
     </div>
 </div>
     <div class="labelnote">others</div>
     <div class="notes">
-        <div  *ngFor="let note of notes" >
-        <mat-card class="getNotesMat" *ngIf="!note.pin" [ngStyle]="{'background':note.color}">
-           <mat-icon class="pinicon material-icons-outlined" (click)="pinNote(note.notesId)">push_pin</mat-icon>
+        <div  *ngFor="let note of notes" (mouseover)="showicon=true" >
+        <mat-card class="getNotesMat" *ngIf="!note.pin " [ngStyle]="{'background':note.color}">
+            <mat-icon class="imageclose " *ngIf="note.image!=null" (click)="removeImage(note)">close</mat-icon>
+            <mat-icon class="pinicon material-icons-outlined" (click)="pinNote(note.notesId)">push_pin</mat-icon>
            <div class="floticon"></div>
            <img src='{{note.image}}' alt='' style="margin-bottom: 10px;border-top-right-radius: 8px;border-top-left-radius:8px ;" (click)="openNoteDialog(note)">
             <div (click)="openNoteDialog(note)" class="datacontent">
@@ -57,7 +63,7 @@
                 </div>
             </div>
         <div class="iconDiv">
-            <app-icons [note]="note"></app-icons>
+            <app-icons [note]="note" (mouseout)="showicon=false"></app-icons>
         </div>
         </mat-card>
     </div>

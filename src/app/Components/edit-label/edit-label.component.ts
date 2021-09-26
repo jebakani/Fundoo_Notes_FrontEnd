@@ -22,7 +22,7 @@ export class EditLabelComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data.labels)
+    console.log(this.data.labels);
     this.statusdata.currentStatus.subscribe((status: boolean) => 
     {
       if(status==true)
@@ -69,7 +69,7 @@ export class EditLabelComponent implements OnInit {
   }
   editLabel(label:any)
   {
-    this.labelService.editLabel(label,label.labelName).
+    this.labelService.editLabel(label,label.LabelName).
     subscribe((result:any)=>
     {
       console.log(result);

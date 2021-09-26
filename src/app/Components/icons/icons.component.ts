@@ -22,6 +22,7 @@ export class IconsComponent implements OnInit {
   remainder!:string
   file: any;
   labels: any;
+  execute=false;
   labelname!:string
   ;
   dateAndTime!:string;
@@ -40,7 +41,6 @@ export class IconsComponent implements OnInit {
  @Input() note:any;
  id!:number;
   ngOnInit(): void {
-   console.log(this.note);
     if(this.create)
     {
        this.isArchive=false;
@@ -77,24 +77,24 @@ export class IconsComponent implements OnInit {
   arrayOfColors = [
     [
       { color: "white", name: "white" },
-      { color: "red", name: "red" },
-      { color: "rgb(255, 153, 0)", name: "orange" },
-      { color: "rgb(200, 232, 104)", name: "yellow" },
+      { color: "rgb(242, 139, 130)", name: "red" },
+      { color: "rgb(251, 188, 4)", name: "orange" },
+      { color: "rgb(255, 244, 117)", name: "yellow" },
     ],
     [
       
-      { color: "rgb(97, 191, 82)", name: "green" },
-      {color:"rgb(185, 247, 238)",name:"teal"},
-      { color: "rgb(153, 221, 255)", name: "light blue" },
-      { color: "darkblue", name: "darkblue" },
+      { color: "rgb(204, 255, 144)", name: "green" },
+      {color:"rgb(167, 255, 235)",name:"teal"},
+      { color: "rgb(203, 240, 248)", name: "light blue" },
+      { color: "rgb(174, 203, 250)", name: "darkblue" },
      
     ],
     [
 
-      { color: "purple", name: "purple" },
-      { color: "deeppink", name: "pink" },
-      { color: " brown", name: "brown" },
-      { color: "slategray", name: "grey" },
+      { color: "rgb(215, 174, 251)", name: "purple" },
+      { color: "rgb(253, 207, 232)", name: "pink" },
+      { color: "rgb(230, 201, 168)", name: "brown" },
+      { color: "rgb(232, 234, 237)", name: "grey" },
     ]
   ]
   setArchive()
@@ -187,25 +187,31 @@ export class IconsComponent implements OnInit {
     reader.readAsDataURL(files);
     reader.onload =(event:any)=>{
       this.image = event.target.result;
-      console.log(files);
-     const formData = new FormData();
+      const formData = new FormData();
       formData.append('image', files,files.name);
-      console.log(formData);
       this.file = formData;
+      console.log(this.note.notesId);
       this.AddImage();
   }
     
   }
   AddImage()
   {
-    console.log(this.note)
+    console.log(this.note.notesId)
     this.noteService.AddImage(this.note.notesId,this.file).
     subscribe((result:any)=>{
     console.log(result);
     this.statusdata.changeStatus(true);
+    this.execute=false;
     });
   }
-  
+  AddImage1(){
+    if(this.execute == true){
+      return;
+    }
+    this.execute = true;
+
+  }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 2000,

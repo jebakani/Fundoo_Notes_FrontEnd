@@ -18,7 +18,7 @@ export class GetAllNotesComponent implements OnInit {
   notes:any;
   isPinned=false;
   labels:any;
-
+  showicon=false;
   constructor(
     private NoteService:NoteServiceService,
     public dialog: MatDialog,
@@ -122,5 +122,25 @@ export class GetAllNotesComponent implements OnInit {
     
  })
     this.ngOnInit();
+  }
+  removeImage(note:any)
+  {
+    this.NoteService.RemoveImage(note.notesId).
+    subscribe((result:any)=>
+    {
+      console.log(result);
+      this.openSnackBar(result.message , 'ok');
+      this.statusdata.changeStatus(true);
+    },
+    (error:HttpErrorResponse) => { 
+    if(!error.error.status){            
+       this.openSnackBar(error.error.message , '');
+    }
+    else
+    {
+      this.openSnackBar('Unsuccessfull , Try again!' , '');
+    }
+    
+ })
   }
 }

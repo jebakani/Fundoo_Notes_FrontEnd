@@ -7,6 +7,7 @@
     height: fit-content;
     padding: 0px !important;
     border-radius: 8px;
+   
 }
 .notes {
     display: flex;
@@ -47,6 +48,13 @@
     position: absolute;
     top: 11px;
     right: 10px;
+    cursor: pointer;
+}
+.imageclose
+{
+    position: absolute;
+    top: 11px;
+    left: 10px;
     cursor: pointer;
 }
 .iconDiv

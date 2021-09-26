@@ -89,7 +89,7 @@
     </div>
 </mat-menu>
 <div class="iconcontent">
-<label for="image">
+<label  (click)="AddImage1()" >
     <input type="file" name="image" accept="image/*" id="image" style="display:none;"
         (change)="onFileChanged($event)" />
     <mat-icon class="icon material-icons-outlined" matTooltip="add image">portrait</mat-icon>

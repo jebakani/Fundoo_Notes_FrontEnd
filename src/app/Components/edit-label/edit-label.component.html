@@ -17,7 +17,7 @@
                 <mat-icon *ngIf="deleteicon" (mouseout)="deleteicon=false" class="labelicons"
                     (click)="onClickDeleteLabel(label)">delete</mat-icon>
             </div>
-            <div class="textarea" contenteditable="true" id="text" #labl>
+            <div class="textarea" contenteditable="true" id="text" #labl  >
                 {{label.labelName}}</div>
             <mat-icon class="labelicons labelIconAndDelete" (click)="editLabel(label)">edit</mat-icon>
         </div>

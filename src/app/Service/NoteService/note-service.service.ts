@@ -125,6 +125,13 @@ export class NoteServiceService {
       headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
     });
   }
+  RemoveImage(notesId:number)
+  {
+    return this.httpService.put(`${environment.baseurl}/api/DeleteImage?noteId=${notesId}`,null,true,
+    {
+      headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
+    });
+  }
   Restore(notesId:number)
   {
     return this.httpService.put(`${environment.baseurl}/api/RestoreFromTrash?noteId=${notesId}`,null,true,

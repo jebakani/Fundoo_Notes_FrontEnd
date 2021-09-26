@@ -13,6 +13,13 @@
     flex-wrap: wrap;
     padding: 8ex;
 }
+.imageclose
+{
+    position: absolute;
+    top: 11px;
+    left: 10px;
+    cursor: pointer;
+}
 .desc
 {
     margin-bottom: 10px;
