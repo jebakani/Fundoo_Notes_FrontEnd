@@ -29,7 +29,7 @@ export class LabelserviceService {
 }
 GetLabelForNotes(noteId:number)
 {
-return this.httpService.get(`${environment.baseurl}/api/GetLabelByNoteId?noteId=${noteId}`,true,
+return this.httpService.get(`${environment.baseurl}/api/GetLabelForNotes?noteId=${noteId}`,true,
 {
   headers: {Authorization:"Bearer "+JSON.parse(localStorage.getItem('UserDataFundoo')!).Token}
 });

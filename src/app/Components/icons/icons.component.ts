@@ -261,8 +261,9 @@ export class IconsComponent implements OnInit {
     this.labelService.addExistinglabel(label,this.note.notesId).subscribe(
       (result:any) => {
         console.log(result);
+    this.statusdata.changeStatus(true);
+
     });
-    this.labelname="";
     this.statusdata.changeStatus(true);
 
   }

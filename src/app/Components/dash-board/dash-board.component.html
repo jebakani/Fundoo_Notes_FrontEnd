@@ -48,10 +48,7 @@
               <mat-icon class="toolbaricon material-icons-outlined" >lightbulb</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded">Notes</mat-label>
           </mat-list-item>
-          <mat-list-item class="listItem" aria-selected="getnotes==Archive?true:false" (click)="getnotes='Archive'">
-              <mat-icon class="toolbaricon material-icons-outlined">archive</mat-icon>
-              <mat-label class="navLabel" *ngIf="isExpanded" >Archive</mat-label>
-          </mat-list-item>
+         
           <mat-list-item class="listItem" (click)="getnotes='Remainder'">
               <mat-icon class="toolbaricon material-icons-outlined">notifications_none</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded" >Remainder</mat-label>
@@ -64,6 +61,10 @@
               <mat-icon class="toolbaricon material-icons-outlined">edit</mat-icon>
               <mat-label class="navLabel" *ngIf="isExpanded" (click)="openDialog()">Edit label</mat-label>
           </mat-list-item>
+          <mat-list-item class="listItem" aria-selected="getnotes==Archive?true:false" (click)="getnotes='Archive'">
+            <mat-icon class="toolbaricon material-icons-outlined">archive</mat-icon>
+            <mat-label class="navLabel" *ngIf="isExpanded" >Archive</mat-label>
+        </mat-list-item>
           <mat-list-item class="listItem">
               <mat-icon class="toolbaricon material-icons-outlined">delete</mat-icon>
               <mat-label  class="navLabel" *ngIf="isExpanded" (click)="getnotes='Trash'">Trash</mat-label>

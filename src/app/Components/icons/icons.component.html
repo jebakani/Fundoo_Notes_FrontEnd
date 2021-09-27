@@ -99,8 +99,8 @@
 <mat-icon class="icon material-icons-outlined" matTooltip="archive" *ngIf="!isArchive"
     (click)="isArchive=true ;setArchive()">archive
 </mat-icon>
-<mat-icon class="material-icons icon" *ngIf="isArchive" matTooltip="Unarchive" (click)="isArchive=false;setArchive()">
-    archive</mat-icon>
+<mat-icon class="material-icons-outlined icon" *ngIf="isArchive" matTooltip="Unarchive" (click)="isArchive=false;setArchive()">
+    unarchive</mat-icon>
 </div>
 <div class="iconcontent">
 <mat-icon class="icon material-icons-outlined" matTooltip="More" [matMenuTriggerFor]="aboveMenu">more_vert</mat-icon>

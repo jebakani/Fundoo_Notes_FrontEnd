@@ -25,7 +25,7 @@ export class GetLabelComponent implements OnInit {
     {
       if(status)
       {
-        console.log(this.labels)
+        console.log("label note"+(this.note));
         this.statusdata.changeStatus(false);
         this.GetLabel();
       }
@@ -33,7 +33,7 @@ export class GetLabelComponent implements OnInit {
   }
   GetLabel()
   {
-    this.labelService.getAlllabel().subscribe(
+    this.labelService.GetLabelForNotes(this.note.notesId).subscribe(
       (result:any) => {
         console.log(result);
         this.labels=result.data;
